@@ -2,10 +2,10 @@
 
 @section('content')
 <!-- Tittle area Start -->
-<div style="padding-top:6%;"></div>
-    <div style="position: relative;">
-        <div class="paralelogramo" style="position: absolute; left: 40px; top: 40px;"></div>
-        <div class="paralelogramo2" style="position: absolute; left: 35px; top: 32px;">Receta</div>
+
+    <div style="margin-top: 3%">
+       
+        <div class="paralelogramo">Receta</div>
     </div>       
 <!-- Tittle area End -->
 
@@ -19,7 +19,7 @@
                 "slidesToShow": 1, 
                 "dots": true
             }'>
-                <div class="item" style="margin-top:10%;">
+                <div class="item" >
                     <div class="single-slide d-flex align-items-center bg-image"
                         data-bg-image="assets/img/slider/splash.png">
                         <div class="container">

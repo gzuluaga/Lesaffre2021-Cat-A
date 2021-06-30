@@ -11,7 +11,7 @@
 
 <!-- Breadcrumb area Start -->
 <section class="page-title-area bg-color" data-bg-color="#FFFFFF" style=>
-    <div class="container" style="margin-top: 10%;">
+    <div class="container" >
         <div class="row">
             <div class="col-12 text-center">
                 <h1 class="page-title">Desafío Lesaffre 2021</h1>

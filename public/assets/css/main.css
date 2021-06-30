@@ -4539,13 +4539,20 @@ a, button, .item-overlay, .global-overlay, .scroll-to-top i:before, .slick-dots 
         padding-top: 50px;
         padding-bottom: 50px; } }
 
-.paralelogramo {
-  margin-top:50px;
-  width: 395px; 
-  height: 85px; 
-  background: #EF8E26;
-  margin-left: 100px;
-}
+  .paralelogramo {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(239,142,38,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(239,142,38,1);
+    box-shadow: 10px 10px  rgba(239,142,38,1);
+    font-size: 319%;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    color: #FFF;
+    text-align: center;
+    width: 21%; 
+    height: 85px; 
+    background: #2A90DE;
+    margin-left: 6%;
+  }
 
 .paralelogramo2 {
   font-size: 48px;

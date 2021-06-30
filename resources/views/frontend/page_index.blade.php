@@ -3,7 +3,7 @@
 @section('content')
 <!-- Slider area Start -->
     <main class="main-content-wrapper">
-            <section class="homepage-slider mb--11pt5" style="padding-top: 130px;">
+            <section class="homepage-slider mb--11pt5" >
                 <div class="element-carousel slick-right-bottom" data-slick-options='{
                     "slidesToShow": 1, 
                     "dots": true

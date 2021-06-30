@@ -42,7 +42,7 @@
     <!-- Main Wrapper Start -->
     <div class="wrapper">
         <!-- Header Start -->
-        <header class="header header-default site-header header-transparent">
+        <header class="header header-default site-header header-transparent" style="position: inherit;">
             <div class="header__outer">
                 <div class="header__inner header--fixed">
                     <div class="container">
