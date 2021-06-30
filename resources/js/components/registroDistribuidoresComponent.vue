@@ -90,8 +90,8 @@
                         <thead>
                             <tr>
                                 <th>Nombres</th>
-                                <th>Razon Social</th>
-                                <th>Correo Electronico</th>
+                                <th>Razón Social</th>
+                                <th>Email</th>
                                 <th>Alias</th>
                                 <th colspan="2">
                                     Opciones
