@@ -85969,7 +85969,7 @@ var staticRenderFns = [
       "label",
       { staticClass: "form__label", attrs: { for: "email" } },
       [
-        _vm._v("Email"),
+        _vm._v("correo Electronico "),
         _c("span", { staticClass: "required" }, [_vm._v("*")])
       ]
     )
@@ -85982,7 +85982,7 @@ var staticRenderFns = [
       "label",
       { staticClass: "form__label", attrs: { for: "email" } },
       [
-        _vm._v("Razón Social "),
+        _vm._v("Razon Social "),
         _c("span", { staticClass: "required" }, [_vm._v("*")])
       ]
     )
