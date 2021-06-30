@@ -38,25 +38,6 @@
                                 <div class="product__inner">
                                     <div class="product__image">
                                         <figure class="product__image--holder">
-                                            <img src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/REKORD-300.jpeg" alt="Product">
-                                        </figure>
-                                        <a href="#" class="product__overlay"></a>                                        
-                                    </div>
-                                    <div class="product__info">
-                                        <div class="product__info--left" style="margin-top: -3%;">
-                                            <h3 class="product__title">
-                                                <a href="#">REKORD</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
-                            <div class="payne-product">
-                                <div class="product__inner">
-                                    <div class="product__image">
-                                        <figure class="product__image--holder">
                                             <img src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/LEVASAF-300.png" alt="Product">
                                         </figure>
                                         <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2020/05/D%C3%ADptico_levadura_Levasaf.pdf" class="product__overlay"></a>                                        
@@ -70,7 +51,26 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
+                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
+                            <div class="payne-product">
+                                <div class="product__inner">
+                                    <div class="product__image">
+                                        <figure class="product__image--holder">
+                                            <img src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/REKORD-300.jpeg" alt="Product">
+                                        </figure>
+                                        <a href="#" class="product__overlay"></a>                                        
+                                    </div>
+                                    <div class="product__info">
+                                        <div class="product__info--left" style="margin-top: -3%;">
+                                            <h3 class="product__title">
+                                                <a href="#">REKORD</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
                         <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
                             <div class="payne-product">
                                 <div class="product__inner">
@@ -110,7 +110,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="#">INSTANT SUCCESS</a>
+                                                <a href="#">INSTANT SUCCESS PLATA</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="#">INSTANT SUCCESS</a>
+                                                <a href="#">INSTANT SUCCESS ORO</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -148,7 +148,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left" style="margin-top:15%;">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Saf_Instant.pdf">SAF INSTANT</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Saf_Instant.pdf">SAF INSTANT ROJA</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left" style="margin-top:15%;">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Saf_Instant.pdf">SAF INSTANT</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Saf_Instant.pdf">SAF INSTANT ORO</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -213,7 +213,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2018/08/MagimixRojo.pdf">MAGIMIX PAN DE MOLDE</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2018/08/MagimixRojo.pdf">MAGIMIX ROJO</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -251,7 +251,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Magimix_Naranja.pdf">MAGIMIX PAN FRANCÉS</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Magimix_Naranja.pdf">MAGIMIX NARANJA</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -270,7 +270,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="#">MAGIMIX ACONDICIONADOR</a>
+                                                <a href="#">BAKER'S BONUS</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -357,25 +357,6 @@
                             <div class="payne-product">
                                 <div class="product__inner">
                                     <div class="product__image">
-                                        <figure class="product__image--holder" style="margin-top:15%;">
-                                            <img src="assets/img/products/PRODUCTOS CAT A/MEJORADORES/DECORUP.jpeg" alt="Product">
-                                        </figure>
-                                        <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/09/decorup_LOW.pdf" class="product__overlay"></a>                                        
-                                    </div>
-                                    <div class="product__info">
-                                        <div class="product__info--left" style="margin-top:15%;">
-                                            <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/09/decorup_LOW.pdf">DECOR UP</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
-                            <div class="payne-product">
-                                <div class="product__inner">
-                                    <div class="product__image">
                                         <figure class="product__image--holder" style="margin-top:20%;">
                                             <img src="assets/img/products/PRODUCTOS CAT A/MEJORADORES/MAGIMIX.jpeg" alt="Product">
                                         </figure>
@@ -384,7 +365,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left" style="margin-top:16%;">
                                             <h3 class="product__title">
-                                                <a href="#">MAGIMIX</a>
+                                                <a href="#">MAGIMIX C</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -449,7 +430,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/11/SellSheet_Inventis_MediaLunas_ALTA.pdf">MAGIMIX MEDIALUNAS</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/11/SellSheet_Inventis_MediaLunas_ALTA.pdf">INVENTIS MEDIALUNAS</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -485,9 +466,9 @@
                                         <a href="" class="product__overlay"></a>                                        
                                     </div>
                                     <div class="product__info">
-                                        <div class="product__info--left">
+                                        <div class="product__info--left" style="margin-top: -8%;">
                                             <h3 class="product__title">
-                                                <a href="">INVENTIS CHOCOLATE</a>
+                                                <a href="">MAGIMIX BIZCOCHUELO<br>DE CHOCOLATE</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -523,9 +504,9 @@
                                         <a href="#" class="product__overlay"></a>                                        
                                     </div>
                                     <div class="product__info">
-                                        <div class="product__info--left">
+                                        <div class="product__info--left" style="margin-top: -8%;">
                                             <h3 class="product__title">
-                                                <a href="#">INVENTIS MUFFIN CHOCOLATE</a>
+                                                <a href="#">INVENTIS BUDÍN Y MUFFINS<br>DE CHOCOLATE</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -570,6 +551,33 @@
                                 </div>
                             </div>
                         </div>                        
+                    </div>
+                </div>
+                <div class="container-fluid shop-products">
+                    <div style="padding-bottom:5%;">
+                        <img class="product-thumbnail text-left" src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/ico-productos@10x.png"/>
+                        <h2 id="texto">OTROS</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-4 col-sm-6 mb--50">
+                            <div class="payne-product">
+                                <div class="product__inner">
+                                    <div class="product__image">
+                                        <figure class="product__image--holder" style="margin-top:15%;">
+                                            <img src="assets/img/products/PRODUCTOS CAT A/MEJORADORES/DECORUP.jpeg" alt="Product">
+                                        </figure>
+                                        <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/09/decorup_LOW.pdf" class="product__overlay"></a>                                        
+                                    </div>
+                                    <div class="product__info">
+                                        <div class="product__info--left" style="margin-top:15%;">
+                                            <h3 class="product__title">
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/09/decorup_LOW.pdf">DECOR UP</a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
                     </div>
                 </div>
             </div>
