@@ -25,64 +25,91 @@ use App\Http\Controllers\Frontend\PageFrontController;
     return view('welcome');
 });
 */
-Route::get('/', 			[PageFrontController::class, 'index']);
-Route::get('objetivos', 	[PageFrontController::class, 'objetivos']);
-Route::get('productos', 	[PageFrontController::class, 'productos']);
-Route::get('premios', 		[PageFrontController::class, 'premios']);
-Route::get('receta', 		[PageFrontController::class, 'receta']);
-Route::get('aprende', 		[PageFrontController::class, 'aprende']);
-Route::get('tiempos', 		[PageFrontController::class, 'tiempos']);
-Route::get('bases', 		[PageFrontController::class, 'bases']);
-
-Route::get('getalias', 		[PageFrontController::class, 'listAlias']);
-Route::post('store', 		[PageFrontController::class, 'store']);
-Route::get('loginview', 	[PageFrontController::class, 'loginview']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function () {
 
-Route::group(['prefix' => 'distribuidores'], function(){
-	Route::get('index', 			[DistribuidoresController::class, 'index']);
-	Route::get('getlist', 			[DistribuidoresController::class, 'listDistribuidores']);
-	Route::get('getalias', 			[DistribuidoresController::class, 'listAlias']);
-	Route::put('desactivar', 		[DistribuidoresController::class, 'desactivar']);
-	Route::post('store', 			[DistribuidoresController::class, 'store']);
-	Route::put('update', 			[DistribuidoresController::class, 'update']);
-	Route::get('ruta_proyecto', 	[DistribuidoresController::class, 'ruta']);
+	Route::group(['middleware' => ['Administrador']], function () {
+		Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+		Route::group(['prefix' => 'distribuidores'], function(){
+			Route::get('index', 			[DistribuidoresController::class, 'index']);
+			Route::get('getlist', 			[DistribuidoresController::class, 'listDistribuidores']);
+			Route::get('getalias', 			[DistribuidoresController::class, 'listAlias']);
+			Route::put('desactivar', 		[DistribuidoresController::class, 'desactivar']);
+			Route::post('store', 			[DistribuidoresController::class, 'store']);
+			Route::put('update', 			[DistribuidoresController::class, 'update']);
+			Route::get('ruta_proyecto', 	[DistribuidoresController::class, 'ruta']);
+		});
+
+		Route::group(['prefix' => 'listpostulaciones'], function(){
+			Route::get('index', 			[PuntuacionesController::class, 'index']);
+			Route::get('getlistDist', 		[PuntuacionesController::class, 'getlistDist']);
+			Route::get('getlistpuntuacion', [PuntuacionesController::class, 'getlistpuntuacion']);
+			Route::post('store', 			[PuntuacionesController::class, 'store']);
+			Route::get('ruta_proyecto', 	[PuntuacionesController::class, 'ruta']);
+		});
+
+		Route::group(['prefix' => 'caledanrio'], function(){
+			Route::get('index', 			[CalendarController::class, 'index']);
+			Route::get('show-events', 		[CalendarController::class, 'calendarEvents']);
+			Route::post('store', 		    [CalendarController::class, 'store']);
+			Route::get('ruta_proyecto', 	[CalendarController::class, 'ruta']);
+		});
+
+		Route::group(['prefix' => 'excel'], function(){
+			Route::get('index', 			[ExcelController::class, 'view']);
+			Route::post('import', 			[ExcelController::class, 'import']);
+			Route::get('export', 			[ExcelController::class, 'export']);
+			Route::get('ruta_proyecto', 	[ExcelController::class, 'ruta']);
+		});
+
+		Route::group(['prefix' => 'listpostulacionesmensual'], function(){
+			Route::get('index', 			[PuntuacionesController::class, 'viewMensual']);
+			Route::get('listposicionmes', 	[PuntuacionesController::class, 'listposicionmes']);
+
+		});
+
+		Route::group(['prefix' => 'trivia'], function(){
+			Route::get('index', 			[TriviaController::class, 'viewtribia']);
+		});
+
+	});
+
+	Route::group(['middleware' => ['Distribuidor']], function () {
+		
+		Route::group(['prefix' => 'distribuidor'], function(){
+			Route::get('index', 			[PuntuacionesController::class, 'viewMensualDis']);
+		});
+	
+	});
 });
 
-Route::group(['prefix' => 'listpostulaciones'], function(){
-	Route::get('index', 			[PuntuacionesController::class, 'index']);
-	Route::get('getlistDist', 		[PuntuacionesController::class, 'getlistDist']);
-	Route::get('getlistpuntuacion', [PuntuacionesController::class, 'getlistpuntuacion']);
-	Route::post('store', 			[PuntuacionesController::class, 'store']);
-	Route::get('ruta_proyecto', 	[PuntuacionesController::class, 'ruta']);
-});
 
-Route::group(['prefix' => 'caledanrio'], function(){
-	Route::get('index', 			[CalendarController::class, 'index']);
-	Route::get('show-events', 		[CalendarController::class, 'calendarEvents']);
-	Route::post('store', 		    [CalendarController::class, 'store']);
-	Route::get('ruta_proyecto', 	[CalendarController::class, 'ruta']);
-});
 
-Route::group(['prefix' => 'excel'], function(){
-	Route::get('index', 			[ExcelController::class, 'view']);
-	Route::post('import', 			[ExcelController::class, 'import']);
-	Route::get('export', 			[ExcelController::class, 'export']);
-	Route::get('ruta_proyecto', 	[ExcelController::class, 'ruta']);
-});
 
-Route::group(['prefix' => 'listpostulacionesmensual'], function(){
-	Route::get('index', 			[PuntuacionesController::class, 'viewMensual']);
-	Route::get('listposicionmes', 	[PuntuacionesController::class, 'listposicionmes']);
 
-});
+// Route::group(['middleware' => ['guest']], function () {
 
-Route::group(['prefix' => 'trivia'], function(){
-	Route::get('index', 			[TriviaController::class, 'viewtribia']);
-});
+	Route::get('/', 			[PageFrontController::class, 'index']);
+	Route::get('objetivos', 	[PageFrontController::class, 'objetivos']);
+	Route::get('productos', 	[PageFrontController::class, 'productos']);
+	Route::get('premios', 		[PageFrontController::class, 'premios']);
+	Route::get('receta', 		[PageFrontController::class, 'receta']);
+	Route::get('aprende', 		[PageFrontController::class, 'aprende']);
+	Route::get('tiempos', 		[PageFrontController::class, 'tiempos']);
+	Route::get('bases', 		[PageFrontController::class, 'bases']);
+
+	Route::get('getalias', 		[PageFrontController::class, 'listAlias']);
+	Route::post('store', 		[PageFrontController::class, 'store']);
+	Route::get('loginview', 	[PageFrontController::class, 'loginview']);
+	
+// });
+
+
+
+
+
 
 
 

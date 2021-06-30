@@ -77,7 +77,19 @@
                             </div>
                             <div class="header__col header__right">
                                 <div class="toolbar-item d-none d-lg-block">
-                                    <a href="{{ URL::to('loginview') }}" class="css-button-login">Ingresá</a>
+                                    @if (Auth::check())
+                                        <a class="css-button-login" href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();" style="color: #FFFFFF">
+                                                Cerrar Sesión
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    @else
+                                        <a href="{{ URL::to('loginview') }}" class="css-button-login" style="color: #FFFFFF">Ingresá</a>
+                                    @endif
                                 </div>                                
                             </div>
                         </div>

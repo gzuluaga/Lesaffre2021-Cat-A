@@ -4,6 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+use Redirect;
+use Auth;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use DateTime;
+use DatePeriod;
+use DateInterval;
+use Hash;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +33,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        // dd('entro');
+
+        if (Auth::check()) {
+            if (Auth::User()->tipo_user == 'Proveedor') {
+                return Redirect::to('distribuidor/index');
+            }
+
+            if (Auth::User()->tipo_user == 'Administrador') {
+                return view('home');
+            }
+            
+        }
     }
 }
