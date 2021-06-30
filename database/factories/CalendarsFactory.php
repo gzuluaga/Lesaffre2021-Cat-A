@@ -25,6 +25,8 @@ class CalendarsFactory extends Factory
         return [
             'title' => $this->faker->sentence(4),
             'start' => $this->faker->date(),
+            'icono' => $this->faker->word,
+            'enlace' => $this->faker->text,
             'end' => $this->faker->date(),
             'allDay' => $this->faker->boolean,
         ];

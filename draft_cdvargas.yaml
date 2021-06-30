@@ -7,12 +7,6 @@ models:
   #     descripcion: longtext
   #     estado: boolean default:true
 
-  # calendars:
-  #   title: string:150
-  #   start: date
-  #   end: date
-  #   allDay: boolean
-
   # Preguntas:
   #   pregunta: longtext
   #   calificacion: int:nullable
@@ -27,3 +21,11 @@ models:
   #   criterio: boolean default:false
   #   estado: boolean default:true
 
+
+  # calendars:
+  #   title: string:150 
+  #   start: date
+  #   icono: strng:100 nullable
+  #   enlace: longtext nullable
+  #   end: date
+  #   allDay: boolean

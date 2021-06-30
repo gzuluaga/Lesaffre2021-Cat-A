@@ -17,6 +17,8 @@ class CreateCalendarsTable extends Migration
             $table->id();
             $table->string('title', 150);
             $table->date('start');
+            $table->string('icono')->nullable();
+            $table->longText('enlace')->nullable();
             $table->date('end');
             $table->boolean('allDay');
             $table->timestamps();

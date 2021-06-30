@@ -30,6 +30,15 @@
                 </div>    
             </div>
         </div>
+         <div class="row" v-if="flagbtn">
+          
+            <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
+                <div class="mb-3">
+                    <label for="" class="form-label">Link de Conferencia</label>
+                    <input type="text" class="form-control" v-model="link">
+                </div>    
+            </div>
+        </div>
         <div class="row" v-if="flagbtn">
             <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
                 <button class="btn btn-primary" @click="storeEvento()"> Guardar</button>
@@ -70,6 +79,7 @@
                 start:          '',
                 end:            '',
                 allDay:         '',
+                link:           '',
                 flagbtn:        false,
             	arrayData:      [],
                	events:         [],
@@ -119,6 +129,7 @@
                         'start':          this.start,
                         'end':            this.end,
                         'allDay':         this.allDay,
+                        'link':           this.link,
                     }
 
                     const response = await axios.post('store', request)
@@ -154,6 +165,7 @@
                 this.start  = '';
                 this.end    = '';
                 this.allDay = '';
+                this.link   = '';
                 this.flagbtn = false;
             },
 

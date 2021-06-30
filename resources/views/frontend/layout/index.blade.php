@@ -71,6 +71,17 @@
                                         <li class="mainmenu__item menu-item-has-children position-relative">
                                             <a href="{{ URL::to('premios') }}" class="mainmenu__link">Premios</a>                                            
                                         </li>
+                                         @if (Auth::check())
+                                            <li class="mainmenu__item menu-item-has-children position-relative">
+                                                <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Puntaje</a>
+                                            </li>
+                                            <li class="mainmenu__item menu-item-has-children position-relative">
+                                                <a href="{{ URL::to('eventos') }}" class="mainmenu__link">Eventos</a>
+                                            </li>
+                                            <li class="mainmenu__item menu-item-has-children position-relative">
+                                                <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Trivia</a>
+                                            </li>
+                                         @endif
                                     </ul>
                                 </nav>
                             </div>

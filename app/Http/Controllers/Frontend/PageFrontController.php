@@ -68,7 +68,8 @@ class PageFrontController extends Controller
    			return view('frontend.page_tiempos');
    		}
    	}
-	   public function bases(Request $request)
+	  
+    public function bases(Request $request)
    	{
    		if ($request) {
    			return view('frontend.page_bases_y_condiciones');
@@ -87,6 +88,20 @@ class PageFrontController extends Controller
             ];
         }
     }
+
+    public function eventos(Request $request)
+    {
+      if ($request) {
+        $eventos = DB::table('calendars')
+                ->get();
+
+        return view('frontend.eventos',[
+          'eventos' => $eventos,
+        ]);
+      }
+    }
+
+
 
     public function store(Request $request)
     {

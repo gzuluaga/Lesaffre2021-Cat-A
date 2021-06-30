@@ -23,8 +23,8 @@ class Calendars extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'start' => 'date:Y-m-d H:i',
-        'end' => 'date:Y-m-d H:i',
+        'start' => 'date',
+        'end' => 'date',
         'allDay' => 'boolean',
     ];
 }
