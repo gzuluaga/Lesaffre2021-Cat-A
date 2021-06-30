@@ -43,10 +43,12 @@
                 <div class="row" >
                         <div class="col-md-4 mb-sm--50">
                             <div class="text-align-center" style="max-width:50%;width:auto;height:auto;">
-                                <img src="{{ asset('assets/img/brand/objetivos.png')}}" alt="Eventos">
-                                <a href="http://127.0.0.1:8000/objetivos" class="product__overlay"></a>
-                                <a href="{{ URL::to('objetivos') }}" class="btn-link" data-animation="fadeInUp"
-                                    data-duration=".3s" data-delay=".6s">OBJETIVOS</a>
+                                <a href="{{ URL::to('objetivos') }}" >
+                                    <img src="{{ asset('assets/img/brand/objetivos.png')}}" alt="Eventos">
+                                    <div class="product__overlay"></div>
+                                    <div class="btn-link" data-animation="fadeInUp"
+                                    data-duration=".3s" data-delay=".6s">OBJETIVOS</div>
+                                </a>
                             </div>
                         </div>
 
