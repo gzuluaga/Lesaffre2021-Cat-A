@@ -156,5 +156,58 @@ class PuntuacionesController extends Controller
         
     }
 
+    public function viewMensualDis(Request $request)
+    {
+        $proveedor_acumulado = DB::table('vw_posiscion')
+                        ->get();
+
+        $proveedor_mes = DB::table('vw_pocision_mes')
+            ->where('fecha','=',''.Carbon::now()->format('m/Y').'')
+            ->get();
+
+        // dd($proveedor_mes);
+
+        $calculo_mes = 0;
+        $calculo_second = 0;
+        foreach ($proveedor_mes as $key => $value) {
+            if ($value->id_user == AUth::User()->id) {
+                $calculo_mes    = $key;
+                $calculo_second = $key;
+            }
+        }
+
+        $calculo_mes = $calculo_mes-1;                    
+        $contador_mes = 1;
+
+
+        $calculo = 0;
+        $calculo_acumulado_second = 0;
+        foreach ($proveedor_acumulado as $key => $value) {
+            if ($value->id_user == AUth::User()->id) {
+                $calculo = $key;
+                $calculo_acumulado_second = $key;
+            }
+        }
+        
+        $calculo = $calculo-1;                    
+        $contador = 1;
+
+        $iduser = AUth::User()->id;
+
+        return view('backend.listadoPuntuacionesMensualDis',[
+                        'proveedor_acumulado'       => $proveedor_acumulado,
+                        'contador'                  => $contador,
+                        'calculo'                   => $calculo,
+                        'proveedor_mes'             => $proveedor_mes,
+                        'contador_mes'              => $contador_mes,
+                        'calculo_mes'               => $calculo_mes,
+                        'calculo_second'            => $calculo_second,
+                        'calculo_acumulado_second'  => $calculo_acumulado_second,
+                        'iduser'                    => $iduser,
+                    ]);
+        
+        
+    }
+
    
 }
