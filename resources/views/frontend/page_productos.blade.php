@@ -13,7 +13,6 @@
             </div>
         </div>    
     </section>
-
     <div class="mt-5"></div>
     <section>
         <div class="container-fluid shop-products">
@@ -579,13 +578,13 @@
                             <div class="payne-product">
                                 <div class="product__inner">
                                     <div class="product__image">
-                                        <figure class="product__image--holder" style="margin-top:15%;">
+                                        <figure class="product__image--holder">
                                             <img src="assets/img/products/PRODUCTOS CAT A/MEJORADORES/DECORUP.jpeg" alt="Product">
                                         </figure>
                                         <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/09/decorup_LOW.pdf" class="product__overlay"></a>                                        
                                     </div>
                                     <div class="product__info">
-                                        <div class="product__info--left" style="margin-top:15%;">
+                                        <div class="product__info--left">
                                             <h3 class="product__title">
                                                 <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/09/decorup_LOW.pdf">DECOR UP</a>
                                             </h3>

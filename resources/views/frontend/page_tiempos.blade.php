@@ -4,19 +4,24 @@
 <!-- Main Wrapper Start -->
 <div class="wrapper">
     <!-- Main Content Wrapper Start -->
-    <main class="main-content-wrapper" style="padding-top:10%;">
-        <!-- Tittle area Start -->
-        <div style="position: relative;">
-            <div class="paralelogramo" style="position: absolute; left: 40px; top: 40px;"></div>
-            <div class="paralelogramo2" style="position: absolute; left: 35px; top: 32px;">Tiempos</div>
-        </div>       
-        <!-- Tittle area End -->
+    <main class="main-content-wrapper">
+    <div class="mb-5"></div>
+    <section>
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <div class="paralelogramo">Tiempos</div>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <div class="mt-5"></div>
         <section class="homepage-slider mb--11pt5">
             <div class="element-carousel slick-right-bottom" data-slick-options='{
                 "slidesToShow": 1, 
                 "dots": true
             }'>
-                <div class="item" style="padding-top:5%;">>
+                <div class="item">
                     <div class="single-slide d-flex align-items-center bg-image"
                         data-bg-image="assets/img/slider/splash.png">
                         <div class="container">

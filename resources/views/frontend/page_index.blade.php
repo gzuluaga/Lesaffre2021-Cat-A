@@ -54,19 +54,23 @@
 
                         <div class="col-md-4 mb-sm--50">
                             <div class="text-align-center" style="max-width:50%;width:auto;height:auto;">
-                                <img src="{{ asset('assets/img/brand/productos.png')}}" alt="Premios">
-                                <a href="http://127.0.0.1:8000/productos" class="product__overlay"></a>
-                                <a href="{{URL::to('productos')}}" class="btn-link" data-animation="fadeInUp"
-                                    data-duration=".s" data-delay=".6s">PRODUCTOS</a>
+                                <a href="{{ URL::to('productos') }}" >
+                                    <img src="{{ asset('assets/img/brand/productos.png')}}" alt="Eventos">
+                                    <div class="product__overlay"></div>
+                                    <div class="btn-link" data-animation="fadeInUp"
+                                    data-duration=".3s" data-delay=".6s">PRODUCTOS</div>
+                                </a>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-sm--50">
                             <div class="text-align-center" style="max-width:50%;width:auto;height:auto;">
-                                <img src="{{ asset('assets/img/brand/premios.png')}}" alt="Premios">
-                                <a href="http://127.0.0.1:8000/premios" class="product__overlay"></a>
-                                <a href="{{URL::to('premios')}}" class="btn-link" data-animation="fadeInUp"
-                                    data-duration=".3s" data-delay=".6s">PREMIOS</a>
+                                <a href="{{ URL::to('premios') }}" >
+                                    <img src="{{ asset('assets/img/brand/premios.png')}}" alt="Eventos">
+                                    <div class="product__overlay"></div>
+                                    <div class="btn-link" data-animation="fadeInUp"
+                                    data-duration=".3s" data-delay=".6s">PREMIOS</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -75,28 +79,34 @@
                     <div class="row">
                         <div class="col-md-4 mb-sm--50">
                             <div class="text-align-center" style="max-width:50%;width:auto;height:auto;">
-                                <img src="{{ asset('assets/img/brand/recetas.png')}}" alt="Receta">
-                                <a href="http://127.0.0.1:8000/receta" class="product__overlay"></a>
-                                <a href="{{URL::to('receta')}}" class="btn-link" data-animation="fadeInUp"
-                                    data-duration=".3s" data-delay=".6s">RECETA</a>
+                                <a href="{{ URL::to('receta') }}" >
+                                    <img src="{{ asset('assets/img/brand/recetas.png')}}" alt="Eventos">
+                                    <div class="product__overlay"></div>
+                                    <div class="btn-link" data-animation="fadeInUp"
+                                    data-duration=".3s" data-delay=".6s">RECETA</div>
+                                </a>
                             </div>
                         </div>
 
                         <div class="col-md-4 mb-sm--50">
                             <div class="text-align-center" style="max-width:50%;width:auto;height:auto;">
-                                <img src="{{ asset('assets/img/brand/aprende.png')}}" alt="Aprendé">
-                                <a href="http://127.0.0.1:8000/aprende" class="product__overlay"></a>
-                                <a href="{{URL::to('aprende')}}" class="btn-link" data-animation="fadeInUp"
-                                    data-duration=".3s" data-delay=".6s">APRENDÉ</a>
+                                <a href="{{ URL::to('aprende') }}" >
+                                    <img src="{{ asset('assets/img/brand/aprende.png')}}" alt="Eventos">
+                                    <div class="product__overlay"></div>
+                                    <div class="btn-link" data-animation="fadeInUp"
+                                    data-duration=".3s" data-delay=".6s">APRENDE</div>
+                                </a>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-sm--50">
                             <div class="text-align-center" style="max-width:50%;width:auto;height:auto;">
-                                <img src="{{ asset('assets/img/brand/tiempos.png')}}" alt="Tiempos">
-                                <a href="http://127.0.0.1:8000/tiempos" class="product__overlay"></a>
-                                <a href="{{URL::to('tiempos')}}" class="btn-link" data-animation="fadeInUp"
-                                    data-duration=".3s" data-delay=".6s">TIEMPOS</a>
+                                <a href="{{ URL::to('tiempos') }}" >
+                                    <img src="{{ asset('assets/img/brand/tiempos.png')}}" alt="Eventos">
+                                    <div class="product__overlay"></div>
+                                    <div class="btn-link" data-animation="fadeInUp"
+                                    data-duration=".3s" data-delay=".6s">TIEMPOS</div>
+                                </a>
                             </div>
                         </div>
                     </div>

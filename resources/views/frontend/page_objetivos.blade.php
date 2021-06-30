@@ -1,16 +1,20 @@
 @extends('frontend.layout.index')
 
 @section('content')
-        <!-- Tittle area Start -->
-            <div style="padding-top:10%;"></div>
-            <div style="position: relative;">
-                <div class="paralelogramo" style="position: absolute; left: 40px; top: 40px;"></div>
-                <div class="paralelogramo2" style="position: absolute; left: 35px; top: 32px;">Objetivos</div>
-            </div>       
-        <!-- Tittle area End -->
-
         <!-- Main Content Wrapper Start -->
         <div class="main-content-wrapper">
+            <div class="mb-5"></div>
+            <section>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                            <div class="paralelogramo">Objetivos</div>
+                        </div>
+                    </div>
+                </div>    
+            </section>
+
+            <div class="mt-5"></div> 
             <div class="inner-page-content ptb--80 ptb-md--60">
                 <div class="container">
                     <div class="single-slide d-flex align-items-center bg-image"
