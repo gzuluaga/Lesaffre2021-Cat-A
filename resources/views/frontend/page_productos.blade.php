@@ -4,26 +4,27 @@
     <!-- Main Content Wrapper Start -->
     <div class="main-content-wrapper" >
         <div class="mb-5"></div>
-    <section>
-        <div class="content">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-                    <div class="paralelogramo">Productos</div>
+        <section>
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                        <div class="paralelogramo">Productos</div>
+                    </div>
                 </div>
-            </div>
-        </div>    
-    </section>
-    <div class="mt-5"></div>
-    <section>
-        <div class="container-fluid shop-products">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-                    <img class="product-thumbnail text-left" src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/ico-productos@10x.png"/>
-                    <h2 id="texto">LEVADURAS PRENSADAS</h2>
+            </div>    
+        </section>
+        <div class="mt-5"></div>
+    
+        <section>
+            <div class="container-fluid shop-products">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                        <img class="product-thumbnail text-left" src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/ico-productos@10x.png"/>
+                        <h2 id="texto">LEVADURAS PRENSADAS</h2>
+                    </div>
                 </div>
-            </div>
-        </div>  
-    </section>
+            </div>  
+        </section>
     </div>
     
             <div class="shop-page-wrapper shop-fullwidth ptb--80">                

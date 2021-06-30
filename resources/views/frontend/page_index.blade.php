@@ -20,7 +20,7 @@
                                                     data-duration=".3s" data-delay=".3s">Este año cuanto más <br> aprendas más cerca <br> vas a estar de ganar</h3>
                                             </div>
                                             <div class="slider-content__btn">
-                                                <a href="shop.html" class="css-button" data-animation="fadeInUp">EMPEZÁ</a>
+                                                <a href="{{ URL::to('loginview') }}" class="css-button" data-animation="fadeInUp">EMPEZÁ</a>
                                             </div>
                                         </div>
                                     </div>

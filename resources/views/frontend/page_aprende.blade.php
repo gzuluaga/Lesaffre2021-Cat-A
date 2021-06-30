@@ -1,65 +1,44 @@
 @extends('frontend.layout.index')
 
 @section('content')
-<!-- Main Wrapper Start -->
 <div class="wrapper">
-    <!-- Main Content Wrapper Start -->
-    <main class="main-content-wrapper">
-        <div class="mb-5"></div>
-        <section>
-            <div class="content">
-                <div class="row">
-                    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-                        <div class="paralelogramo">Aprende</div>
-                    </div>
-                </div>
-            </div>    
-        </section>
-        <div class="mt-5"></div>
-        <!-- Slider area Start -->
-        <section class="homepage-slider mb--11pt5">
-            <div class="element-carousel slick-right-bottom" data-slick-options='{
-                "slidesToShow": 1, 
-                "dots": true
-            }'>
-                    <div class="single-slide d-flex align-items-center bg-image"
-                        data-bg-image="assets/img/slider/splash.png">
-                        <div class="container">
-                            <div class="row align-items-center no-gutters w-100">
-                                <div class="col-lg-6 col-md-8">
-                                    <div class="slider-content">
-                                        <div class="slider-content__text mb--95 md-lg--80 mb-md--40 mb-sm--15">
-                                            <p class="text-uppercase font-weight-light" data-animation="fadeInUp"
-                                                data-duration=".3s" data-delay=".3s" style="padding-top:15%;">
-                                                Todos los meses habrán capacitaciones que permitan conocer más
-                                                 a fondo los productos destacados del mes para ayudar a impulsarlos
-                                                  y compartir un espacio de encuentro entre todos. 
-                                                  Al final del mes se podrá contestar una trivia para sumar puntos extra.</p>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12">
-                                            <div class="slider-content__btn">
-                                                <a href="#" class="css-button" data-animation="fadeInUp">20 puntos por asistencia</a>
-                                            </div>
-                                            <br>
-                                            <div class="slider-content__btn">
-                                                <a href="#" class="css-button" data-animation="fadeInUp">5 puntos por Trivia</a>
-                                            </div>
-                                        </div>
-                                    </div>
+    <div class="single-slide d-flex align-items-center bg-image" data-bg-image="assets/img/premios/beach-product-background.jpg" style="background-position: bottom !important; margin-top: 1% !important;">                    
+        <main class="main-content-wrapper">
+            <div class="row col-lg-12">
+                <div class="paralelogramo" style="margin-bottom: 0% !important;">Aprende</div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="row align-items-center no-gutters w-100">
+                        <div class="col-lg-6 col-md-8">
+                            <div class="slider-content">
+                                <div class="slider-content__text md-lg--80 mb-md--40 mb-sm--15" style="margin-bottom:5%;">
+                                    <p class="text-uppercase font-weight-light" style="text-align: justify;">
+                                            Todos los meses habrán capacitaciones que permitan conocer más a fondo los productos destacados del mes para ayudar a impulsarlos y compartir un espacio de encuentro entre todos. 
+                                            Al final del mes se podrá contestar una trivia para sumar puntos extra.
+                                    </p>
                                 </div>
-                                <div class="col-lg-4 offset-lg-2 col-md-4">
-                                    <figure class="slider-image d-none d-md-block">
-                                        <img src="assets/img/aprende/aprende.png" style="max-width:50%;width:auto;height:auto;">
-                                    </figure>
+                                <div class="col-lg-12 col-md-12" style="margin-bottom: 10%;">
+                                    <div class="slider-content__btn">
+                                        <a class="css-button">20 puntos por asistencia</a>
+                                    </div>
+                                    <br>
+                                    <div class="slider-content__btn">
+                                        <a class="css-button">5 puntos por Trivia</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                            <div class="col-lg-4 offset-lg-2 col-md-4" style="padding-bottom: 10%;">
+                                <figure class="slider-image d-none d-md-block">
+                                    <img src="assets/img/aprende/aprende.png" style="max-width:65%;width:auto;height:auto;">
+                                </figure>
+                            </div>
                     </div>
-                </div>
+                </div>                    
             </div>
-        </section>
-        <!-- Slider area End -->
-    </main>
-    <!-- Main Content Wrapper End -->
+        </main>
+    </div>
 </div>
 @endsection

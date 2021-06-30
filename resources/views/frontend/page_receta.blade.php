@@ -1,19 +1,14 @@
 @extends('frontend.layout.index')
 
 @section('content')
-<!-- Tittle area Start -->
-
-    <div style="margin-top: 3%">
-       
-        <div class="paralelogramo">Receta</div>
-    </div>       
-<!-- Tittle area End -->
+<div>    
+    <div class="paralelogramo">Receta</div>
+</div>       
 
 <!-- Main Wrapper Start -->
 <div class="wrapper">
     <!-- Main Content Wrapper Start -->
     <main class="main-content-wrapper">
-        <!-- Slider area Start -->
         <section class="homepage-slider">
             <div class="element-carousel slick-right-bottom" data-slick-options='{
                 "slidesToShow": 1, 
@@ -33,7 +28,6 @@
                 </div>
             </div>
         </section>
-        <!-- Slider area End -->          
     </main>
     <!-- Main Content Wrapper End -->
 </div>
