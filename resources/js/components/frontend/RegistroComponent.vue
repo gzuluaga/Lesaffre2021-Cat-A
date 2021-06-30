@@ -105,6 +105,7 @@
                 if(response.status === 200){
                  
                     this.limpiar()
+                    this.listAlias()
                     Swal.fire({
                       position: 'center',
                       icon: 'success',
