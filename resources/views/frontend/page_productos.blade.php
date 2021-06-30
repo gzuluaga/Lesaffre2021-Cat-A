@@ -2,15 +2,31 @@
 
 @section('content')
     <!-- Main Content Wrapper Start -->
-        <div class="main-content-wrapper" style="padding-top:10% !important;">
-            <div style="position: relative; padding-bottom:10% !important;">
-                <div class="paralelogramo" style="position: absolute; left: 40px; top: 40px;"></div>
-                <div class="paralelogramo2" style="position: absolute; left: 35px; top: 32px;">Productos</div>
+    <div class="main-content-wrapper" >
+        <div class="mb-5"></div>
+    <section>
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <div class="paralelogramo">Productos</div>
+                </div>
             </div>
-            <div style="margin-left:8%; padding-top:5%;">
-                <img class="product-thumbnail text-left" src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/ico-productos@10x.png"/>
-                <h2 id="texto">LEVADURAS PRENSADAS</h2>
+        </div>    
+    </section>
+
+    <div class="mt-5"></div>
+    <section>
+        <div class="container-fluid shop-products">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <img class="product-thumbnail text-left" src="assets/img/products/PRODUCTOS CAT A/LEVADURA PRENSADA/ico-productos@10x.png"/>
+                    <h2 id="texto">LEVADURAS PRENSADAS</h2>
+                </div>
             </div>
+        </div>  
+    </section>
+    </div>
+    
             <div class="shop-page-wrapper shop-fullwidth ptb--80">                
                 <div class="container-fluid shop-products">
                     <div class="row">
@@ -581,6 +597,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
         <!-- Main Content Wrapper Start -->
 @endsection

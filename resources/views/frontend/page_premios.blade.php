@@ -5,23 +5,20 @@
     <!-- Main Wrapper Start -->
     <div class="wrapper">
         <!-- Tittle area Start -->
-        <div style="padding-top:10%;"></div>
-            <div style="position: relative;">
-                <div class="paralelogramo" style="position: absolute; left: 40px; top: 40px;"></div>
-                <div class="paralelogramo2" style="position: absolute; left: 35px; top: 32px;">Premios</div>
+        <div style="margin-top: 2%"></div>
+            <div >
+                <div class="paralelogramo" >Premios</div>
             </div>       
         <!-- Tittle area End -->
-
+        <div style="margin-top: 3%"></div>
         <!-- Main Content Wrapper Start -->
-        <main class="main-content-wrapper" style="padding-top:3%;">
+        <main class="main-content-wrapper">
             <!-- Slider area Start -->
-            <section class="premios">                     
-                <div class="item">
-                    <div class="premios d-flex align-items-center bg-image"
-                        data-bg-image="assets/img/premios/premios_new.png">
-                    </div>                       
-                </div>
-            </section>
+            <div class="row justify-content-center" >
+                <center>
+                <img src="{{ asset('assets/img/premios/premios_new.png') }}" alt="Premios" style="width: 85%; max-width: 100%; max-height: 100%;">
+                </center>
+            </div>
             <!-- Slider area End -->
             
             <div class="row justify-content-center">
