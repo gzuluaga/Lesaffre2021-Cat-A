@@ -464,7 +464,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2018/11/INVENTIS-FT-pan-dulce-.pdf">INVENTIS PAN DULCE</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2018/11/INVENTIS-FT-pan-dulce-.pdf">INVENTIS PAN DULCE Y ROSCAS</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -481,9 +481,9 @@
                                         <a href="" class="product__overlay"></a>                                        
                                     </div>
                                     <div class="product__info">
-                                        <div class="product__info--left" style="margin-top: -8%;">
+                                        <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="">MAGIMIX BIZCOCHUELO<br>DE CHOCOLATE</a>
+                                                <a href="">INVENTIS BIZCOCHUELO<br>DE CHOCOLATE</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -502,7 +502,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Inventis_BudinVainilla_LowRes.pdf">INVENTIS VAINILLA</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Inventis_BudinVainilla_LowRes.pdf">INVENTIS BIZCOCHUELO<br>DE VAINILLA</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -519,7 +519,7 @@
                                         <a href="#" class="product__overlay"></a>                                        
                                     </div>
                                     <div class="product__info">
-                                        <div class="product__info--left" style="margin-top: -8%;">
+                                        <div class="product__info--left">
                                             <h3 class="product__title">
                                                 <a href="#">INVENTIS BUDÍN Y MUFFINS<br>DE CHOCOLATE</a>
                                             </h3>
@@ -540,7 +540,7 @@
                                     <div class="product__info">
                                         <div class="product__info--left">
                                             <h3 class="product__title">
-                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Inventis_BudinVainilla_LowRes.pdf">INVENTIS MUFFIN VAINILLA</a>
+                                                <a href="https://www.lesaffreargentina.com.ar/wp-content/uploads/2016/10/SellSheet_Inventis_BudinVainilla_LowRes.pdf">INVENTIS BUDÍN Y MUFFINS<br>DE VAINILLA</a>
                                             </h3>
                                         </div>
                                     </div>

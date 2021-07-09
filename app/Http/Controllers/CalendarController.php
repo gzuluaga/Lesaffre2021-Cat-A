@@ -37,7 +37,7 @@ class CalendarController extends Controller
             $evento->start         = $request->start;
             $evento->end           = $request->end;
             $evento->allDay        = $request->allDay;
-            $evento->link          = $request->link;
+            $evento->enlace        = $request->link;
             $evento->save();
 
             DB::commit();

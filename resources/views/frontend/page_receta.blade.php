@@ -2,7 +2,7 @@
 
 @section('content')
 <div>    
-    <div class="paralelogramo">Receta</div>
+    <div class="paralelogramo" style="margin-bottom: 0% !important;">Receta</div>
 </div>       
 
 <!-- Main Wrapper Start -->
