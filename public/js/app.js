@@ -85761,7 +85761,7 @@ var render = function() {
               }
             ],
             staticClass: "form__input",
-            attrs: { type: "text" },
+            attrs: { type: "text", required: "" },
             domProps: { value: _vm.nombresApellido },
             on: {
               input: function($event) {
@@ -85787,7 +85787,7 @@ var render = function() {
               }
             ],
             staticClass: "form__input",
-            attrs: { type: "email" },
+            attrs: { type: "email", required: "" },
             domProps: { value: _vm.correoElectronico },
             on: {
               input: function($event) {
@@ -85813,7 +85813,7 @@ var render = function() {
               }
             ],
             staticClass: "form__input",
-            attrs: { type: "text" },
+            attrs: { type: "text", required: "" },
             domProps: { value: _vm.razonSocial },
             on: {
               input: function($event) {
@@ -85841,6 +85841,7 @@ var render = function() {
                 }
               ],
               staticClass: "form__input",
+              attrs: { required: "" },
               on: {
                 change: function($event) {
                   var $$selectedVal = Array.prototype.filter
@@ -85887,7 +85888,7 @@ var render = function() {
               }
             ],
             staticClass: "form__input",
-            attrs: { type: "password" },
+            attrs: { type: "password", required: "" },
             domProps: { value: _vm.password },
             on: {
               input: function($event) {
@@ -85913,7 +85914,7 @@ var render = function() {
               }
             ],
             staticClass: "form__input",
-            attrs: { type: "password" },
+            attrs: { type: "password", required: "" },
             domProps: { value: _vm.againPassword },
             on: {
               input: function($event) {

@@ -6,30 +6,30 @@
                 <form class="form form--login">
                     <div class="form__group mb--20">
                         <label class="form__label" for="email">Nombre y Apellido <span class="required">*</span></label>
-                        <input type="text" class="form__input" v-model="nombresApellido">
+                        <input type="text" class="form__input" v-model="nombresApellido" required>
                     </div>
                     <div class="form__group mb--20">
                         <label class="form__label" for="email">correo Electronico <span class="required">*</span></label>
-                        <input type="email" class="form__input" v-model="correoElectronico">
+                        <input type="email" class="form__input" v-model="correoElectronico" required>
                     </div>
                     <div class="form__group mb--20">
                         <label class="form__label" for="email">Razon Social <span class="required">*</span></label>
-                        <input type="text" class="form__input" v-model="razonSocial">
+                        <input type="text" class="form__input" v-model="razonSocial" required>
                     </div>
                     <div class="form__group mb--20">
                         <label class="form__label" for="email" >Seleccionar Alias <span class="required">*</span></label>
-                        <select class="form__input" v-model="nombre_alias">
+                        <select class="form__input" v-model="nombre_alias" required>
                              <option value="0">Seleccionar</option>
                              <option  v-for="alia in arrayAlias" :key="alia.descripcion" :value="alia.descripcion" v-text="alia.descripcion"></option>
                         </select>
                     </div>
                     <div class="form__group mb--20">
                        <label class="form__label" for="register_password">Contraseña <span class="required">*</span></label>
-                        <input type="password" class="form__input"  v-model="password">
+                        <input type="password" class="form__input"  v-model="password" required>
                     </div>
                      <div class="form__group mb--20">
                        <label class="form__label" for="register_password">Confirmar Contraseña <span class="required">*</span></label>
-                        <input type="password" class="form__input" v-model="againPassword">
+                        <input type="password" class="form__input" v-model="againPassword" required>
                     </div>
                     <div class="form__group">
                         <label class="form__label checkbox-label" for="store_session">
