@@ -72,7 +72,6 @@
                                         <li class="mainmenu__item menu-item-has-children position-relative">
                                             <a href="{{ URL::to('premios') }}" class="mainmenu__link">Premios</a>
                                         </li>
-                                    </ul>
                                     @if (Auth::check())
                                         <li class="mainmenu__item menu-item-has-children position-relative">
                                             <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Puntaje</a>
@@ -83,7 +82,9 @@
                                         <li class="mainmenu__item menu-item-has-children position-relative">
                                             <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Trivia</a>
                                         </li>
-                                     @endif
+                                    @endif
+                                    </ul>
+                                   
                                 </nav>
                             </div>
                             <div class="header__col header__right">
