@@ -7,6 +7,7 @@
     <title>Desafío Lesaffre 2021-Crecé-Aprendé-Ganá</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicons -->
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png')}}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -71,17 +72,6 @@
                                         <li class="mainmenu__item menu-item-has-children position-relative">
                                             <a href="{{ URL::to('premios') }}" class="mainmenu__link">Premios</a>                                            
                                         </li>
-                                         @if (Auth::check())
-                                            <li class="mainmenu__item menu-item-has-children position-relative">
-                                                <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Puntaje</a>
-                                            </li>
-                                            <li class="mainmenu__item menu-item-has-children position-relative">
-                                                <a href="{{ URL::to('eventos') }}" class="mainmenu__link">Eventos</a>
-                                            </li>
-                                            <li class="mainmenu__item menu-item-has-children position-relative">
-                                                <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Trivia</a>
-                                            </li>
-                                         @endif
                                     </ul>
                                 </nav>
                             </div>

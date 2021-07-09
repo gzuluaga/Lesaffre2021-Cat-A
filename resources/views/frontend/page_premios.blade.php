@@ -4,7 +4,7 @@
         
 <!-- Main Wrapper Start -->
 <div class="wrapper">
-    <div class="single-slide d-flex align-items-center bg-image" data-bg-image="assets/img/premios/beach-product-background.jpg" style="background-position: bottom !important; margin-top: 3% !important;">                    
+    <div class="single-slide d-flex align-items-center bg-image" data-bg-image="assets/img/premios/beach-product-background.jpg" style="background-position: bottom !important; margin-top: 1% !important;">                    
         <!-- Main Content Wrapper Start -->
         <main class="main-content-wrapper">
             <div class="row">
