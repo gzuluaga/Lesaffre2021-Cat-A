@@ -32,7 +32,7 @@ class TriviaController extends Controller
     public function viewRespuestas(Request $request)
     {
     	if ($request) {
-    		return view('fronted.page_respuestas');
+    		return view('frontend.page_respuestas');
     	}
     }
 
