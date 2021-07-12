@@ -80,7 +80,7 @@
                                             <a href="{{ URL::to('eventos') }}" class="mainmenu__link">Eventos</a>
                                         </li>
                                         <li class="mainmenu__item menu-item-has-children position-relative">
-                                            <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Trivia</a>
+                                            <a href="{{ URL::to('respuestas) }}" class="mainmenu__link">Trivia</a>
                                         </li>
                                     @endif
                                     </ul>

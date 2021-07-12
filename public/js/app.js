@@ -7079,6 +7079,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.component('listado-puntuaciones', __web
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('calendar-component', __webpack_require__(/*! ./components/CalendarComponent.vue */ "./resources/js/components/CalendarComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('excel-component', __webpack_require__(/*! ./components/ExcelComponent.vue */ "./resources/js/components/ExcelComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('trivia-component', __webpack_require__(/*! ./components/TriviaComponent.vue */ "./resources/js/components/TriviaComponent.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_3__.default.component('respuestas-component', Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/fronted/RespuestasTriviaComponent.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).default);
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('registro', __webpack_require__(/*! ./components/frontend/RegistroComponent.vue */ "./resources/js/components/frontend/RegistroComponent.vue").default);
 var app = new vue__WEBPACK_IMPORTED_MODULE_3__.default({
   el: '#app'
@@ -12121,7 +12122,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\r\n.loader:after {\r\n  border-radius: 50%;\r\n  width: 10em;\r\n  height: 10em;\n}\n.loader {\r\n  margin: 60px auto;\r\n  font-size: 10px;\r\n  position: relative;\r\n  text-indent: -9999em;\r\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-left: 1.1em solid #154360;\r\n  transform: translateZ(0);\r\n  -webkit-animation: load8 1.1s infinite linear;\r\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 10em;\n  height: 10em;\n}\n.loader {\n  margin: 60px auto;\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\n  border-left: 1.1em solid #154360;\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

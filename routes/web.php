@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 		Route::group(['prefix' => 'trivia'], function(){
 			Route::get('index', 			[TriviaController::class, 'viewtribia']);
+			Route::get('respuestas', 		[TriviaController::class, 'viewRespuestas']);			
 		});
 
 	});

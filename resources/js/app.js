@@ -17,9 +17,8 @@ Vue.component('listado-puntuaciones', 			require('./components/listPuntuacionesC
 Vue.component('calendar-component', 			require('./components/CalendarComponent.vue').default);
 Vue.component('excel-component', 				require('./components/ExcelComponent.vue').default);
 Vue.component('trivia-component', 				require('./components/TriviaComponent.vue').default);
+Vue.component('respuestas-component', 		    require('./components/fronted/RespuestasTriviaComponent.vue').default);
 Vue.component('registro',			 			require('./components/frontend/RegistroComponent.vue').default);
-
-
 
 
 const app = new Vue({
