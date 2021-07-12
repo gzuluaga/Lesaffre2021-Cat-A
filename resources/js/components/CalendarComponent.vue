@@ -30,8 +30,7 @@
                 </div>    
             </div>
         </div>
-         <div class="row" v-if="flagbtn">
-          
+        <div class="row" v-if="flagbtn">
             <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
                 <div class="mb-3">
                     <label for="" class="form-label">Link de Conferencia</label>

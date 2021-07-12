@@ -505,7 +505,7 @@ a, button, .item-overlay, .global-overlay, .scroll-to-top i:before, .slick-dots 
   font-size: 26px; }
 
 .banner__btn, .toolbar-btn, .countdown-wrap .countdown__text, .mini-cart__product-title, .related-post__title, .product__title, .featured-product__text, .product-summary .product-navigation a, .table.compare-table tbody .remove a, .terms-condition-label a {
-  font-size: 20px; }
+  font-size: 15px; }
 
 .banner__text, .action-btn i, .nice-select .current, .nice-select:after, .shop-widget .widget-title {
   font-size: 16px; }
@@ -4291,9 +4291,6 @@ a, button, .item-overlay, .global-overlay, .scroll-to-top i:before, .slick-dots 
 .mt--50 {
   margin-top: 50px; }
 
-.mt--20 {
-  margin-top: 20px; }
-
 .ml--20 {
   margin-left: 20px; }
 
@@ -4588,16 +4585,4 @@ a, button, .item-overlay, .global-overlay, .scroll-to-top i:before, .slick-dots 
   width: 31.33%;
   float: left;
   margin: 1%;
-}
-
-
-#bloque{
-   /* -webkit-box-shadow: 10px 10px rgba(239,142,38,1);
-    -moz-box-shadow: 10px 10px rgba(239,142,38,1);*/
-    box-shadow: 10px 10px  rgba(239,142,38,1);
-    background: #2A90DE;
-    color: #FFF;
-    font-family: "Montserrat", sans-serif;
-    padding: 3%;
-
 }
