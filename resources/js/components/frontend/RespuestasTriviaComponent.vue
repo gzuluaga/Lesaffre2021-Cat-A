@@ -5,7 +5,7 @@
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row align-items-center question-title">
-                            <h3 class="text-danger">1.</h3>
+                            <h3 style="color:#EF8E26;">1.</h3>
                             <h5 class="mt-1 ml-2">¿Cuál es la premezcla para Buffins?</h5>
                         </div>
                         <div class="ans ml-2">
@@ -38,7 +38,7 @@
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row align-items-center question-title">
-                            <h3 class="text-danger">2.</h3>
+                            <h3 style="color:#EF8E26;">2.</h3>
                             <h5 class="mt-1 ml-2">¿Cuál es la premezcla para Buffins?</h5>
                         </div>
                         <div class="ans ml-2">
@@ -71,7 +71,7 @@
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row align-items-center question-title">
-                            <h3 class="text-danger">3.</h3>
+                            <h3 style="color:#EF8E26;">3.</h3>
                             <h5 class="mt-1 ml-2">¿Cuál es la premezcla para Buffins?</h5>
                         </div>
                         <div class="ans ml-2">
@@ -104,7 +104,7 @@
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row align-items-center question-title">
-                            <h3 class="text-danger">4.</h3>
+                            <h3 style="color:#EF8E26;">4.</h3>
                             <h5 class="mt-1 ml-2">¿Cuál es la premezcla para Buffins?</h5>
                         </div>
                         <div class="ans ml-2">
@@ -137,7 +137,7 @@
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row align-items-center question-title">
-                            <h3 class="text-danger">5.</h3>
+                            <h3 style="color:#EF8E26;">5.</h3>
                             <h5 class="mt-1 ml-2">¿Cuál es la premezcla para Buffins?</h5>
                         </div>
                         <div class="ans ml-2">

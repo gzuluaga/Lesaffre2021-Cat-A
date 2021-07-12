@@ -86381,7 +86381,9 @@ var staticRenderFns = [
                     "d-flex flex-row align-items-center question-title"
                 },
                 [
-                  _c("h3", { staticClass: "text-danger" }, [_vm._v("1.")]),
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("1.")
+                  ]),
                   _vm._v(" "),
                   _c("h5", { staticClass: "mt-1 ml-2" }, [
                     _vm._v("¿Cuál es la premezcla para Buffins?")
@@ -86460,7 +86462,9 @@ var staticRenderFns = [
                     "d-flex flex-row align-items-center question-title"
                 },
                 [
-                  _c("h3", { staticClass: "text-danger" }, [_vm._v("2.")]),
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("2.")
+                  ]),
                   _vm._v(" "),
                   _c("h5", { staticClass: "mt-1 ml-2" }, [
                     _vm._v("¿Cuál es la premezcla para Buffins?")
@@ -86539,7 +86543,9 @@ var staticRenderFns = [
                     "d-flex flex-row align-items-center question-title"
                 },
                 [
-                  _c("h3", { staticClass: "text-danger" }, [_vm._v("3.")]),
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("3.")
+                  ]),
                   _vm._v(" "),
                   _c("h5", { staticClass: "mt-1 ml-2" }, [
                     _vm._v("¿Cuál es la premezcla para Buffins?")
@@ -86618,7 +86624,9 @@ var staticRenderFns = [
                     "d-flex flex-row align-items-center question-title"
                 },
                 [
-                  _c("h3", { staticClass: "text-danger" }, [_vm._v("4.")]),
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("4.")
+                  ]),
                   _vm._v(" "),
                   _c("h5", { staticClass: "mt-1 ml-2" }, [
                     _vm._v("¿Cuál es la premezcla para Buffins?")
@@ -86697,7 +86705,9 @@ var staticRenderFns = [
                     "d-flex flex-row align-items-center question-title"
                 },
                 [
-                  _c("h3", { staticClass: "text-danger" }, [_vm._v("5.")]),
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("5.")
+                  ]),
                   _vm._v(" "),
                   _c("h5", { staticClass: "mt-1 ml-2" }, [
                     _vm._v("¿Cuál es la premezcla para Buffins?")
