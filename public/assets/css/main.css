@@ -4586,6 +4586,18 @@ a, button, .item-overlay, .global-overlay, .scroll-to-top i:before, .slick-dots 
   float: left;
   margin: 1%;
 }
+
+#bloque{
+  /* -webkit-box-shadow: 10px 10px rgba(239,142,38,1);
+   -moz-box-shadow: 10px 10px rgba(239,142,38,1);*/
+   box-shadow: 10px 10px  rgba(239,142,38,1);
+   background: #2A90DE;
+   color: #FFF;
+   font-family: "Montserrat", sans-serif;
+   font-size: 18px !important;
+   padding: 3%;
+
+}
 /*CSS Para página de preguntas y respuestas Trivia*/
 label.radio {
   cursor: pointer
