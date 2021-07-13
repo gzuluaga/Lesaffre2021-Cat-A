@@ -22,7 +22,7 @@ class PuntuacionesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('Auth');
     }
 
     public function index(Request $request)
@@ -117,7 +117,7 @@ class PuntuacionesController extends Controller
         $calculo_mes = 0;
         $calculo_second = 0;
         foreach ($proveedor_mes as $key => $value) {
-            if ($value->id_user == AUth::User()->id) {
+            if ($value->id_user == Auth::User()->id) {
                 $calculo_mes    = $key;
                 $calculo_second = $key;
             }
@@ -130,7 +130,7 @@ class PuntuacionesController extends Controller
         $calculo = 0;
         $calculo_acumulado_second = 0;
         foreach ($proveedor_acumulado as $key => $value) {
-            if ($value->id_user == AUth::User()->id) {
+            if ($value->id_user == Auth::User()->id) {
                 $calculo = $key;
                 $calculo_acumulado_second = $key;
             }
@@ -139,7 +139,7 @@ class PuntuacionesController extends Controller
         $calculo = $calculo-1;                    
         $contador = 1;
 
-        $iduser = AUth::User()->id;
+        $iduser = Auth::User()->id;
 
         return view('backend.listadoPuntuacionesMensual',[
                         'proveedor_acumulado'       => $proveedor_acumulado,
@@ -152,8 +152,6 @@ class PuntuacionesController extends Controller
                         'calculo_acumulado_second'  => $calculo_acumulado_second,
                         'iduser'                    => $iduser,
                     ]);
-        
-        
     }
 
     public function viewMensualDis(Request $request)
@@ -170,7 +168,7 @@ class PuntuacionesController extends Controller
         $calculo_mes = 0;
         $calculo_second = 0;
         foreach ($proveedor_mes as $key => $value) {
-            if ($value->id_user == AUth::User()->id) {
+            if ($value->id_user == Auth::User()->id) {
                 $calculo_mes    = $key;
                 $calculo_second = $key;
             }
@@ -183,7 +181,7 @@ class PuntuacionesController extends Controller
         $calculo = 0;
         $calculo_acumulado_second = 0;
         foreach ($proveedor_acumulado as $key => $value) {
-            if ($value->id_user == AUth::User()->id) {
+            if ($value->id_user == Auth::User()->id) {
                 $calculo = $key;
                 $calculo_acumulado_second = $key;
             }
@@ -192,7 +190,7 @@ class PuntuacionesController extends Controller
         $calculo = $calculo-1;                    
         $contador = 1;
 
-        $iduser = AUth::User()->id;
+        $iduser = Auth::User()->id;
 
         return view('backend.listadoPuntuacionesMensualDis',[
                         'proveedor_acumulado'       => $proveedor_acumulado,

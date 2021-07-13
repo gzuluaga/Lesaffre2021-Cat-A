@@ -392,7 +392,7 @@
             cambiarPagina(page,buscar,criterio){
               let me = this;
               me.pagination.current_page=page;
-              me.listarAccesorios(page,buscar,criterio);
+              me.listDistribuidores(page,buscar,criterio);
             },
 
 

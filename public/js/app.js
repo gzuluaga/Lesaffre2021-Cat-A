@@ -7169,7 +7169,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     cambiarPagina: function cambiarPagina(page, buscar, criterio) {
       var me = this;
       me.pagination.current_page = page;
-      me.listarAccesorios(page, buscar, criterio);
+      me.listDistribuidores(page, buscar, criterio);
     },
     getRuta: function () {
       var _getRuta = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
@@ -86371,7 +86371,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container mt-5" }, [
       _c("div", { staticClass: "d-flex justify-content-center row" }, [
-        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
+        _c("div", { staticClass: "col-sm-12 col-md-12 col-lg-12" }, [
           _c("div", { staticClass: "border" }, [
             _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
               _c(
