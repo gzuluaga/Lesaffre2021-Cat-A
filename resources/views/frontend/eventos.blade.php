@@ -15,7 +15,7 @@
                     <div class="single-slide d-flex align-items-center bg-image"
                         data-bg-image="assets/img/slider/splash.png">
                         
-                        <div class="container">
+                        <div class="container" style="margin-top: 5% !important;">
                             <h3>Eventos Lesaffre 2021</h3>
                             <br>
                             <br>
@@ -30,7 +30,6 @@
                                         </div>
                                         <div class="col-sm-10 col-md-10 col-xs-10 col-lg-10 " id="bloque">
                                             <b>Fecha del Evento:</b> {{ $evento->start }} <br>
-                                            <b>Fecha de Cierre:</b> {{ $evento->end }} <br>
                                             <b>Evento:</b> {{ $evento->title }} <br>
                                             <b>Enlace de conexión:</b> <a href="{{ $evento->enlace }}" target="_blank" style="color:#FFFFFF"> {{ $evento->enlace }}</a> <br>
                                             <b>Notas del evento:</b> {{ $evento->notas }} <br>
@@ -38,7 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="margin-top: 5%;"></div>
+                            <div style="margin-bottom: 10%;"></div>
                             @endforeach
                         </div>
                         
