@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">
-            <div class="col-md-10 col-lg-10">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row align-items-center question-title">
