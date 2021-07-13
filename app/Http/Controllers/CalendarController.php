@@ -36,6 +36,7 @@ class CalendarController extends Controller
             $evento->title         = $request->title;
             $evento->start         = $request->start;
             $evento->end           = $request->end;
+            $evento->notas         = $request->notas;
             $evento->allDay        = $request->allDay;
             $evento->enlace        = $request->link;
             $evento->save();

@@ -13,6 +13,8 @@ class CreatePreguntasTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
             $table->longText('pregunta');
@@ -23,6 +25,8 @@ class CreatePreguntasTable extends Migration
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

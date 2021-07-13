@@ -28,6 +28,7 @@ class CalendarsFactory extends Factory
             'icono' => $this->faker->word,
             'enlace' => $this->faker->text,
             'end' => $this->faker->date(),
+            'notas' => $this->faker->regexify('[A-Za-z0-9]{255}'),
             'allDay' => $this->faker->boolean,
         ];
     }
