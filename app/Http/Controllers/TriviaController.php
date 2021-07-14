@@ -34,6 +34,13 @@ class TriviaController extends Controller
     	}
     }
 
+    public function viewRespuestas(Request $request)
+    {
+        if ($request) {
+            return view('frontend.page_respuestas');
+        }
+    }
+
 
     /**
      * [store formulario]
@@ -169,6 +176,8 @@ class TriviaController extends Controller
 
         return [ 'datos' => $datos ];
     }
+
+
 
 
 }
