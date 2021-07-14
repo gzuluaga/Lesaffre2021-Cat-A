@@ -118,10 +118,10 @@
 					    		<table class="table table-striped table-hover">
 					    			<thead>
 					    				<tr>
-					    					<th>Formulario</th>
-					    					<th>Numero de Formulario</th>
+					    					<th>Trivia</th>
+					    					<th>Numero de Trivia</th>
 					    					<th>Fecha de Publicación</th>
-					    					<th>Fecha de Terminacion</th>
+					    					<th>Fecha de Terminación</th>
 					    					<th>Estado</th>
 					    					<th colspan="2">Opciones</th>
 					    				</tr>
