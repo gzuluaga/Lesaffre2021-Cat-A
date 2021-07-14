@@ -5700,8 +5700,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6870,135 +6868,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -7042,11 +6919,115 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      arrayFormularios: [],
+      arrayPreguntas: [],
+      arrayRespuestasPreguntas: [],
+      id_formulario: ''
+    };
   },
-  methods: {},
+  methods: {
+    getFormulario: function () {
+      var _getFormulario = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var url, response, respuesta;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = 'respuestas/getFormulariosfrom';
+                _context.prev = 1;
+                _context.next = 4;
+                return axios.get(url);
+
+              case 4:
+                response = _context.sent;
+                respuesta = response.data;
+                this.arrayFormularios = respuesta.getFormulariosfrom;
+                this.id_formulario = respuesta.getFormulariosfrom.id;
+                this.getPreguntasForm(this.id_formulario);
+                _context.next = 15;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](1);
+
+                if (_context.t0.response.status === 500) {
+                  console.log(_context.t0.reponse);
+                }
+
+                if (_context.t0.response.status === 404) {
+                  console.log(_context.t0.reponse);
+                }
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[1, 11]]);
+      }));
+
+      function getFormulario() {
+        return _getFormulario.apply(this, arguments);
+      }
+
+      return getFormulario;
+    }(),
+    getPreguntasForm: function () {
+      var _getPreguntasForm = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+        var url, response, respuesta;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                url = 'respuestas/getPreguntasfront?id_formulario=' + id;
+                _context2.prev = 1;
+                _context2.next = 4;
+                return axios.get(url);
+
+              case 4:
+                response = _context2.sent;
+
+                if (response.status === 200) {
+                  respuesta = response.data;
+                  this.arrayPreguntas = respuesta.preguntas;
+                  this.arrayRespuestasPreguntas = respuesta.opcionesPreguntas;
+                }
+
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](1);
+
+                if (_context2.t0.response.status === 500) {
+                  console.log(_context2.t0.reponse);
+                }
+
+                if (_context2.t0.response.status === 404) {
+                  console.log(_context2.t0.reponse);
+                }
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this, [[1, 8]]);
+      }));
+
+      function getPreguntasForm(_x) {
+        return _getPreguntasForm.apply(this, arguments);
+      }
+
+      return getPreguntasForm;
+    }()
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
+    this.getFormulario();
   }
 });
 
@@ -87274,419 +87255,113 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container mt-5" }, [
+    _c("div", { staticClass: "d-flex justify-content-center row" }, [
+      _c(
+        "div",
+        { staticClass: "col-sm-12 col-md-12 col-lg-12" },
+        _vm._l(_vm.arrayPreguntas, function(preguntas, key) {
+          return _c("div", { key: preguntas.id }, [
+            _c("div", { staticClass: "border" }, [
+              _c(
+                "div",
+                { staticClass: "question bg-white p-3 border-bottom" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-12 col-md-12 col-xs-12 col-lg-12" },
+                    [
+                      _c("center", [
+                        _c("i", { staticClass: "fad fa-pie fa-5x" })
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex flex-row align-items-center question-title"
+                    },
+                    [
+                      _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                        _vm._v(_vm._s(key + 1) + " ")
+                      ]),
+                      _vm._v(" "),
+                      _c("h5", { staticClass: "mt-1 ml-2" }, [
+                        _vm._v(_vm._s(preguntas.pregunta))
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row" },
+                    _vm._l(_vm.arrayRespuestasPreguntas, function(opciones) {
+                      return preguntas.id === opciones.preguntas_id
+                        ? _c("div", { key: opciones.id }, [
+                            _c("div", { staticClass: "ans ml-2" }, [
+                              _c("label", { staticClass: "radio" }, [
+                                _c("input", {
+                                  attrs: {
+                                    type: "radio",
+                                    name: "brazil",
+                                    value: "brazil"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("span", [
+                                  _vm._v(_vm._s(opciones.nombrePregunta))
+                                ])
+                              ])
+                            ])
+                          ])
+                        : _vm._e()
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("br")
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container mt-5" }, [
-      _c("div", { staticClass: "d-flex justify-content-center row" }, [
-        _c("div", { staticClass: "col-sm-12 col-md-12 col-lg-12" }, [
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "d-flex flex-row align-items-center question-title"
-                },
-                [
-                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
-                    _vm._v("1.")
-                  ]),
-                  _vm._v(" "),
-                  _c("h5", { staticClass: "mt-1 ml-2" }, [
-                    _vm._v("¿Cuál es la premezcla para Buffins?")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "brazil", value: "brazil" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Decor up")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Germany", value: "Germany" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Levasaft")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "radio",
-                      name: "Indonesia",
-                      value: "Indonesia"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Inventis")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Saft Instant")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Magimix")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "d-flex justify-content-center row" }, [
-        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "d-flex flex-row align-items-center question-title"
-                },
-                [
-                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
-                    _vm._v("2.")
-                  ]),
-                  _vm._v(" "),
-                  _c("h5", { staticClass: "mt-1 ml-2" }, [
-                    _vm._v("¿Cuál es la premezcla para Buffins?")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "brazil", value: "brazil" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Decor up")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Germany", value: "Germany" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Levasaft")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "radio",
-                      name: "Indonesia",
-                      value: "Indonesia"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Inventis")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Saft Instant")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Magimix")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "d-flex justify-content-center row" }, [
-        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "d-flex flex-row align-items-center question-title"
-                },
-                [
-                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
-                    _vm._v("3.")
-                  ]),
-                  _vm._v(" "),
-                  _c("h5", { staticClass: "mt-1 ml-2" }, [
-                    _vm._v("¿Cuál es la premezcla para Buffins?")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "brazil", value: "brazil" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Decor up")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Germany", value: "Germany" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Levasaft")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "radio",
-                      name: "Indonesia",
-                      value: "Indonesia"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Inventis")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Saft Instant")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Magimix")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "d-flex justify-content-center row" }, [
-        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "d-flex flex-row align-items-center question-title"
-                },
-                [
-                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
-                    _vm._v("4.")
-                  ]),
-                  _vm._v(" "),
-                  _c("h5", { staticClass: "mt-1 ml-2" }, [
-                    _vm._v("¿Cuál es la premezcla para Buffins?")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "brazil", value: "brazil" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Decor up")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Germany", value: "Germany" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Levasaft")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "radio",
-                      name: "Indonesia",
-                      value: "Indonesia"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Inventis")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Saft Instant")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Magimix")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "d-flex justify-content-center row" }, [
-        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
-          _c("div", { staticClass: "border" }, [
-            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "d-flex flex-row align-items-center question-title"
-                },
-                [
-                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
-                    _vm._v("5.")
-                  ]),
-                  _vm._v(" "),
-                  _c("h5", { staticClass: "mt-1 ml-2" }, [
-                    _vm._v("¿Cuál es la premezcla para Buffins?")
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "brazil", value: "brazil" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Decor up")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Germany", value: "Germany" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Levasaft")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "radio",
-                      name: "Indonesia",
-                      value: "Indonesia"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Inventis")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Saft Instant")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "ans ml-2" }, [
-                _c("label", { staticClass: "radio" }, [
-                  _c("input", {
-                    attrs: { type: "radio", name: "Russia", value: "Russia" }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Magimix")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br")
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "d-flex flex-row justify-content-between align-items-center p-3 bg-white"
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn-primary border-success align-items-center btn-success",
+            attrs: { type: "button" }
+          },
+          [_vm._v("Guardar\n                ")]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

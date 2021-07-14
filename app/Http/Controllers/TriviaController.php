@@ -301,16 +301,24 @@ class TriviaController extends Controller
                  'fecha_actual'         => $fecha_actual   ];
     }
 
-    public function getRespuestasPreguntas(Request $request)
+    public function getPreguntasfront(Request $request)
     {
          if(!$request->ajax()) return redirect('/');
 
-            $id         = $request->id_pregunta;
-            $datos      = OpcionesPregunta::whereIn('preguntas_id', [1,2])->get();
+            $id         = $request->id_formulario;
+            $preguntas      = Preguntas::where('formularios_id', '=', $id)->where('estado',1)->get();
+
+            
+            $opcionesPreguntas = OpcionesPregunta::where('estado',1)->get();
 
 
-        return [ 'datos' => $datos ];
+
+        return [    'preguntas'         => $preguntas,
+                    'opcionesPreguntas' => $opcionesPreguntas,
+                ];
     }
+
+    
 
 
 

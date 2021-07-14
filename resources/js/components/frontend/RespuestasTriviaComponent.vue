@@ -2,19 +2,24 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div v-for="(preguntas, key) in arrayPreguntas" :key="preguntas.id">
+                <div v-for="(preguntas, key) in arrayPreguntas" :key="preguntas.id" >
                     <div class="border">
                         <div class="question bg-white p-3 border-bottom">
+                            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+                                <center>
+                                    <i class="fad fa-pie fa-5x"></i>
+                                </center>
+                            </div>
                             <div class="d-flex flex-row align-items-center question-title">
                                 <h3 style="color:#EF8E26;">{{ key+1 }}&nbsp;</h3>
                                 <h5 class="mt-1 ml-2">{{ preguntas.pregunta }}</h5>
                             </div>
                             <div class="row">
-                                <div>
+                                <div v-for="opciones in arrayRespuestasPreguntas" :key="opciones.id" v-if="preguntas.id === opciones.preguntas_id">
                                     <div class="ans ml-2">
                                         <label class="radio"> 
                                             <input type="radio" name="brazil" value="brazil"> 
-                                                <span>100 gramos</span>
+                                                <span>{{ opciones.nombrePregunta }}</span>
                                         </label>
                                     </div>
                                 </div>                            
@@ -64,14 +69,17 @@
                 }
           	},
         getPreguntasForm: async function (id){
-            const url = 'respuestas/getPreguntasForm?id_formulario=' + id;
+            const url = 'respuestas/getPreguntasfront?id_formulario=' + id;
 
             try{
                 const response          		= await axios.get(url)
                 if(response.status===200){
                     const respuesta         		= response.data;
-                    this.arrayPreguntas   		    = respuesta.datos;
-                    this.getPreguntasOpciones(this.arrayPreguntas);
+                    this.arrayPreguntas   		    = respuesta.preguntas;                    
+                    this.arrayRespuestasPreguntas   = respuesta.opcionesPreguntas;
+                    
+                    
+                    
                 }                
             } catch (error){
                 if(error.response.status === 500){
@@ -82,32 +90,7 @@
                 }
             }
         },
-        getPreguntasOpciones: function(datos=[]){                
-            const arrayPreguntasID = []
-            datos.map(function(x)
-            {
-                arrayPreguntasID.push(x.id)
-                console.log(this.arrayPreguntasID);
-            });
-            
-
-            //const url = 'getRespuestasPreguntas?';
-
-            // try{
-            //     const response          		= await axios.get(url)
-            //     const respuesta         	    = response.data;
-            //     this.arrayRespuestasPreguntas   = respuesta.datos;
-
-            //     this.flagDescripcionOpciones = true;
-            // } catch (error){
-            //     if(error.response.status === 500){
-            //         console.log(error.reponse)
-            //     }
-            //     if(error.response.status === 404){
-            //         console.log(error.reponse)
-            //     }
-            // }
-        },
+        
     },   
     mounted() {
         console.log('Component mounted.')
