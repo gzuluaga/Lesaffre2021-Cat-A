@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Preguntas extends Model
+class Formulario extends Model
 {
     use HasFactory;
 
@@ -23,13 +23,8 @@ class Preguntas extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'formularios_id' => 'integer',
+        'fecha_star' => 'date',
+        'fecha_end' => 'date',
         'estado' => 'boolean',
     ];
-
-
-    public function formularios()
-    {
-        return $this->belongsTo(\App\Models\Formularios::class);
-    }
 }

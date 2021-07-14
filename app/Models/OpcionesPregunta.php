@@ -23,14 +23,14 @@ class OpcionesPregunta extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'id_pregunta' => 'integer',
+        'preguntas_id' => 'integer',
         'criterio' => 'boolean',
         'estado' => 'boolean',
     ];
 
 
-    public function idPregunta()
+    public function preguntas()
     {
-        return $this->belongsTo(\App\Models\IdPregunta::class);
+        return $this->belongsTo(\App\Models\Preguntas::class);
     }
 }

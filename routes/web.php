@@ -71,7 +71,19 @@ Route::group(['middleware' => ['auth']], function () {
 		});
 
 		Route::group(['prefix' => 'trivia'], function(){
-			Route::get('index', 			[TriviaController::class, 'viewtribia']);
+			Route::get('index', 				[TriviaController::class, 'viewtribia']);
+			Route::post('store', 				[TriviaController::class, 'store']);
+			Route::get('getFormularios',     	[TriviaController::class, 'getFormularios']);
+			Route::post('storePregunta',     	[TriviaController::class, 'storePregunta']);
+			Route::get('getPreguntas',     	    [TriviaController::class, 'getPreguntas']);
+			Route::post('storeOpciones',     	[TriviaController::class, 'storeOpciones']);
+			Route::get('getDatos',     			[TriviaController::class, 'getDatos']);
+			Route::get('getPreguntasForm',     	[TriviaController::class, 'getPreguntasForm']);
+			Route::get('getPreguntasOpciones', 	[TriviaController::class, 'getPreguntasOpciones']);
+
+
+
+
 		});
 
 	});

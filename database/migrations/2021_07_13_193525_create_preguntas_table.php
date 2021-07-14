@@ -13,16 +13,19 @@ class CreatePreguntasTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('preguntas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('formularios_id')->constrained('formularios')->cascadeOnDelete()->cascadeOnUpdate();
             $table->longText('pregunta');
+            $table->string('archivo', 150);
             $table->string('calificacion');
-            $table->string('formtrivia');
-            $table->dateTime('fecha_star');
-            $table->dateTime('fecha_end');
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

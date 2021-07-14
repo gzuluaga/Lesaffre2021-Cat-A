@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOpcionesPreguntasTable extends Migration
+class CreateFormulariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,15 @@ class CreateOpcionesPreguntasTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
-
-        Schema::create('opciones_preguntas', function (Blueprint $table) {
+        Schema::create('formularios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_pregunta')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->longText('nombrePregunta');
-            $table->boolean('criterio')->default(false);
+            $table->longText('descripcion');
+            $table->string('formtrivia');
+            $table->date('fecha_star');
+            $table->date('fecha_end');
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -34,6 +31,6 @@ class CreateOpcionesPreguntasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opciones_preguntas');
+        Schema::dropIfExists('formularios');
     }
 }
