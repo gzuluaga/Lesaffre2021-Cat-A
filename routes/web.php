@@ -80,10 +80,7 @@ Route::group(['middleware' => ['auth']], function () {
 			Route::get('getDatos',     			[TriviaController::class, 'getDatos']);
 			Route::get('getPreguntasForm',     	[TriviaController::class, 'getPreguntasForm']);
 			Route::get('getPreguntasOpciones', 	[TriviaController::class, 'getPreguntasOpciones']);
-
-
-
-
+			Route::get('respuestas', 			[TriviaController::class, 'viewRespuestas']);			
 		});
 
 	});

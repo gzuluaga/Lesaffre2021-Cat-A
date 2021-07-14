@@ -21,7 +21,7 @@
             </div>
              <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
                 <div class="mb-3">
-                    <label for="" class="form-label">Todo el dia</label>
+                    <label for="" class="form-label">Todo el día</label>
                     <select v-model="allDay" class="form-control">
                         <option value="" selected>Seleccionar</option>
                         <option value="1">Si</option>
@@ -35,6 +35,12 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Link de Conferencia</label>
                     <input type="text" class="form-control" v-model="link">
+                </div>    
+            </div>
+            <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
+                <div class="mb-3">
+                    <label for="" class="form-label">Notas</label>
+                    <input type="text" class="form-control" v-model="notas">
                 </div>    
             </div>
         </div>
@@ -77,25 +83,19 @@
                 title:          '',
                 start:          '',
                 end:            '',
+                notas:          '',
                 allDay:         '',
                 link:           '',
                 flagbtn:        false,
             	arrayData:      [],
                	events:         [],
-                color: 		'blue',
-                textColor: 	'white',
-                config: {
-			        locale: 'es',
-			    },
+                color: 		    'blue',
+                textColor: 	    'white',
+                config:         {
+			                        locale: 'es',
+			                    },
             }
-            /*{
-            	title  : '',
-            	start  : '',  //2021-06-25T12:30:00
-            	end    : '',
-            	allDay : '',
-        	}*/
         },
-
 
         methods:{
         	listAgendar: async function () {
@@ -127,6 +127,7 @@
                         'title':          this.title,
                         'start':          this.start,
                         'end':            this.end,
+                        'notas':          this.notas,
                         'allDay':         this.allDay,
                         'link':           this.link,
                     }
@@ -136,6 +137,7 @@
                     console.log(response.status)
                     if(response.status === 200){
                         this.listAgendar();
+                        this.limpiar();
                         Swal.fire({
                           position: 'center',
                           icon: 'success',
@@ -163,6 +165,7 @@
                 this.title  = '';
                 this.start  = '';
                 this.end    = '';
+                this.notas  = '';
                 this.allDay = '';
                 this.link   = '';
                 this.flagbtn = false;

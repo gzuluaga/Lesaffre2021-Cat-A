@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png')}}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- ************************* CSS Files ************************* -->
 
@@ -80,7 +81,7 @@
                                             <a href="{{ URL::to('eventos') }}" class="mainmenu__link">Eventos</a>
                                         </li>
                                         <li class="mainmenu__item menu-item-has-children position-relative">
-                                            <a href="{{ URL::to('distribuidor/index') }}" class="mainmenu__link">Trivia</a>
+                                            <a href="{{ URL::to('trivia/respuestas') }}" class="mainmenu__link">Trivia</a>
                                         </li>
                                     @endif
                                     </ul>

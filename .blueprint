@@ -2,13 +2,30 @@ created:
     - database/factories/FormPreguntaFactory.php
     - database/migrations/2021_07_13_203917_create_form_preguntas_table.php
     - app/Models/FormPregunta.php
+    - database/factories/CalendarsFactory.php
+    - database/factories/TblPuntuacionFactory.php
+    - database/factories/TblAliasFactory.php
+    - database/factories/PreguntasFactory.php
+    - database/factories/OpcionesPreguntaFactory.php
+    - database/migrations/2021_07_13_141948_create_calendars_table.php
+    - database/migrations/2021_07_13_141949_create_tbl_puntuacions_table.php
+    - database/migrations/2021_07_13_141950_create_tbl_aliases_table.php
+    - database/migrations/2021_07_13_141951_create_preguntas_table.php
+    - database/migrations/2021_07_13_141952_create_opciones_preguntas_table.php
+    - app/Models/calendars.php
+    - app/Models/tblPuntuacion.php
+    - app/Models/tblAlias.php
+    - app/Models/Preguntas.php
+    - app/Models/OpcionesPregunta.php
 models:
     tblPuntuacion: { user_id: id, puntuacion: 'decimal:5,2' }
     tblAlias: { descripcion: longtext, estado: 'boolean default:true' }
     event_lists: { event_name: 'string:150', event_start: date, event_end: date }
-    calendars: { title: 'string:150', start: date, icono: 'strng:100 nullable', enlace: 'longtext nullable', end: date, allDay: boolean }
     Preguntas: { formularios_id: id, pregunta: longtext, archivo: 'string:150:nullable', calificacion: 'int:nullable', estado: 'boolean default:true' }
     OpcionesPregunta: { preguntas_id: id, nombrePregunta: longtext, criterio: 'boolean default:false', estado: 'boolean default:true' }
     Formulario: { descripcion: longtext, formtrivia: 'int:unique', fecha_star: date, fecha_end: date, estado: 'boolean default:true' }
     Form_Pregunta: { formularios_id: id, preguntas_id: id, opcionespregunta_id: id }
     FormPregunta: { formularios_id: id, preguntas_id: id, opcionespreguntas_id: id }
+    calendars: { title: 'string:150', start: date, icono: 'strng:100 nullable', enlace: 'longtext nullable', end: date, notas: 'string:255', allDay: boolean }
+    Preguntas: { pregunta: longtext, calificacion: 'int:nullable', formtrivia: 'int:unique', fecha_star: datetime, fecha_end: datetime, estado: 'boolean default:true' }
+    OpcionesPregunta: { id_pregunta: id, nombrePregunta: longtext, criterio: 'boolean default:false', estado: 'boolean default:true' }

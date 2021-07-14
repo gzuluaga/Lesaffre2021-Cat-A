@@ -1,20 +1,22 @@
 models:
-  # tblPuntuacion:
-  #   user_id: id
-  #   puntuacion: decimal:5,2
-    
-  # tblAlias:
-  #     descripcion: longtext
-  #     estado: boolean default:true
-
   # calendars:
   #   title: string:150 
   #   start: date
   #   icono: strng:100 nullable
   #   enlace: longtext nullable
   #   end: date
+  #   notas: string:255
   #   allDay: boolean
 
+  # tblPuntuacion:
+  #   user_id: id
+  #   puntuacion: decimal:5,2
+  
+  # tblAlias:
+  #     descripcion: longtext
+  #     estado: boolean default:true
+
+  
   # Formulario:
   #   descripcion: longtext
   #   formtrivia: int:unique
@@ -29,6 +31,11 @@ models:
   #   calificacion: int:nullable
   #   estado: boolean default:true
 
+  #   formtrivia: int:unique
+  #   fecha_star: datetime   
+  #   fecha_end: datetime
+  #   estado: boolean default:true 
+  
   # OpcionesPregunta:
   #   preguntas_id: id
   #   nombrePregunta: longtext

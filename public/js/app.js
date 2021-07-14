@@ -5041,6 +5041,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -5048,6 +5054,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       title: '',
       start: '',
       end: '',
+      notas: '',
       allDay: '',
       link: '',
       flagbtn: false,
@@ -5059,12 +5066,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         locale: 'es'
       }
     };
-    /*{
-    	title  : '',
-    	start  : '',  //2021-06-25T12:30:00
-    	end    : '',
-    	allDay : '',
-    }*/
   },
   methods: {
     listAgendar: function () {
@@ -5129,6 +5130,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   'title': this.title,
                   'start': this.start,
                   'end': this.end,
+                  'notas': this.notas,
                   'allDay': this.allDay,
                   'link': this.link
                 };
@@ -5141,6 +5143,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 if (response.status === 200) {
                   this.listAgendar();
+                  this.limpiar();
                   Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -5188,6 +5191,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.title = '';
       this.start = '';
       this.end = '';
+      this.notas = '';
       this.allDay = '';
       this.link = '';
       this.flagbtn = false;
@@ -6417,6 +6421,199 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {};
+  },
+  methods: {},
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/listPuntuacionesComponent.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/listPuntuacionesComponent.vue?vue&type=script&lang=js& ***!
@@ -7345,7 +7542,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     cambiarPagina: function cambiarPagina(page, buscar, criterio) {
       var me = this;
       me.pagination.current_page = page;
-      me.listarAccesorios(page, buscar, criterio);
+      me.listDistribuidores(page, buscar, criterio);
     },
     getRuta: function () {
       var _getRuta = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
@@ -7448,6 +7645,7 @@ vue__WEBPACK_IMPORTED_MODULE_3__.default.component('listado-puntuaciones', __web
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('calendar-component', __webpack_require__(/*! ./components/CalendarComponent.vue */ "./resources/js/components/CalendarComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('excel-component', __webpack_require__(/*! ./components/ExcelComponent.vue */ "./resources/js/components/ExcelComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('trivia-component', __webpack_require__(/*! ./components/TriviaComponent.vue */ "./resources/js/components/TriviaComponent.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_3__.default.component('respuestas-component', __webpack_require__(/*! ./components/frontend/RespuestasTriviaComponent.vue */ "./resources/js/components/frontend/RespuestasTriviaComponent.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_3__.default.component('registro', __webpack_require__(/*! ./components/frontend/RegistroComponent.vue */ "./resources/js/components/frontend/RegistroComponent.vue").default);
 var app = new vue__WEBPACK_IMPORTED_MODULE_3__.default({
   el: '#app'
@@ -12490,7 +12688,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\r\n.loader:after {\r\n  border-radius: 50%;\r\n  width: 10em;\r\n  height: 10em;\n}\n.loader {\r\n  margin: 60px auto;\r\n  font-size: 10px;\r\n  position: relative;\r\n  text-indent: -9999em;\r\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-left: 1.1em solid #154360;\r\n  transform: translateZ(0);\r\n  -webkit-animation: load8 1.1s infinite linear;\r\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 10em;\n  height: 10em;\n}\n.loader {\n  margin: 60px auto;\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\n  border-left: 1.1em solid #154360;\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -84474,6 +84672,45 @@ component.options.__file = "resources/js/components/frontend/RegistroComponent.v
 
 /***/ }),
 
+/***/ "./resources/js/components/frontend/RespuestasTriviaComponent.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/frontend/RespuestasTriviaComponent.vue ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RespuestasTriviaComponent_vue_vue_type_template_id_5bba7d35___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35& */ "./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35&");
+/* harmony import */ var _RespuestasTriviaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RespuestasTriviaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _RespuestasTriviaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _RespuestasTriviaComponent_vue_vue_type_template_id_5bba7d35___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RespuestasTriviaComponent_vue_vue_type_template_id_5bba7d35___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/frontend/RespuestasTriviaComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/listPuntuacionesComponent.vue":
 /*!***************************************************************!*\
   !*** ./resources/js/components/listPuntuacionesComponent.vue ***!
@@ -84629,6 +84866,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegistroComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RegistroComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RespuestasTriviaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RespuestasTriviaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RespuestasTriviaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -84791,6 +85044,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroComponent_vue_vue_type_template_id_4c6e8338___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RegistroComponent_vue_vue_type_template_id_4c6e8338___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RegistroComponent.vue?vue&type=template&id=4c6e8338& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RegistroComponent.vue?vue&type=template&id=4c6e8338&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RespuestasTriviaComponent_vue_vue_type_template_id_5bba7d35___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RespuestasTriviaComponent_vue_vue_type_template_id_5bba7d35___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RespuestasTriviaComponent_vue_vue_type_template_id_5bba7d35___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35&");
 
 
 /***/ }),
@@ -84966,7 +85236,7 @@ var render = function() {
           _c("div", { staticClass: "col-sm-3 col-lg-3 col-xs-12 col-md-3" }, [
             _c("div", { staticClass: "mb-3" }, [
               _c("label", { staticClass: "form-label", attrs: { for: "" } }, [
-                _vm._v("Todo el dia")
+                _vm._v("Todo el día")
               ]),
               _vm._v(" "),
               _c(
@@ -85038,6 +85308,36 @@ var render = function() {
                       return
                     }
                     _vm.link = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-3 col-lg-3 col-xs-12 col-md-3" }, [
+            _c("div", { staticClass: "mb-3" }, [
+              _c("label", { staticClass: "form-label", attrs: { for: "" } }, [
+                _vm._v("Notas")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.notas,
+                    expression: "notas"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                domProps: { value: _vm.notas },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.notas = $event.target.value
                   }
                 }
               })
@@ -86427,6 +86727,443 @@ var staticRenderFns = [
         _c("span", { staticClass: "required" }, [_vm._v("*")])
       ]
     )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/frontend/RespuestasTriviaComponent.vue?vue&type=template&id=5bba7d35& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container mt-5" }, [
+      _c("div", { staticClass: "d-flex justify-content-center row" }, [
+        _c("div", { staticClass: "col-sm-12 col-md-12 col-lg-12" }, [
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row align-items-center question-title"
+                },
+                [
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("1.")
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "mt-1 ml-2" }, [
+                    _vm._v("¿Cuál es la premezcla para Buffins?")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "brazil", value: "brazil" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Decor up")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Germany", value: "Germany" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Levasaft")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: {
+                      type: "radio",
+                      name: "Indonesia",
+                      value: "Indonesia"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Inventis")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Saft Instant")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Magimix")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex justify-content-center row" }, [
+        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row align-items-center question-title"
+                },
+                [
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("2.")
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "mt-1 ml-2" }, [
+                    _vm._v("¿Cuál es la premezcla para Buffins?")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "brazil", value: "brazil" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Decor up")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Germany", value: "Germany" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Levasaft")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: {
+                      type: "radio",
+                      name: "Indonesia",
+                      value: "Indonesia"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Inventis")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Saft Instant")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Magimix")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex justify-content-center row" }, [
+        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row align-items-center question-title"
+                },
+                [
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("3.")
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "mt-1 ml-2" }, [
+                    _vm._v("¿Cuál es la premezcla para Buffins?")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "brazil", value: "brazil" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Decor up")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Germany", value: "Germany" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Levasaft")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: {
+                      type: "radio",
+                      name: "Indonesia",
+                      value: "Indonesia"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Inventis")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Saft Instant")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Magimix")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex justify-content-center row" }, [
+        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row align-items-center question-title"
+                },
+                [
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("4.")
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "mt-1 ml-2" }, [
+                    _vm._v("¿Cuál es la premezcla para Buffins?")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "brazil", value: "brazil" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Decor up")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Germany", value: "Germany" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Levasaft")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: {
+                      type: "radio",
+                      name: "Indonesia",
+                      value: "Indonesia"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Inventis")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Saft Instant")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Magimix")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex justify-content-center row" }, [
+        _c("div", { staticClass: "col-md-10 col-lg-10" }, [
+          _c("div", { staticClass: "border" }, [
+            _c("div", { staticClass: "question bg-white p-3 border-bottom" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row align-items-center question-title"
+                },
+                [
+                  _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                    _vm._v("5.")
+                  ]),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "mt-1 ml-2" }, [
+                    _vm._v("¿Cuál es la premezcla para Buffins?")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "brazil", value: "brazil" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Decor up")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Germany", value: "Germany" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Levasaft")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: {
+                      type: "radio",
+                      name: "Indonesia",
+                      value: "Indonesia"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Inventis")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Saft Instant")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "ans ml-2" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", {
+                    attrs: { type: "radio", name: "Russia", value: "Russia" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Magimix")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("br")
+    ])
   }
 ]
 render._withStripped = true

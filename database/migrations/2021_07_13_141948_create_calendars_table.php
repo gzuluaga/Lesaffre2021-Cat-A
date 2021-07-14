@@ -20,6 +20,7 @@ class CreateCalendarsTable extends Migration
             $table->string('icono')->nullable();
             $table->longText('enlace')->nullable();
             $table->date('end');
+            $table->string('notas', 255);
             $table->boolean('allDay');
             $table->timestamps();
         });
