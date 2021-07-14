@@ -86152,7 +86152,7 @@ var render = function() {
                                     [
                                       _c("i", { staticClass: "fas fa-plus" }),
                                       _vm._v(
-                                        " Opciones Pregunta\n\t\t\t\t\t\t    \t\t\t\t\t\t"
+                                        " Ver Respuestas\n\t\t\t\t\t\t    \t\t\t\t\t\t"
                                       )
                                     ]
                                   )
@@ -86272,13 +86272,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Formulario")]),
+        _c("th", [_vm._v("Trivia")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Numero de Formulario")]),
+        _c("th", [_vm._v("Numero de Trivia")]),
         _vm._v(" "),
         _c("th", [_vm._v("Fecha de Publicación")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Fecha de Terminacion")]),
+        _c("th", [_vm._v("Fecha de Terminación")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")]),
         _vm._v(" "),
@@ -86341,7 +86341,7 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { colspan: "3" } }, [
-          _vm._v(" Opciones de respuesta")
+          _vm._v(" Respuestas de pregunta")
         ])
       ])
     ])
