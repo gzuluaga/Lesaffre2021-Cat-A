@@ -287,6 +287,31 @@ class TriviaController extends Controller
         }
     }
 
+    public function getFormulariosfrom(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+
+        $fecha_actual = Carbon::now()->format('Y-m-d');
+
+        $getFormulariosfrom = Formulario::where('estado',1)
+                                        ->whereRaw("'".$fecha_actual."' BETWEEN fecha_star AND fecha_end")
+                                        ->first();
+
+        return [ 'getFormulariosfrom'   => $getFormulariosfrom,
+                 'fecha_actual'         => $fecha_actual   ];
+    }
+
+    public function getRespuestasPreguntas(Request $request)
+    {
+         if(!$request->ajax()) return redirect('/');
+
+            $id         = $request->id_pregunta;
+            $datos      = OpcionesPregunta::whereIn('preguntas_id', [1,2])->get();
+
+
+        return [ 'datos' => $datos ];
+    }
+
 
 
 
