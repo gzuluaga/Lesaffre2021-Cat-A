@@ -178,6 +178,116 @@ class TriviaController extends Controller
     }
 
 
+    public function updateForm(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+        try {
+             DB::beginTransaction();
+
+             $formulario                = Formulario::findOrfail($request->id);
+             $formulario->descripcion   = $request->descripcion; 
+             $formulario->formtrivia    = $request->numero_formulario;
+             $formulario->fecha_star    = $request->fecha_publicacion;
+             $formulario->fecha_end     = $request->fecha_terminacion;
+             $formulario->estado        = '1';
+             $formulario->update();
+
+             DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    public function updatePregunta(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+        try {
+             DB::beginTransaction();
+
+            $pregunta                   = Preguntas::findOrfail($request->id);
+            $pregunta->formularios_id   = $request->id_formulario; 
+            $pregunta->pregunta         = $request->pregunta;
+            $pregunta->calificacion     = $request->calificacion;
+            $pregunta->estado           = 1;   
+            $pregunta->update();
+           
+
+             DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    public function updateOpciones(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+        try {
+             DB::beginTransaction();
+
+             $opcionPregunta                    = OpcionesPregunta::findOrfail($request->id);
+             $opcionPregunta->preguntas_id      = $request->pregunta_id; 
+             $opcionPregunta->nombrePregunta    = $request->opcionPregunta;
+             $opcionPregunta->criterio          = $request->criterio;
+             $opcionPregunta->estado            = '1';
+             $opcionPregunta->update();
+
+             DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    // eliminar
+    public function deleteForm(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+        try {
+             DB::beginTransaction();
+
+             $formulario                = Formulario::findOrfail($request->id);
+             $formulario->estado        = '0';
+             $formulario->update();
+
+             DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    public function deletePregunta(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+        try {
+             DB::beginTransaction();
+
+            $pregunta                   = Preguntas::findOrfail($request->id);
+            $pregunta->estado           = 0;   
+            $pregunta->update();
+           
+
+             DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    public function deleteOpciones(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+        try {
+             DB::beginTransaction();
+
+             $opcionPregunta                    = OpcionesPregunta::findOrfail($request->id);
+             $opcionPregunta->estado            = '0';
+             $opcionPregunta->update();
+
+             DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+    }
+
+
 
 
 }
