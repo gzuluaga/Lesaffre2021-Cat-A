@@ -80,7 +80,18 @@ Route::group(['middleware' => ['auth']], function () {
 			Route::get('getDatos',     			[TriviaController::class, 'getDatos']);
 			Route::get('getPreguntasForm',     	[TriviaController::class, 'getPreguntasForm']);
 			Route::get('getPreguntasOpciones', 	[TriviaController::class, 'getPreguntasOpciones']);
-			Route::get('respuestas', 			[TriviaController::class, 'viewRespuestas']);			
+			Route::get('respuestas', 			[TriviaController::class, 'viewRespuestas']);	
+
+			Route::put('updateForm',			[TriviaController::class, 'updateForm']);	
+			Route::put('updatePregunta',		[TriviaController::class, 'updatePregunta']);
+			Route::put('updateOpciones',		[TriviaController::class, 'updateOpciones']);
+
+
+			Route::put('deleteForm',			[TriviaController::class, 'deleteForm']);	
+			Route::put('deletePregunta',		[TriviaController::class, 'deletePregunta']);
+			Route::put('deleteOpciones',		[TriviaController::class, 'deleteOpciones']);
+
+
 		});
 
 	});

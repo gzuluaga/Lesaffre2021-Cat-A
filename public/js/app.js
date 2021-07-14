@@ -5699,26 +5699,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       flagDescripcionOpciones: false,
+      id_form: '',
       descripcion: '',
       numero_formulario: 0,
       fecha_publicacion: '',
       fecha_terminacion: '',
       arrayFormularios: [],
+      id_pre: '',
       id_formulario: 0,
       pregunta: '',
       imagen: null,
       calificacion: '',
       arrayPreguntas: [],
+      id_opc: '',
       pregunta_id: 0,
       opcionPregunta: '',
       criterio: '',
       arrayDatos: [],
       arrayPreguntasForm: [],
-      arrayPreguntasOpciones: []
+      arrayPreguntasOpciones: [],
+      condiciones: {
+        flagFormularioBoton: true,
+        flagPreguntaBoton: true,
+        flagOpcionesBoton: true
+      }
     };
   },
   computed: {},
@@ -6171,6 +6182,435 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getDatos;
+    }(),
+    // Metodos para actualizar y eliminar
+    // editar formularios
+    editFormulario: function editFormulario() {
+      var datos = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      this.id_form = datos['id'];
+      this.descripcion = datos['descripcion'];
+      this.numero_formulario = datos['formtrivia'];
+      this.fecha_publicacion = datos['fecha_star'];
+      this.fecha_terminacion = datos['fecha_end'];
+      this.condiciones.flagFormularioBoton = false;
+    },
+    editarPregunta: function editarPregunta() {
+      var datos = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      this.id_pre = datos['id'];
+      this.id_formulario = datos['formularios_id'];
+      this.pregunta = datos['pregunta'];
+      this.calificacion = datos['calificacion'];
+      this.condiciones.flagPreguntaBoton = false;
+    },
+    editarOpciones: function editarOpciones() {
+      var datos = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      this.id_opc = datos['id'];
+      this.pregunta_id = datos['preguntas_id'];
+      this.opcionPregunta = datos['nombrePregunta'];
+      this.criterio = datos['criterio'];
+      this.condiciones.flagOpcionesBoton = false;
+    },
+    // modificaion en el controlador
+    updateFormulario: function () {
+      var _updateFormulario = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9() {
+        var request, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+          while (1) {
+            switch (_context9.prev = _context9.next) {
+              case 0:
+                _context9.prev = 0;
+                request = {
+                  'id': this.id_form,
+                  'descripcion': this.descripcion,
+                  'numero_formulario': this.numero_formulario,
+                  'fecha_publicacion': this.fecha_publicacion,
+                  'fecha_terminacion': this.fecha_terminacion
+                };
+                _context9.next = 4;
+                return axios.put('updateForm', request);
+
+              case 4:
+                response = _context9.sent;
+                console.log(response.status);
+
+                if (response.status === 200) {
+                  this.limpiarFormulario();
+                  this.getFormulario();
+                  this.getDatos();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se editó correctamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+
+                _context9.next = 14;
+                break;
+
+              case 9:
+                _context9.prev = 9;
+                _context9.t0 = _context9["catch"](0);
+                console.log(_context9.t0.response);
+                /** si el status es 500, error en el servidor */
+
+                if (_context9.t0.response.status === 500) {
+                  console.log(_context9.t0);
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+
+
+                if (_context9.t0.response.status === 422) {
+                  this.validate = _context9.t0.response.data.errors;
+                  this.flag = 1;
+                }
+
+              case 14:
+              case "end":
+                return _context9.stop();
+            }
+          }
+        }, _callee9, this, [[0, 9]]);
+      }));
+
+      function updateFormulario() {
+        return _updateFormulario.apply(this, arguments);
+      }
+
+      return updateFormulario;
+    }(),
+    updatePregunta: function () {
+      var _updatePregunta = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10() {
+        var request, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                request = {
+                  'id': this.id_pre,
+                  'id_formulario': this.id_formulario,
+                  'pregunta': this.pregunta,
+                  'calificacion': this.calificacion
+                };
+                _context10.next = 4;
+                return axios.put('updatePregunta', request);
+
+              case 4:
+                response = _context10.sent;
+                console.log(response.status);
+
+                if (response.status === 200) {
+                  this.limpiarFormulario();
+                  this.getFormulario();
+                  this.getDatos();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se editó correctamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+
+                _context10.next = 14;
+                break;
+
+              case 9:
+                _context10.prev = 9;
+                _context10.t0 = _context10["catch"](0);
+                console.log(_context10.t0.response);
+                /** si el status es 500, error en el servidor */
+
+                if (_context10.t0.response.status === 500) {
+                  console.log(_context10.t0);
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+
+
+                if (_context10.t0.response.status === 422) {
+                  this.validate = _context10.t0.response.data.errors;
+                  this.flag = 1;
+                }
+
+              case 14:
+              case "end":
+                return _context10.stop();
+            }
+          }
+        }, _callee10, this, [[0, 9]]);
+      }));
+
+      function updatePregunta() {
+        return _updatePregunta.apply(this, arguments);
+      }
+
+      return updatePregunta;
+    }(),
+    updateOpciones: function () {
+      var _updateOpciones = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee11() {
+        var request, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee11$(_context11) {
+          while (1) {
+            switch (_context11.prev = _context11.next) {
+              case 0:
+                _context11.prev = 0;
+                request = {
+                  'id': this.id_opc,
+                  'pregunta_id': this.pregunta_id,
+                  'opcionPregunta': this.opcionPregunta,
+                  'criterio': this.criterio
+                };
+                _context11.next = 4;
+                return axios.put('updateOpciones', request);
+
+              case 4:
+                response = _context11.sent;
+                console.log(response.status);
+
+                if (response.status === 200) {
+                  this.limpiarFormulario();
+                  this.getFormulario();
+                  this.getDatos();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se editó correctamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+
+                _context11.next = 14;
+                break;
+
+              case 9:
+                _context11.prev = 9;
+                _context11.t0 = _context11["catch"](0);
+                console.log(_context11.t0.response);
+                /** si el status es 500, error en el servidor */
+
+                if (_context11.t0.response.status === 500) {
+                  console.log(_context11.t0);
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+
+
+                if (_context11.t0.response.status === 422) {
+                  this.validate = _context11.t0.response.data.errors;
+                  this.flag = 1;
+                }
+
+              case 14:
+              case "end":
+                return _context11.stop();
+            }
+          }
+        }, _callee11, this, [[0, 9]]);
+      }));
+
+      function updateOpciones() {
+        return _updateOpciones.apply(this, arguments);
+      }
+
+      return updateOpciones;
+    }(),
+    // Eliminar 
+    deleteFormulario: function () {
+      var _deleteFormulario = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee12(id) {
+        var request, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee12$(_context12) {
+          while (1) {
+            switch (_context12.prev = _context12.next) {
+              case 0:
+                _context12.prev = 0;
+                request = {
+                  'id': id
+                };
+                _context12.next = 4;
+                return axios.put('deleteForm', request);
+
+              case 4:
+                response = _context12.sent;
+                console.log(response.status);
+
+                if (response.status === 200) {
+                  this.getFormulario();
+                  this.getPregunta();
+                  this.getDatos();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se editó correctamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+
+                _context12.next = 14;
+                break;
+
+              case 9:
+                _context12.prev = 9;
+                _context12.t0 = _context12["catch"](0);
+                console.log(_context12.t0.response);
+                /** si el status es 500, error en el servidor */
+
+                if (_context12.t0.response.status === 500) {
+                  console.log(_context12.t0);
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+
+
+                if (_context12.t0.response.status === 422) {
+                  this.validate = _context12.t0.response.data.errors;
+                  this.flag = 1;
+                }
+
+              case 14:
+              case "end":
+                return _context12.stop();
+            }
+          }
+        }, _callee12, this, [[0, 9]]);
+      }));
+
+      function deleteFormulario(_x3) {
+        return _deleteFormulario.apply(this, arguments);
+      }
+
+      return deleteFormulario;
+    }(),
+    deletePregunta: function () {
+      var _deletePregunta = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee13(id) {
+        var request, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee13$(_context13) {
+          while (1) {
+            switch (_context13.prev = _context13.next) {
+              case 0:
+                _context13.prev = 0;
+                request = {
+                  'id': id
+                };
+                _context13.next = 4;
+                return axios.put('deletePregunta', request);
+
+              case 4:
+                response = _context13.sent;
+                console.log(response.status);
+
+                if (response.status === 200) {
+                  this.getFormulario();
+                  this.getPregunta();
+                  this.getDatos();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se editó correctamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+
+                _context13.next = 14;
+                break;
+
+              case 9:
+                _context13.prev = 9;
+                _context13.t0 = _context13["catch"](0);
+                console.log(_context13.t0.response);
+                /** si el status es 500, error en el servidor */
+
+                if (_context13.t0.response.status === 500) {
+                  console.log(_context13.t0);
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+
+
+                if (_context13.t0.response.status === 422) {
+                  this.validate = _context13.t0.response.data.errors;
+                  this.flag = 1;
+                }
+
+              case 14:
+              case "end":
+                return _context13.stop();
+            }
+          }
+        }, _callee13, this, [[0, 9]]);
+      }));
+
+      function deletePregunta(_x4) {
+        return _deletePregunta.apply(this, arguments);
+      }
+
+      return deletePregunta;
+    }(),
+    deleteOpciones: function () {
+      var _deleteOpciones = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee14(id) {
+        var request, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee14$(_context14) {
+          while (1) {
+            switch (_context14.prev = _context14.next) {
+              case 0:
+                _context14.prev = 0;
+                request = {
+                  'id': id
+                };
+                _context14.next = 4;
+                return axios.put('deleteOpciones', request);
+
+              case 4:
+                response = _context14.sent;
+                console.log(response.status);
+
+                if (response.status === 200) {
+                  this.getFormulario();
+                  this.getPregunta();
+                  this.getDatos();
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se editó correctamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+
+                _context14.next = 14;
+                break;
+
+              case 9:
+                _context14.prev = 9;
+                _context14.t0 = _context14["catch"](0);
+                console.log(_context14.t0.response);
+                /** si el status es 500, error en el servidor */
+
+                if (_context14.t0.response.status === 500) {
+                  console.log(_context14.t0);
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+
+
+                if (_context14.t0.response.status === 422) {
+                  this.validate = _context14.t0.response.data.errors;
+                  this.flag = 1;
+                }
+
+              case 14:
+              case "end":
+                return _context14.stop();
+            }
+          }
+        }, _callee14, this, [[0, 9]]);
+      }));
+
+      function deleteOpciones(_x5) {
+        return _deleteOpciones.apply(this, arguments);
+      }
+
+      return deleteOpciones;
     }()
   },
   mounted: function mounted() {
@@ -12686,7 +13126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 10em;\n  height: 10em;\n}\n.loader {\n  margin: 60px auto;\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\n  border-left: 1.1em solid #154360;\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\r\n.loader:after {\r\n  border-radius: 50%;\r\n  width: 10em;\r\n  height: 10em;\n}\n.loader {\r\n  margin: 60px auto;\r\n  font-size: 10px;\r\n  position: relative;\r\n  text-indent: -9999em;\r\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-left: 1.1em solid #154360;\r\n  transform: translateZ(0);\r\n  -webkit-animation: load8 1.1s infinite linear;\r\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -85713,18 +86153,31 @@ var render = function() {
               "div",
               { staticClass: "row col-md-2 col-lg-2 col-xs-2 col-sm-2" },
               [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    on: {
-                      click: function($event) {
-                        return _vm.storeFormulario()
-                      }
-                    }
-                  },
-                  [_vm._v("Guardar Trivia")]
-                )
+                _vm.condiciones.flagFormularioBoton
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: {
+                          click: function($event) {
+                            return _vm.storeFormulario()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar Formulario")]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        on: {
+                          click: function($event) {
+                            return _vm.updateFormulario()
+                          }
+                        }
+                      },
+                      [_vm._v("Editar Formulario")]
+                    )
               ]
             )
           ])
@@ -85795,7 +86248,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "form-label", attrs: { for: "pregunta" } },
-                  [_vm._v("Pregunta")]
+                  [_vm._v("pregunta")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -85858,18 +86311,31 @@ var render = function() {
               "div",
               { staticClass: "row col-md-4 col-lg-4 col-xs-4 col-sm-4" },
               [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    on: {
-                      click: function($event) {
-                        return _vm.storePregurnta()
-                      }
-                    }
-                  },
-                  [_vm._v("Guardar Pregunta")]
-                )
+                _vm.condiciones.flagPreguntaBoton
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        on: {
+                          click: function($event) {
+                            return _vm.storePregurnta()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar Pregunta")]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        on: {
+                          click: function($event) {
+                            return _vm.updatePregunta()
+                          }
+                        }
+                      },
+                      [_vm._v("Editar Formulario")]
+                    )
               ]
             )
           ])
@@ -86006,11 +86472,11 @@ var render = function() {
                       _vm._v("Seleccionar")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "1" } }, [
+                    _c("option", { attrs: { value: "true" } }, [
                       _vm._v("Respuesta Correcta")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "0" } }, [
+                    _c("option", { attrs: { value: "false" } }, [
                       _vm._v("Respuesta Incorrecta")
                     ])
                   ]
@@ -86020,18 +86486,31 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-sm-12 col-md-12 col-12" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary ",
-                    on: {
-                      click: function($event) {
-                        return _vm.storeOpciones()
-                      }
-                    }
-                  },
-                  [_vm._v("Guardar Respuesta")]
-                )
+                _vm.condiciones.flagOpcionesBoton
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary ",
+                        on: {
+                          click: function($event) {
+                            return _vm.storeOpciones()
+                          }
+                        }
+                      },
+                      [_vm._v("Guardar Respuesta")]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        on: {
+                          click: function($event) {
+                            return _vm.updateOpciones()
+                          }
+                        }
+                      },
+                      [_vm._v("Editar Formulario")]
+                    )
               ])
             ]),
             _vm._v(" "),
@@ -86097,9 +86576,35 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("td", { attrs: { colspan: "2" } }, [
-                                  _vm._m(8, true),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-warning",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editFormulario(dato)
+                                        }
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "far fa-edit" })]
+                                  ),
                                   _vm._v(" "),
-                                  _vm._m(9, true),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-danger",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteFormulario(dato.id)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "far fa-trash-alt"
+                                      })
+                                    ]
+                                  ),
                                   _vm._v(" "),
                                   _c(
                                     "button",
@@ -86133,9 +86638,35 @@ var render = function() {
                                 ]),
                                 _vm._v(" "),
                                 _c("td", [
-                                  _vm._m(10, true),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-warning",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.editarPregunta(pre)
+                                        }
+                                      }
+                                    },
+                                    [_c("i", { staticClass: "far fa-edit" })]
+                                  ),
                                   _vm._v(" "),
-                                  _vm._m(11, true),
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-danger",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deletePregunta(pre.id)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "far fa-trash-alt"
+                                      })
+                                    ]
+                                  ),
                                   _vm._v(" "),
                                   _c(
                                     "button",
@@ -86181,7 +86712,7 @@ var render = function() {
                       "table",
                       { staticClass: "table table-striped table-hover" },
                       [
-                        _vm._m(12),
+                        _vm._m(8),
                         _vm._v(" "),
                         _c(
                           "tbody",
@@ -86199,11 +86730,43 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("td", [
                                     opciones.criterio
-                                      ? _c("div", [_vm._m(13, true)])
-                                      : _c("div", [_vm._m(14, true)])
+                                      ? _c("div", [_vm._m(9, true)])
+                                      : _c("div", [_vm._m(10, true)])
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(15, true)
+                                  _c("td", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-warning",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.editarOpciones(opciones)
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "far fa-edit" })]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-danger",
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.deleteOpciones(
+                                              opciones.id
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "far fa-trash-alt"
+                                        })
+                                      ]
+                                    )
+                                  ])
                                 ])
                               : _vm._e()
                           }),
@@ -86263,7 +86826,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("h5", [_vm._v("Listado de preguntas")])
+      _c("h5", [_vm._v("Listado de Formularios, Preguntas y Opciones")])
     ])
   },
   function() {
@@ -86306,38 +86869,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-warning" }, [
-      _c("i", { staticClass: "far fa-edit" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-warning" }, [
-      _c("i", { staticClass: "far fa-edit" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-danger" }, [
-      _c("i", { staticClass: "far fa-trash-alt" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { colspan: "3" } }, [
@@ -86362,20 +86893,6 @@ var staticRenderFns = [
     return _c("button", { staticClass: "btn btn-danger" }, [
       _c("i", { staticClass: "fas fa-times" }),
       _vm._v(" Respuesta Incorrecta\n\t\t\t\t\t\t\t    \t\t\t\t\t\t")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-warning" }, [
-        _c("i", { staticClass: "far fa-edit" })
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-danger" }, [
-        _c("i", { staticClass: "far fa-trash-alt" })
-      ])
     ])
   }
 ]

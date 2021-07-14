@@ -26,7 +26,8 @@
 							</div>
 						</div>
 						<div class="row col-md-2 col-lg-2 col-xs-2 col-sm-2">
-							<button class="btn btn-primary" @click="storeFormulario()">Guardar Trivia</button>
+							<button class="btn btn-primary" v-if="condiciones.flagFormularioBoton" @click="storeFormulario()">Guardar Formulario</button>
+							<button class="btn btn-warning" v-else @click="updateFormulario()">Editar Formulario</button>
 						</div>
 					</div>
 				</div>
@@ -47,7 +48,7 @@
 								</select>
 							</div>
 							<div class="mb-3">
-								<label for="pregunta" class="form-label">Pregunta</label>
+								<label for="pregunta" class="form-label">pregunta</label>
 								<input type="text" class="form-control" v-model="pregunta" placeholder="Escribe tu pregunta">
 							</div>
 							<div class="mb-3">
@@ -60,7 +61,8 @@
 							</div>
 						</div>
 						<div class="row col-md-4 col-lg-4 col-xs-4 col-sm-4">
-							<button class="btn btn-primary" @click="storePregurnta()">Guardar Pregunta</button>
+							<button class="btn btn-primary" v-if="condiciones.flagPreguntaBoton" @click="storePregurnta()">Guardar Pregunta</button>
+							<button class="btn btn-warning" v-else @click="updatePregunta()">Editar Formulario</button>
 						</div>
 				</div>
 				</div>
@@ -89,14 +91,15 @@
 								<label for="pregunta" class="form-label">Criterio</label>
 								<select class="form-control" v-model="criterio">
 									<option value="">Seleccionar</option>
-									<option value="1">Respuesta Correcta</option>
-									<option value="0">Respuesta Incorrecta</option>
+									<option value="true">Respuesta Correcta</option>
+									<option value="false">Respuesta Incorrecta</option>
 								</select>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-12 col-md-12 col-12">
-								<button class="btn btn-primary " @click="storeOpciones()">Guardar Respuesta</button>	
+								<button class="btn btn-primary " v-if="condiciones.flagOpcionesBoton" @click="storeOpciones()">Guardar Respuesta</button>
+								<button class="btn btn-warning" v-else @click="updateOpciones()">Editar Formulario</button>	
 							</div>
 						</div>
 						<br>
@@ -110,7 +113,7 @@
     		<div class="card">
 			  <div class="card-body">
 			    	<div class="row">
-			    		<h5>Listado de preguntas</h5>
+			    		<h5>Listado de Formularios, Preguntas y Opciones</h5>
 			    	</div>
 			    	<div class="row">
 			    		<div class="col-sm-8 col-md-8 col-xs-12 col-lg-8">
@@ -145,10 +148,10 @@
 					    						</div>				    						
 					    					</td>
 					    					<td colspan="2">
-					    						<button class="btn btn-warning">
+					    						<button class="btn btn-warning" @click="editFormulario(dato)">
 					    							<i class="far fa-edit"></i>
 					    						</button>
-					    						<button class="btn btn-danger">
+					    						<button class="btn btn-danger" @click="deleteFormulario(dato.id)">
 					    							<i class="far fa-trash-alt"></i>
 					    						</button>
 					    						<button class="btn btn-primary" @click="mostrarDetalleOpciones(dato.id)">
@@ -160,10 +163,10 @@
 					    						<td>Pregunta: {{ pre.pregunta }}</td>
 					    						<td>Calificación: {{ pre.calificacion }}</td>
 					    						<td>
-					    							<button class="btn btn-warning">
+					    							<button class="btn btn-warning" @click="editarPregunta(pre)">
 						    							<i class="far fa-edit"></i>
 						    						</button>
-						    						<button class="btn btn-danger">
+						    						<button class="btn btn-danger" @click="deletePregunta(pre.id)">
 						    							<i class="far fa-trash-alt"></i>
 						    						</button>
 						    						<button class="btn btn-primary" @click="ocultarDetalleOpciones(pre.id)">
@@ -205,10 +208,10 @@
 						    						</div>
 				    							</td>
 				    							<td>
-				    								<button class="btn btn-warning">
+				    								<button class="btn btn-warning" @click="editarOpciones(opciones)">
 						    							<i class="far fa-edit"></i>
 						    						</button>
-						    						<button class="btn btn-danger">
+						    						<button class="btn btn-danger" @click="deleteOpciones(opciones.id)">
 						    							<i class="far fa-trash-alt"></i>
 						    						</button>
 					    						</td>
@@ -231,22 +234,31 @@
         data () {
             return {
             	flagDescripcionOpciones: 	false,
+            	id_form: 					'',
             	descripcion: 				'',
             	numero_formulario: 			0,
             	fecha_publicacion: 			'',
             	fecha_terminacion: 			'',
             	arrayFormularios: 			[],
+            	id_pre: 					'',
             	id_formulario: 				0,
             	pregunta: 					'',
             	imagen :  					null,
             	calificacion: 				'',
             	arrayPreguntas: 			[],
+            	id_opc: 					'',
             	pregunta_id: 				0,
             	opcionPregunta: 			'',
             	criterio: 					'',
             	arrayDatos: 				[],
             	arrayPreguntasForm: 		[],
             	arrayPreguntasOpciones: 	[],
+
+            	condiciones: {
+            		flagFormularioBoton: 	true,
+            		flagPreguntaBoton: 		true,
+            		flagOpcionesBoton: 		true,
+            	},
             	
 
             }
@@ -483,7 +495,273 @@
                         console.log(error.reponse)
                     }
                 }
-	      	}
+	      	},
+
+
+	      	// Metodos para actualizar y eliminar
+	      	// editar formularios
+	      	
+	      	editFormulario: function(datos = []) {
+	      		this.id_form 			= datos['id'];
+	      		this.descripcion 		= datos['descripcion'];
+				this.numero_formulario	= datos['formtrivia'];
+				this.fecha_publicacion	= datos['fecha_star'];
+				this.fecha_terminacion	= datos['fecha_end'];
+				this.condiciones.flagFormularioBoton = false;
+	      	},
+
+	      	editarPregunta: function(datos = []) {
+	      		this.id_pre 		= datos['id'];
+	      		this.id_formulario  = datos['formularios_id'];
+	      		this.pregunta 		= datos['pregunta'];
+	      		this.calificacion 	= datos['calificacion'];
+	      		this.condiciones.flagPreguntaBoton = false;
+	      	},
+
+	      	editarOpciones: function(datos = []) {
+	      		this.id_opc 		= datos['id'];
+	      		this.pregunta_id 	= datos['preguntas_id'];
+	      		this.opcionPregunta = datos['nombrePregunta'];
+	      		this.criterio 		= datos['criterio'];
+	      		this.condiciones.flagOpcionesBoton = false;
+	      	},
+
+	      	// modificaion en el controlador
+	      	updateFormulario: async function() {
+	      		try {
+
+                    const request = {
+                        'id':           		this.id_form,
+                        'descripcion': 			this.descripcion,
+						'numero_formulario': 	this.numero_formulario,		
+						'fecha_publicacion': 	this.fecha_publicacion,		
+						'fecha_terminacion': 	this.fecha_terminacion,	
+                    }
+
+                    const response = await axios.put('updateForm', request)
+
+                    console.log(response.status)
+                    if(response.status === 200){
+                        this.limpiarFormulario();
+                    	this.getFormulario();
+                    	this.getDatos();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Se editó correctamente!',
+                          showConfirmButton: false,
+                          timer: 1500
+                        })
+
+                    }
+                } catch(error) {
+                     console.log(error.response);
+                        /** si el status es 500, error en el servidor */
+                        if(error.response.status === 500){
+                            console.log(error)
+                        }
+                        /** si el status es 422, alguno de los datos tuvo un error de validacion */
+                        if(error.response.status === 422){                    
+                            this.validate = error.response.data.errors;
+                            this.flag = 1;
+                        }
+                }
+	      	},
+
+	      	updatePregunta: async function() {
+	      		try {
+
+                    const request = {
+                        'id':           		this.id_pre,
+                 		'id_formulario':  		this.id_formulario,	
+	                    'pregunta': 	  		this.pregunta,
+	                    'calificacion': 		this.calificacion,	
+                    }
+
+                    const response = await axios.put('updatePregunta', request)
+
+                    console.log(response.status)
+                    if(response.status === 200){
+                        this.limpiarFormulario();
+                    	this.getFormulario();
+                    	this.getDatos();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Se editó correctamente!',
+                          showConfirmButton: false,
+                          timer: 1500
+                        })
+
+                    }
+                } catch(error) {
+                     console.log(error.response);
+                        /** si el status es 500, error en el servidor */
+                        if(error.response.status === 500){
+                            console.log(error)
+                        }
+                        /** si el status es 422, alguno de los datos tuvo un error de validacion */
+                        if(error.response.status === 422){                    
+                            this.validate = error.response.data.errors;
+                            this.flag = 1;
+                        }
+                }
+	      	},
+
+	      	updateOpciones: async function() {
+	      		try {
+
+                    const request = {
+                        'id':           		this.id_opc,
+                        'pregunta_id':  		this.pregunta_id,	
+	                    'opcionPregunta': 		this.opcionPregunta,
+	                    'criterio': 			this.criterio,
+                 		
+                    }
+
+                    const response = await axios.put('updateOpciones', request)
+
+                    console.log(response.status)
+                    if(response.status === 200){
+                        this.limpiarFormulario();
+                    	this.getFormulario();
+                    	this.getDatos();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Se editó correctamente!',
+                          showConfirmButton: false,
+                          timer: 1500
+                        })
+
+                    }
+                } catch(error) {
+                     console.log(error.response);
+                        /** si el status es 500, error en el servidor */
+                        if(error.response.status === 500){
+                            console.log(error)
+                        }
+                        /** si el status es 422, alguno de los datos tuvo un error de validacion */
+                        if(error.response.status === 422){                    
+                            this.validate = error.response.data.errors;
+                            this.flag = 1;
+                        }
+                }
+	      	},
+
+
+	      	// Eliminar 
+	      	deleteFormulario: async function(id) {
+	      		try {
+
+                    const request = {
+                        'id':           		id,
+                    }
+
+                    const response = await axios.put('deleteForm', request)
+
+                    console.log(response.status)
+                    if(response.status === 200){
+                        this.getFormulario();
+						this.getPregunta();
+						this.getDatos();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Se editó correctamente!',
+                          showConfirmButton: false,
+                          timer: 1500
+                        })
+
+                    }
+                } catch(error) {
+                     console.log(error.response);
+                        /** si el status es 500, error en el servidor */
+                        if(error.response.status === 500){
+                            console.log(error)
+                        }
+                        /** si el status es 422, alguno de los datos tuvo un error de validacion */
+                        if(error.response.status === 422){                    
+                            this.validate = error.response.data.errors;
+                            this.flag = 1;
+                        }
+                }
+	      	},
+
+	      	deletePregunta: async function(id) {
+	      		try {
+
+                    const request = {
+                        'id':           		id,
+                    }
+
+                    const response = await axios.put('deletePregunta', request)
+
+                    console.log(response.status)
+                    if(response.status === 200){
+                        this.getFormulario();
+						this.getPregunta();
+						this.getDatos();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Se editó correctamente!',
+                          showConfirmButton: false,
+                          timer: 1500
+                        })
+
+                    }
+                } catch(error) {
+                     console.log(error.response);
+                        /** si el status es 500, error en el servidor */
+                        if(error.response.status === 500){
+                            console.log(error)
+                        }
+                        /** si el status es 422, alguno de los datos tuvo un error de validacion */
+                        if(error.response.status === 422){                    
+                            this.validate = error.response.data.errors;
+                            this.flag = 1;
+                        }
+                }
+	      	},
+
+	      	deleteOpciones: async function(id) {
+	      		try {
+
+                    const request = {
+                        'id':           		id,                 		
+                    }
+
+                    const response = await axios.put('deleteOpciones', request)
+
+                    console.log(response.status)
+                    if(response.status === 200){
+                    	this.getFormulario();
+						this.getPregunta();
+						this.getDatos();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: 'Se editó correctamente!',
+                          showConfirmButton: false,
+                          timer: 1500
+                        })
+
+                    }
+                } catch(error) {
+                     console.log(error.response);
+                        /** si el status es 500, error en el servidor */
+                        if(error.response.status === 500){
+                            console.log(error)
+                        }
+                        /** si el status es 422, alguno de los datos tuvo un error de validacion */
+                        if(error.response.status === 422){                    
+                            this.validate = error.response.data.errors;
+                            this.flag = 1;
+                        }
+                }
+	      	},
+
         },
 
         mounted() {
