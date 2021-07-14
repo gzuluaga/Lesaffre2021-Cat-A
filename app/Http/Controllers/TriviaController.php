@@ -160,7 +160,7 @@ class TriviaController extends Controller
          if(!$request->ajax()) return redirect('/');
 
             $id         = $request->id_formulario;
-            $datos      = Preguntas::where('formularios_id', '=', $id)->get();
+            $datos      = Preguntas::where('formularios_id', '=', $id)->where('estado',1)->get();
 
 
         return [ 'datos' => $datos ];
@@ -171,7 +171,7 @@ class TriviaController extends Controller
          if(!$request->ajax()) return redirect('/');
 
             $id         = $request->id_pregunta;
-            $datos      = OpcionesPregunta::where('preguntas_id', '=', $id)->get();
+            $datos      = OpcionesPregunta::where('preguntas_id', '=', $id)->where('estado',1)->get();
 
 
         return [ 'datos' => $datos ];
@@ -286,6 +286,8 @@ class TriviaController extends Controller
             DB::rollback();
         }
     }
+
+
 
 
 
