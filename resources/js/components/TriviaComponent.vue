@@ -167,7 +167,7 @@
 						    							<i class="far fa-trash-alt"></i>
 						    						</button>
 						    						<button class="btn btn-primary" @click="ocultarDetalleOpciones(pre.id)">
-						    							<i class="fas fa-plus"></i> Opciones Pregunta
+						    							<i class="fas fa-plus"></i> Ver Respuestas
 						    						</button>
 					    						</td>
 					    						<td></td>
@@ -184,7 +184,7 @@
 			    					<table class="table table-striped table-hover"> 
 			    						<thead>
 			    							<tr>
-			    								<th colspan="3"> Opciones de respuesta</th>
+			    								<th colspan="3"> Respuestas de pregunta</th>
 			    							</tr>
 			    						</thead>
 			    						<tbody>
