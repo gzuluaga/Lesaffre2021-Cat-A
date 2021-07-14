@@ -1,110 +1,108 @@
 <template>
     <div class="container-fluid">
     	<div class="row">
-
-    	<div class="col-sm-12 col-12">
-    		<div class="card">
-			  <div class="card-body">
-			    	<div class="row">
-			    		<h5>Crear Formulario</h5>
-			    	</div>
-			    	<div class="row">
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Descripción</label>
-			    			 <input type="text" class="form-control" v-model="descripcion">
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Numero formulario</label>
-			    			 <input type="number" class="form-control" v-model="numero_formulario">
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Fecha de Publicación</label>
-			    			 <input type="date" class="form-control" v-model="fecha_publicacion">
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Fecha de terminación</label>
-			    			 <input type="date" class="form-control" v-model="fecha_terminacion">
-			    		</div>
-			    	</div>
-			    	<div class="row">
-			    		<button class="btn btn-primary" @click="storeFormulario()">Guardar</button>
-			    	</div>
-			  </div>
+			<div class="col-sm-12 col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<h5>Crear Trivia</h5>
+						</div>
+						<div class="row">
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Descripción</label>
+								<input type="text" class="form-control" v-model="descripcion" placeholder="Nombre de la trivia">
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Numero Trivia</label>
+								<input type="number" class="form-control" v-model="numero_formulario">
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Fecha de Publicación</label>
+								<input type="date" class="form-control" v-model="fecha_publicacion">
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Fecha de terminación</label>
+								<input type="date" class="form-control" v-model="fecha_terminacion">
+							</div>
+						</div>
+						<div class="row col-md-2 col-lg-2 col-xs-2 col-sm-2">
+							<button class="btn btn-primary" @click="storeFormulario()">Guardar Trivia</button>
+						</div>
+					</div>
+				</div>
 			</div>
-    	</div>
-
-
-    	<div class="col-sm-6 col-12">
-    		<div class="card">
-			  <div class="card-body">
-			    	<div class="row">
-			    		<h5>Crear Pregunta</h5>
-			    	</div>
-			    	<div class="row">
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Seleccionar Formulario</label>
-			    			 <select class="form-control" v-model="id_formulario">
-			    			 	<option value="0">Seleccionar</option>
-			    			 	<option  v-for="form in arrayFormularios" :key="form.id" :value="form.id" v-text="form.descripcion"></option>
-			    			 </select>
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Pregunta</label>
-			    			 <input type="text" class="form-control" v-model="pregunta">
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Archivo</label>
-			    			 <input type="file" class="form-control" >
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Calificación</label>
-			    			 <input type="number" class="form-control" v-model="calificacion">
-			    		</div>
-			    	</div>
-			    	<div class="row">
-			    		<button class="btn btn-primary" @click="storePregurnta()">Guardar</button>
-			    	</div>
-			  </div>
+			
+			<div class="col-sm-6 col-12">
+				<div class="card">
+				<div class="card-body">
+						<div class="row">
+							<h5>Crear Pregunta</h5>
+						</div>
+						<div class="row">
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Seleccionar Trivia</label>
+								<select class="form-control" v-model="id_formulario">
+									<option value="0">Seleccionar</option>
+									<option  v-for="form in arrayFormularios" :key="form.id" :value="form.id" v-text="form.descripcion"></option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Pregunta</label>
+								<input type="text" class="form-control" v-model="pregunta" placeholder="Escribe tu pregunta">
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Archivo</label>
+								<input type="file" class="form-control" >
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Valor de esta pregunta</label>
+								<input type="number" class="form-control" v-model="calificacion">
+							</div>
+						</div>
+						<div class="row col-md-4 col-lg-4 col-xs-4 col-sm-4">
+							<button class="btn btn-primary" @click="storePregurnta()">Guardar Pregunta</button>
+						</div>
+				</div>
+				</div>
 			</div>
-    	</div>
 
-    	<div class="col-sm-6 col-12">
-    		<div class="card">
-			  <div class="card-body">
-			    	<div class="row">
-			    		<h5>Crear Opciones</h5>
-			    	</div>
-			    	<div class="row">
-			    		
-			    		<div class="mb-3">
-			    			<label for="pregunta" class="form-label">Pregunta</label>
-			    			<select class="form-control" v-model="pregunta_id">
-			    			 	<option value="0">Seleccionar</option>
-			    			 	<option  v-for="pre in arrayPreguntas" :key="pre.id" :value="pre.id" v-text="pre.pregunta"></option>
-			    			</select>
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Opcion</label>
-			    			 <input type="text" class="form-control" v-model="opcionPregunta">
-			    		</div>
-			    		<div class="mb-3">
-			    			 <label for="pregunta" class="form-label">Criterio</label>
-			    			 <select class="form-control" v-model="criterio">
-			    			 	<option value="">Seleccionar</option>
-			    			 	<option value="1">Respuesta Correcta</option>
-			    			 	<option value="0">Respuesta Incorrecta</option>
-			    			 </select>
-			    		</div>
-			    	</div>
-			    	<div class="row">
-			    		<div class="col-sm-12 col-md-12 col-12">
-			    			<button class="btn btn-success " @click="storeOpciones()">Agregar</button>	
-			    		</div>
-			    	</div>
-			    	<br>
-			  </div>
+			<div class="col-sm-6 col-12">
+				<div class="card">
+				<div class="card-body">
+						<div class="row">
+							<h5>Crear Respuestas</h5>
+						</div>
+						<div class="row">
+							
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Seleccionar Pregunta</label>
+								<select class="form-control" v-model="pregunta_id">
+									<option value="0">Seleccionar</option>
+									<option  v-for="pre in arrayPreguntas" :key="pre.id" :value="pre.id" v-text="pre.pregunta"></option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Respuesta</label>
+								<input type="text" class="form-control" v-model="opcionPregunta" placeholder="Escribe la respuesta">
+							</div>
+							<div class="mb-3">
+								<label for="pregunta" class="form-label">Criterio</label>
+								<select class="form-control" v-model="criterio">
+									<option value="">Seleccionar</option>
+									<option value="1">Respuesta Correcta</option>
+									<option value="0">Respuesta Incorrecta</option>
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-12 col-12">
+								<button class="btn btn-primary " @click="storeOpciones()">Guardar Respuesta</button>	
+							</div>
+						</div>
+						<br>
+				</div>
+				</div>
 			</div>
-    	</div>
     </div>
     <br>
    	<div class="row">

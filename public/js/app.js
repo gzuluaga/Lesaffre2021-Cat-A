@@ -5699,8 +5699,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -85607,7 +85605,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text" },
+                  attrs: { type: "text", placeholder: "Nombre de la trivia" },
                   domProps: { value: _vm.descripcion },
                   on: {
                     input: function($event) {
@@ -85624,7 +85622,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "form-label", attrs: { for: "pregunta" } },
-                  [_vm._v("Numero formulario")]
+                  [_vm._v("Numero Trivia")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -85711,20 +85709,24 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  on: {
-                    click: function($event) {
-                      return _vm.storeFormulario()
+            _c(
+              "div",
+              { staticClass: "row col-md-2 col-lg-2 col-xs-2 col-sm-2" },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function($event) {
+                        return _vm.storeFormulario()
+                      }
                     }
-                  }
-                },
-                [_vm._v("Guardar")]
-              )
-            ])
+                  },
+                  [_vm._v("Guardar Trivia")]
+                )
+              ]
+            )
           ])
         ])
       ]),
@@ -85739,7 +85741,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "form-label", attrs: { for: "pregunta" } },
-                  [_vm._v("Seleccionar Formulario")]
+                  [_vm._v("Seleccionar Trivia")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -85806,7 +85808,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text" },
+                  attrs: { type: "text", placeholder: "Escribe tu pregunta" },
                   domProps: { value: _vm.pregunta },
                   on: {
                     input: function($event) {
@@ -85825,7 +85827,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "form-label", attrs: { for: "pregunta" } },
-                  [_vm._v("Calificación")]
+                  [_vm._v("Valor de esta pregunta")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -85852,20 +85854,24 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  on: {
-                    click: function($event) {
-                      return _vm.storePregurnta()
+            _c(
+              "div",
+              { staticClass: "row col-md-4 col-lg-4 col-xs-4 col-sm-4" },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function($event) {
+                        return _vm.storePregurnta()
+                      }
                     }
-                  }
-                },
-                [_vm._v("Guardar")]
-              )
-            ])
+                  },
+                  [_vm._v("Guardar Pregunta")]
+                )
+              ]
+            )
           ])
         ])
       ]),
@@ -85880,7 +85886,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "form-label", attrs: { for: "pregunta" } },
-                  [_vm._v("Pregunta")]
+                  [_vm._v("Seleccionar Pregunta")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -85934,7 +85940,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "form-label", attrs: { for: "pregunta" } },
-                  [_vm._v("Opcion")]
+                  [_vm._v("Respuesta")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -85947,7 +85953,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text" },
+                  attrs: { type: "text", placeholder: "Escribe la respuesta" },
                   domProps: { value: _vm.opcionPregunta },
                   on: {
                     input: function($event) {
@@ -86017,14 +86023,14 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn-success ",
+                    staticClass: "btn btn-primary ",
                     on: {
                       click: function($event) {
                         return _vm.storeOpciones()
                       }
                     }
                   },
-                  [_vm._v("Agregar")]
+                  [_vm._v("Guardar Respuesta")]
                 )
               ])
             ]),
@@ -86221,7 +86227,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("h5", [_vm._v("Crear Formulario")])
+      _c("h5", [_vm._v("Crear Trivia")])
     ])
   },
   function() {
@@ -86249,7 +86255,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("h5", [_vm._v("Crear Opciones")])
+      _c("h5", [_vm._v("Crear Respuestas")])
     ])
   },
   function() {
