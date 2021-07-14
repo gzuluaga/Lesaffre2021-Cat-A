@@ -217,12 +217,10 @@
 			    					</table>
 			    				</div>
 			    			</div>
-
-			    		
-			    	</div>
-			  </div>
-			</div>
-    	</div>
+			    		</div>
+			  		</div>
+				</div>
+    		</div>
     	</div>
     </div>
 </template>
@@ -264,10 +262,8 @@
         	},
 
         	ocultarDetalleOpciones: function (id) {
-        		this.getPreguntasOpciones(id);
-        		
+        		this.getPreguntasOpciones(id);        		
         	},
-
 
         	getPreguntasForm: async function (id){
         		const url = 'getPreguntasForm?id_formulario=' + id;
