@@ -2,7 +2,7 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div v-for="(preguntas, key) in arrayPreguntas" :key="preguntas.id" >
+                <div v-for="(preguntas, key) in arrayPreguntas" :key="preguntas.id" style="margin-bottom:2%;">
                     <div class="border">
                         <div class="question bg-white p-3 border-bottom">
                             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
@@ -14,7 +14,7 @@
                                 <h3 style="color:#EF8E26;">{{ key+1 }}&nbsp;</h3>
                                 <h5 class="mt-1 ml-2">{{ preguntas.pregunta }}</h5>
                             </div>
-                            <div class="row">
+                            <div class="row align-items-center h-100 y justify-content-center">
                                 <div v-for="opciones in arrayRespuestasPreguntas" :key="opciones.id" v-if="preguntas.id === opciones.preguntas_id">
                                     <div class="ans ml-2">
                                         <label class="radio"> 

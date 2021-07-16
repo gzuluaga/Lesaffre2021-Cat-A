@@ -13107,7 +13107,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\r\n.loader:after {\r\n  border-radius: 50%;\r\n  width: 10em;\r\n  height: 10em;\n}\n.loader {\r\n  margin: 60px auto;\r\n  font-size: 10px;\r\n  position: relative;\r\n  text-indent: -9999em;\r\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-left: 1.1em solid #154360;\r\n  transform: translateZ(0);\r\n  -webkit-animation: load8 1.1s infinite linear;\r\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 10em;\n  height: 10em;\n}\n.loader {\n  margin: 60px auto;\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\n  border-left: 1.1em solid #154360;\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -87261,70 +87261,79 @@ var render = function() {
         "div",
         { staticClass: "col-sm-12 col-md-12 col-lg-12" },
         _vm._l(_vm.arrayPreguntas, function(preguntas, key) {
-          return _c("div", { key: preguntas.id }, [
-            _c("div", { staticClass: "border" }, [
-              _c(
-                "div",
-                { staticClass: "question bg-white p-3 border-bottom" },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-12 col-md-12 col-xs-12 col-lg-12" },
-                    [
-                      _c("center", [
-                        _c("i", { staticClass: "fad fa-pie fa-5x" })
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex flex-row align-items-center question-title"
-                    },
-                    [
-                      _c("h3", { staticStyle: { color: "#EF8E26" } }, [
-                        _vm._v(_vm._s(key + 1) + " ")
-                      ]),
-                      _vm._v(" "),
-                      _c("h5", { staticClass: "mt-1 ml-2" }, [
-                        _vm._v(_vm._s(preguntas.pregunta))
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "row" },
-                    _vm._l(_vm.arrayRespuestasPreguntas, function(opciones) {
-                      return preguntas.id === opciones.preguntas_id
-                        ? _c("div", { key: opciones.id }, [
-                            _c("div", { staticClass: "ans ml-2" }, [
-                              _c("label", { staticClass: "radio" }, [
-                                _c("input", {
-                                  attrs: {
-                                    type: "radio",
-                                    name: "brazil",
-                                    value: "brazil"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("span", [
-                                  _vm._v(_vm._s(opciones.nombrePregunta))
+          return _c(
+            "div",
+            { key: preguntas.id, staticStyle: { "margin-bottom": "2%" } },
+            [
+              _c("div", { staticClass: "border" }, [
+                _c(
+                  "div",
+                  { staticClass: "question bg-white p-3 border-bottom" },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-12 col-md-12 col-xs-12 col-lg-12"
+                      },
+                      [
+                        _c("center", [
+                          _c("i", { staticClass: "fad fa-pie fa-5x" })
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "d-flex flex-row align-items-center question-title"
+                      },
+                      [
+                        _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                          _vm._v(_vm._s(key + 1) + " ")
+                        ]),
+                        _vm._v(" "),
+                        _c("h5", { staticClass: "mt-1 ml-2" }, [
+                          _vm._v(_vm._s(preguntas.pregunta))
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "row align-items-center h-100 y justify-content-center"
+                      },
+                      _vm._l(_vm.arrayRespuestasPreguntas, function(opciones) {
+                        return preguntas.id === opciones.preguntas_id
+                          ? _c("div", { key: opciones.id }, [
+                              _c("div", { staticClass: "ans ml-2" }, [
+                                _c("label", { staticClass: "radio" }, [
+                                  _c("input", {
+                                    attrs: {
+                                      type: "radio",
+                                      name: "brazil",
+                                      value: "brazil"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("span", [
+                                    _vm._v(_vm._s(opciones.nombrePregunta))
+                                  ])
                                 ])
                               ])
                             ])
-                          ])
-                        : _vm._e()
-                    }),
-                    0
-                  )
-                ]
-              )
-            ])
-          ])
+                          : _vm._e()
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
         }),
         0
       )
