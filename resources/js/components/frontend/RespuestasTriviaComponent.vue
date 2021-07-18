@@ -32,9 +32,8 @@
         <br>
         <br>
         <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-                    <button class="btn btn-primary border-success align-items-center btn-success" type="button">Guardar
-                    </button>
-                </div>
+            <button class="btn btn-primary border-success align-items-center btn-success" @click="storeRespuesta()" type="button">Guardar</button>
+        </div>
         <br>
     </div>
 </template>
