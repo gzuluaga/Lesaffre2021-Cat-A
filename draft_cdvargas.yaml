@@ -1,44 +1,42 @@
 models:
-  # calendars:
-  #   title: string:150 
-  #   start: date
-  #   icono: strng:100 nullable
-  #   enlace: longtext nullable
-  #   end: date
-  #   notas: string:255
-  #   allDay: boolean
+  tblAlias:
+    descripcion: longtext
+    estado: boolean default:true
 
-  # tblPuntuacion:
-  #   user_id: id
-  #   puntuacion: decimal:5,2
-  
-  # tblAlias:
-  #     descripcion: longtext
-  #     estado: boolean default:true
+  Formulario:
+    descripcion: longtext
+    formtrivia: int:unique
+    fecha_star: date 
+    fecha_end: date
+    estado: boolean default:true
 
-  
-  # Formulario:
-  #   descripcion: longtext
-  #   formtrivia: int:unique
-  #   fecha_star: date 
-  #   fecha_end: date
-  #   estado: boolean default:true
+  Preguntas:
+    formularios_id: id
+    pregunta: longtext
+    archivo: string:150:nullable
+    calificacion: int:nullable
+    estado: boolean default:true
 
-  # Preguntas:
-  #   formularios_id: id
-  #   pregunta: longtext
-  #   archivo: string:150:nullable
-  #   calificacion: int:nullable
-  #   estado: boolean default:true
+  OpcionesPregunta:
+    preguntas_id: id
+    nombrePregunta: longtext
+    criterio: boolean default:false
+    estado: boolean default:true
 
-  #   formtrivia: int:unique
-  #   fecha_star: datetime   
-  #   fecha_end: datetime
-  #   estado: boolean default:true 
-  
-  # OpcionesPregunta:
-  #   preguntas_id: id
-  #   nombrePregunta: longtext
-  #   criterio: boolean default:false
-  #   estado: boolean default:true
+  calendars:
+    title: string:150 
+    start: date
+    icono: strng:100 nullable
+    enlace: longtext nullable
+    end: date
+    notas: string:255
+    allDay: boolean
+
+  Respuesta:
+    user_id           : id
+    formulario_id     : id
+    pregunta_id       : id
+    opciones_preguntas: id
+    puntuacion        : int
+    estado            : boolean default:true
 

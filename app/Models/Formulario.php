@@ -23,8 +23,8 @@ class Formulario extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'fecha_star' => 'date:Y-m-d',
-        'fecha_end' => 'date:Y-m-d',
+        'fecha_star' => 'date',
+        'fecha_end' => 'date',
         'estado' => 'boolean',
     ];
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TblPuntuacion extends Model
+class Respuesta extends Model
 {
     use HasFactory;
 
@@ -24,12 +24,30 @@ class TblPuntuacion extends Model
     protected $casts = [
         'id' => 'integer',
         'user_id' => 'integer',
-        'puntuacion' => 'decimal:2',
+        'formulario_id' => 'integer',
+        'pregunta_id' => 'integer',
+        'opciones_preguntas' => 'integer',
+        'estado' => 'boolean',
     ];
 
 
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function formulario()
+    {
+        return $this->belongsTo(\App\Models\Formulario::class);
+    }
+
+    public function pregunta()
+    {
+        return $this->belongsTo(\App\Models\Preguntas::class);
+    }
+
+    public function opcionesPreguntas()
+    {
+        return $this->belongsTo(\App\Models\OpcionesPreguntas::class);
     }
 }
