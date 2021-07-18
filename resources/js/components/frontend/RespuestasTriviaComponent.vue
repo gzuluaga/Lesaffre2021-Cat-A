@@ -97,8 +97,7 @@
                     'opciones_preguntas_id': 	this.opciones_preguntas_id,		
                     'puntuacion': 	            this.puntuacion,		
                 }
-
-                const response = await axios.post('store', request)
+                const response = await axios.post('trivia/storeRespuesta', request);
                 console.log(response.status)
                 if(response.status === 200){                    
                     Swal.fire({

@@ -6916,7 +6916,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7040,7 +7039,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   'puntuacion': this.puntuacion
                 };
                 _context3.next = 4;
-                return axios.post('store', request);
+                return axios.post('trivia/storeRespuesta', request);
 
               case 4:
                 response = _context3.sent;
@@ -87409,17 +87408,7 @@ var render = function() {
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("br")
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+    _c(
       "div",
       {
         staticClass:
@@ -87431,14 +87420,22 @@ var staticRenderFns = [
           {
             staticClass:
               "btn btn-primary border-success align-items-center btn-success",
-            attrs: { type: "button" }
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                return _vm.storeRespuesta()
+              }
+            }
           },
-          [_vm._v("Guardar\n                ")]
+          [_vm._v("Guardar")]
         )
       ]
-    )
-  }
-]
+    ),
+    _vm._v(" "),
+    _c("br")
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
