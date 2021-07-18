@@ -68,18 +68,16 @@
                     }
                 }
           	},
+
         getPreguntasForm: async function (id){
             const url = 'respuestas/getPreguntasfront?id_formulario=' + id;
 
             try{
-                const response          		= await axios.get(url)
+                const response          		    = await axios.get(url)
                 if(response.status===200){
                     const respuesta         		= response.data;
                     this.arrayPreguntas   		    = respuesta.preguntas;                    
                     this.arrayRespuestasPreguntas   = respuesta.opcionesPreguntas;
-                    
-                    
-                    
                 }                
             } catch (error){
                 if(error.response.status === 500){
@@ -90,8 +88,43 @@
                 }
             }
         },
-        
+
+        storeRespuesta: async function() {
+            try {
+                const request = {
+                    'user_id': 			        this.user_id,
+                    'formulario_id': 	        this.formulario_id,		
+                    'pregunta_id': 	            this.pregunta_id,		
+                    'opciones_preguntas_id': 	this.opciones_preguntas_id,		
+                    'puntuacion': 	            this.puntuacion,		
+                }
+
+                const response = await axios.post('store', request)
+                console.log(response.status)
+                if(response.status === 200){                    
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Calculando resultados',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            } catch(error) {
+                console.log(error.response);
+                /** si el status es 500, error en el servidor */
+                if(error.response.status === 500){
+                    console.log(error)
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+                if(error.response.status === 422){                    
+                    this.validate = error.response.data.errors;
+                    this.flag = 1;
+                }
+            }
+        },
     },   
+
     mounted() {
         console.log('Component mounted.')
         this.getFormulario();

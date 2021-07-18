@@ -91,7 +91,7 @@ Route::group(['middleware' => ['auth']], function () {
 			Route::put('deletePregunta',		[TriviaController::class, 'deletePregunta']);
 			Route::put('deleteOpciones',		[TriviaController::class, 'deleteOpciones']);
 
-
+			Route::post('storeRespuesta',		[TriviaController::class, 'storeRespuesta']);
 		});
 
 		Route::group(['prefix' => 'trivia/respuestas'], function(){			

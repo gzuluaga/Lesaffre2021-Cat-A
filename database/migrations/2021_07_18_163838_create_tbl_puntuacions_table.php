@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRespuestasTable extends Migration
+class CreateTblPuntuacionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,14 +15,10 @@ class CreateRespuestasTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('respuestas', function (Blueprint $table) {
+        Schema::create('tbl_puntuacions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('formulario_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('pregunta_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('opciones_preguntas')->constrained('opciones', 'preguntas')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('puntuacion');
-            $table->boolean('estado')->default(true);
+            $table->decimal('puntuacion', 5, 2);
             $table->timestamps();
         });
 
@@ -36,6 +32,6 @@ class CreateRespuestasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('respuestas');
+        Schema::dropIfExists('tbl_puntuacions');
     }
 }

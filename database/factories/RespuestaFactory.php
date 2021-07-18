@@ -30,7 +30,7 @@ class RespuestaFactory extends Factory
             'user_id' => User::factory(),
             'formulario_id' => Formulario::factory(),
             'pregunta_id' => Pregunta::factory(),
-            'opciones_preguntas' => OpcionesPreguntas::factory(),
+            'opciones_preguntas_id' => OpcionesPreguntas::factory(),
             'puntuacion' => $this->faker->word,
             'estado' => $this->faker->boolean,
         ];

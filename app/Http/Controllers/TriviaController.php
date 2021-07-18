@@ -134,8 +134,6 @@ class TriviaController extends Controller
         }
     }
 
-
-
     public function getDatos(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
@@ -316,6 +314,27 @@ class TriviaController extends Controller
         return [    'preguntas'         => $preguntas,
                     'opcionesPreguntas' => $opcionesPreguntas,
                 ];
+    }
+
+    public function storeRespuesta(Request $request)
+    {
+        if(!$request->ajax()) return redirect('/');
+        try {
+            DB::beginTransaction();
+
+            $respuesta                          = new Respuesta;
+            $respuesta->user_id                 = Auth::User()->id;
+            $respuesta->formulario_id           = $request->formulario_id;
+            $respuesta->pregunta_id             = $request->pregunta_id;
+            $respuesta->opciones_preguntas_id   = $request->opciones_preguntas_id;
+            $respuesta->puntuacion              = $request->puntuacion;
+            $respuesta->estado                  = 1;
+            $respuesta->save();
+
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+        }
     }
 
     

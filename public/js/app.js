@@ -7023,6 +7023,72 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return getPreguntasForm;
+    }(),
+    storeRespuesta: function () {
+      var _storeRespuesta = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var request, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                request = {
+                  'user_id': this.user_id,
+                  'formulario_id': this.formulario_id,
+                  'pregunta_id': this.pregunta_id,
+                  'opciones_preguntas_id': this.opciones_preguntas_id,
+                  'puntuacion': this.puntuacion
+                };
+                _context3.next = 4;
+                return axios.post('store', request);
+
+              case 4:
+                response = _context3.sent;
+                console.log(response.status);
+
+                if (response.status === 200) {
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Calculando resultados',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                }
+
+                _context3.next = 14;
+                break;
+
+              case 9:
+                _context3.prev = 9;
+                _context3.t0 = _context3["catch"](0);
+                console.log(_context3.t0.response);
+                /** si el status es 500, error en el servidor */
+
+                if (_context3.t0.response.status === 500) {
+                  console.log(_context3.t0);
+                }
+                /** si el status es 422, alguno de los datos tuvo un error de validacion */
+
+
+                if (_context3.t0.response.status === 422) {
+                  this.validate = _context3.t0.response.data.errors;
+                  this.flag = 1;
+                }
+
+              case 14:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 9]]);
+      }));
+
+      function storeRespuesta() {
+        return _storeRespuesta.apply(this, arguments);
+      }
+
+      return storeRespuesta;
     }()
   },
   mounted: function mounted() {
