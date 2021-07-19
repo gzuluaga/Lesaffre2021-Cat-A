@@ -166,16 +166,31 @@
                     if (this.flag.condicion == 0) {
                         this.flag.btnEnviar = false;
                         this.flag.mensaje.error   = true;
+                        Swal.fire({
+                          icon: 'Verficar',
+                          title: 'Oops...',
+                          text: 'Debes contestar todas las Preguntas antes de Enviar!',
+                        })
                     }
                     
                     if (this.flag.condicion == 1) {
                         this.flag.btnEnviar = true;
                         this.flag.mensaje.success   = true;
+                        Swal.fire(
+                          'Felicidades',
+                          'has Contestado Correctamente, los puntos ganados seran sumados a tu puntaje',
+                          'success'
+                        )
                     }
 
                      if (this.flag.condicion == 2) {
                         this.flag.btnEnviar = true;
                         this.flag.mensaje.warning  = true;
+                        Swal.fire({
+                          icon: 'error',
+                          title: 'Lo sentimos....',
+                          text: 'No alcansaste los puntos requeridos',
+                        })
                     }
 
                 }                
