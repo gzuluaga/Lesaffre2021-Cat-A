@@ -27,7 +27,11 @@
         <div class="container">
             <div class="row">                
                 <div class="col-md-12">
-                    <respuestas-component></respuestas-component>
+                    @if ($condicion == 0)
+                        <respuestas-component></respuestas-component>   
+                    @else
+                        <h4>Ya fue Diligenciado el formulario</h4>
+                    @endif
                	</div>
             </div>
         </div>

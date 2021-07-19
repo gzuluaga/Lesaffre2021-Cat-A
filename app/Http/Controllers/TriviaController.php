@@ -42,7 +42,36 @@ class TriviaController extends Controller
     public function viewRespuestas(Request $request)
     {
         if ($request) {
-            return view('frontend.page_respuestas');
+
+            $fecha_actual = Carbon::now()->format('Y-m-d');
+            $formulario = Formulario::where('estado',1)
+                                        ->whereRaw("'".$fecha_actual."' BETWEEN fecha_star AND fecha_end")
+                                        ->count();
+            $condicion = 0; 
+                  
+            if ($formulario > 0) {
+
+                $formulario = Formulario::where('estado',1)
+                                        ->whereRaw("'".$fecha_actual."' BETWEEN fecha_star AND fecha_end")
+                                        ->first();
+
+                $validacion_respuesta  =   Respuesta::where('formulario_id',$formulario->id) 
+                                            ->where('user_id',Auth::User()->id)
+                                            ->count();
+
+                    if ($validacion_respuesta > 0) {
+                          $condicion = 1;
+                    }
+
+            }else if ($formulario < 1){
+                
+                $condicion = 0;
+            }
+
+            return view('frontend.page_respuestas',
+                ['condicion' => $condicion]
+            );
+            
         }
     }
 
