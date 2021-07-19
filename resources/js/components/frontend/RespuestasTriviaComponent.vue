@@ -69,7 +69,8 @@
         </div>
         <br>
         <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-            <button class="btn btn-primary border-success align-items-center btn-success"  type="button" :disabled="flag.btnEnviar == true"  @click="storeFormulario()">Guardar</button>
+            <button class="btn btn-primary border-success align-items-center btn-success"  type="button" v-if="flag.btnEnviar"  disabled>Guardar</button>
+            <button class="btn btn-primary border-success align-items-center btn-success"  type="button"  v-else @click="storeFormulario()">Guardar</button>
         </div>
         <br>
        

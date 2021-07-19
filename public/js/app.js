@@ -6955,6 +6955,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -87667,20 +87668,30 @@ var render = function() {
           "d-flex flex-row justify-content-between align-items-center p-3 bg-white"
       },
       [
-        _c(
-          "button",
-          {
-            staticClass:
-              "btn btn-primary border-success align-items-center btn-success",
-            attrs: { type: "button", disabled: _vm.flag.btnEnviar == true },
-            on: {
-              click: function($event) {
-                return _vm.storeFormulario()
-              }
-            }
-          },
-          [_vm._v("Guardar")]
-        )
+        _vm.flag.btnEnviar
+          ? _c(
+              "button",
+              {
+                staticClass:
+                  "btn btn-primary border-success align-items-center btn-success",
+                attrs: { type: "button", disabled: "" }
+              },
+              [_vm._v("Guardar")]
+            )
+          : _c(
+              "button",
+              {
+                staticClass:
+                  "btn btn-primary border-success align-items-center btn-success",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.storeFormulario()
+                  }
+                }
+              },
+              [_vm._v("Guardar")]
+            )
       ]
     ),
     _vm._v(" "),
