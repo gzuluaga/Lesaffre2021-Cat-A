@@ -429,6 +429,7 @@ class TriviaController extends Controller
                             ->first();
             
             if ($view_respuestas->total_criterio >= $criterio_puntos) {
+               
                 $mensaje = "Felicitaciones has ganado la trivia";
                 $flag = 1;
 
@@ -443,9 +444,9 @@ class TriviaController extends Controller
                     $respuesta_encabezado->estado               = 1;
                     $respuesta_encabezado->save();
 
-                    $puntos_ganador = 5;
+                    $puntos_ganador = 5.0;
                     
-                    $puntuaciones                               = new TblPuntuacion();
+                    $puntuacion                                 = new TblPuntuacion();
                     $puntuacion->user_id                        = Auth::User()->id;
                     $puntuacion->puntuacion                     = $puntos_ganador;
                     $puntuacion->save();
@@ -469,7 +470,7 @@ class TriviaController extends Controller
                     DB::beginTransaction();
 
                     $respuesta_encabezado                       = new Respuesta();
-                    $respuesta_encabezado->user_id              = Auth::USer()->id;
+                    $respuesta_encabezado->user_id              = Auth::User()->id;
                     $respuesta_encabezado->puntuacion           = $view_respuestas->total_criterio;
                     $respuesta_encabezado->formulario_id        = $request->id_formulario;
                     $respuesta_encabezado->estadoTrivia         = 'Sigue Intentando';
