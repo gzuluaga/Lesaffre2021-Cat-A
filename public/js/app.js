@@ -6926,6 +6926,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -6938,7 +6967,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         pregunta_id: '',
         opcion_id: '',
         criterio: '',
-        mensajeform: ''
+        mensajeform: '',
+        arrayRespuestas: []
       },
       flag: {
         btnEnviar: false,
@@ -6947,7 +6977,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           success: false,
           warning: false
         },
-        condicion: false
+        condicion: false,
+        estadoRespuesta: false
       }
     };
   },
@@ -7134,6 +7165,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   respuesta = response.data;
                   this.formulario.mensajeform = respuesta.mensaje;
                   this.flag.condicion = respuesta.flag;
+                  this.formulario.arrayRespuestas = respuesta.mostrar_respuestas;
 
                   if (this.flag.condicion == 0) {
                     this.flag.btnEnviar = false;
@@ -7154,10 +7186,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   if (this.flag.condicion == 2) {
                     this.flag.btnEnviar = true;
                     this.flag.mensaje.warning = true;
+                    this.flag.estadoRespuesta = true;
                     Swal.fire({
                       icon: 'error',
                       title: 'Lo sentimos....',
-                      text: 'No alcansaste los puntos requeridos'
+                      text: 'No alcansaste los puntos requeridos, por favor visualizar En la parte inferior tus respuestas'
                     });
                   }
                 }
@@ -87567,6 +87600,63 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("br"),
+    _vm._v(" "),
+    _vm.flag.estadoRespuesta
+      ? _c("div", [
+          _c("div", { staticClass: "table-responsive" }, [
+            _c("table", { staticClass: "table table-striped p-3" }, [
+              _c("thead", [
+                _c(
+                  "tr",
+                  {
+                    staticStyle: {
+                      "background-color": "#232E84",
+                      color: "#FFFFFF"
+                    }
+                  },
+                  [
+                    _c("th", [_c("center", [_vm._v("Pregunta")])], 1),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Respuesta")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Criterio")])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.formulario.arrayRespuestas, function(formulario) {
+                  return _c("tr", [
+                    _c("td", {
+                      domProps: { textContent: _vm._s(formulario.pregunta) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", {
+                      domProps: {
+                        textContent: _vm._s(formulario.nombrePregunta)
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("td", [
+                      formulario.criterio == 1
+                        ? _c("div", [
+                            _c("i", { staticClass: "fas fa-check" }),
+                            _vm._v(" Correcta\n                            ")
+                          ])
+                        : _c("div", [
+                            _c("i", { staticClass: "fas fa-times" }),
+                            _vm._v(" Incorrecta\n                            ")
+                          ])
+                    ])
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c("br"),
     _vm._v(" "),

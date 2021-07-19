@@ -40,11 +40,40 @@
             </div>
         </div>
         <br>
+         <div v-if="flag.estadoRespuesta">
+            <div class="table-responsive">
+                <table class="table table-striped p-3">
+                    <thead>
+                        <tr style="background-color: #232E84; color: #FFFFFF">
+                            <th><center>Pregunta</center></th>
+                            <th></center>Respuesta</center></th>
+                            <th></center>Criterio</center></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="formulario in formulario.arrayRespuestas">
+                            <td v-text="formulario.pregunta"></td>
+                            <td v-text="formulario.nombrePregunta"></td>
+                            <td>
+                                <div <div v-if="formulario.criterio == 1">
+                                    <i class="fas fa-check"></i> Correcta
+                                </div>
+                                <div v-else>
+                                    <i class="fas fa-times"></i> Incorrecta
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <br>
         <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
             <button class="btn btn-primary border-success align-items-center btn-success"  type="button" :disabled="flag.btnEnviar == true"  @click="storeFormulario()">Guardar</button>
         </div>
         <br>
+       
+
     </div>
 </template>
 
@@ -63,6 +92,7 @@
                     opcion_id:      '',
                     criterio:       '',
                     mensajeform:    '',
+                    arrayRespuestas: [],
                 },
                 flag: {
                     btnEnviar:  false,
@@ -72,6 +102,7 @@
                         warning:    false,
                     },
                     condicion:  false,
+                    estadoRespuesta: false,
                 },
             }
     },
@@ -162,6 +193,7 @@
                     const respuesta                 = response.data;
                     this.formulario.mensajeform     = respuesta.mensaje;
                     this.flag.condicion             = respuesta.flag;
+                    this.formulario.arrayRespuestas = respuesta.mostrar_respuestas;
                     
                     if (this.flag.condicion == 0) {
                         this.flag.btnEnviar = false;
@@ -186,10 +218,11 @@
                      if (this.flag.condicion == 2) {
                         this.flag.btnEnviar = true;
                         this.flag.mensaje.warning  = true;
+                        this.flag.estadoRespuesta = true;
                         Swal.fire({
                           icon: 'error',
                           title: 'Lo sentimos....',
-                          text: 'No alcansaste los puntos requeridos',
+                          text: 'No alcansaste los puntos requeridos, por favor visualizar En la parte inferior tus respuestas',
                         })
                     }
 

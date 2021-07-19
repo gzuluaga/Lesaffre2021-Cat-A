@@ -433,6 +433,7 @@ class TriviaController extends Controller
 
         $mensaje = "";
         $flag = 0;
+        $mostrar_respuestas = "";
 
         if ($validacion_preguntas !=  $validacion_respuestas) {
             $mensaje = "Por favor responder todas las preguntas";
@@ -441,7 +442,8 @@ class TriviaController extends Controller
                     'validacion_preguntas'  => $validacion_preguntas,
                     'validacion_respuestas' => $validacion_respuestas,
                     'mensaje'               => $mensaje,
-                    'flag'                  => $flag
+                    'flag'                  => $flag,
+                    'mostrar_respuestas'    => $mostrar_respuestas,
                     ];
         }
 
@@ -490,11 +492,17 @@ class TriviaController extends Controller
                     'validacion_preguntas'  => $validacion_preguntas,
                     'validacion_respuestas' => $validacion_respuestas,
                     'mensaje'               => $mensaje,
-                    'flag'                  => $flag
+                    'flag'                  => $flag,
+                    'mostrar_respuestas'    => $mostrar_respuestas,
                     ];
             }else{
                 $mensaje = "Continua intentado";
                 $flag = 2;
+
+                $mostrar_respuestas = DB::table('respuesta_detalles as rd')
+                                ->join('opciones_preguntas as op','rd.opciones_preguntas_id','=','op.id')
+                                ->join('preguntas as p','rd.pregunta_id','=','p.id')
+                                ->get();
 
                 try {
                     DB::beginTransaction();
@@ -507,6 +515,7 @@ class TriviaController extends Controller
                     $respuesta_encabezado->estado               = 1;
                     $respuesta_encabezado->save();
 
+
                     DB::commit();
                 } catch (Exception $e) {
                     DB::rollback();
@@ -516,7 +525,8 @@ class TriviaController extends Controller
                     'validacion_preguntas'  => $validacion_preguntas,
                     'validacion_respuestas' => $validacion_respuestas,
                     'mensaje'               => $mensaje,
-                    'flag'                  => $flag
+                    'flag'                  => $flag,
+                    'mostrar_respuestas'    => $mostrar_respuestas,
                     ];
             }
                                         
@@ -529,7 +539,8 @@ class TriviaController extends Controller
                 'validacion_preguntas'  => $validacion_preguntas,
                 'validacion_respuestas' => $validacion_respuestas,
                 'mensaje'               => $mensaje,
-                'flag'                  => $flag
+                'flag'                  => $flag,
+                'mostrar_respuestas'    => $mostrar_respuestas,
                 ];
 
     }
