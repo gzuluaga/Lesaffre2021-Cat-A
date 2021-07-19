@@ -449,6 +449,7 @@ class TriviaController extends Controller
                     $puntuacion                                 = new TblPuntuacion();
                     $puntuacion->user_id                        = Auth::User()->id;
                     $puntuacion->puntuacion                     = $puntos_ganador;
+                    $puntuacion->trivia                         = 'trivia';
                     $puntuacion->save();
 
                     DB::commit();
