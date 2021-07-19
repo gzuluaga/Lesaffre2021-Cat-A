@@ -26,6 +26,7 @@ class TblPuntuacionFactory extends Factory
         return [
             'user_id' => User::factory(),
             'puntuacion' => $this->faker->randomFloat(2, 0, 999.99),
+            'trivia' => $this->faker->word,
         ];
     }
 }

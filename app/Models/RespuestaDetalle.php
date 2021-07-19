@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Respuesta extends Model
+class RespuestaDetalle extends Model
 {
     use HasFactory;
 
@@ -25,6 +25,8 @@ class Respuesta extends Model
         'id' => 'integer',
         'user_id' => 'integer',
         'formulario_id' => 'integer',
+        'pregunta_id' => 'integer',
+        'opciones_preguntas_id' => 'integer',
         'estado' => 'boolean',
     ];
 
@@ -37,5 +39,15 @@ class Respuesta extends Model
     public function formulario()
     {
         return $this->belongsTo(\App\Models\Formulario::class);
+    }
+
+    public function pregunta()
+    {
+        return $this->belongsTo(\App\Models\Preguntas::class);
+    }
+
+    public function opcionesPreguntas()
+    {
+        return $this->belongsTo(\App\Models\OpcionesPreguntas::class);
     }
 }

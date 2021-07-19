@@ -6,6 +6,7 @@ models:
   # tblPuntuacion:
   #   user_id: id
   #   puntuacion: decimal:5,2
+  #   trivia: strng:50 nullable
 
   # Formulario:
   #   descripcion: longtext
@@ -36,11 +37,18 @@ models:
   #   notas: string:255
   #   allDay: boolean
 
-  # Respuesta:
+  # Respuesta: 
+  #   user_id:  id
+  #   puntuacion: int 
+  #   formulario_id: id
+  #   estadoTrivia: strng:100
+  #   estado: boolean default:true
+
+  # RespuestaDetalle:
   #   user_id               : id
   #   formulario_id         : id
   #   pregunta_id           : id
   #   opciones_preguntas_id : id
-  #   puntuacion            : int
+  #   criterio              : strng:100 nullable
   #   estado                : boolean default:true
 

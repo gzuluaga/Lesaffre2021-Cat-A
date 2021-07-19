@@ -19,6 +19,11 @@ use App\Models\OpcionesPregunta;
 use App\Models\Preguntas;
 use App\Models\FormPregunta;
 
+use App\Models\Respuesta;
+use App\Models\RespuestaDetalle;
+use App\Models\TblPuntuacion;
+
+
 class TriviaController extends Controller
 {
     public function __construct()
@@ -316,32 +321,186 @@ class TriviaController extends Controller
                 ];
     }
 
-    public function storeRespuesta(Request $request)
+  
+    public function storeRespuestas(Request $request)
     {
         if(!$request->ajax()) return redirect('/');
+
         try {
             DB::beginTransaction();
 
-            $respuesta                          = new Respuesta;
-            $respuesta->user_id                 = Auth::User()->id;
-            $respuesta->formulario_id           = $request->formulario_id;
-            $respuesta->pregunta_id             = $request->pregunta_id;
-            $respuesta->opciones_preguntas_id   = $request->opciones_preguntas_id;
-            $respuesta->puntuacion              = $request->puntuacion;
-            $respuesta->estado                  = 1;
-            $respuesta->save();
+            /*Respuesta
+            RespuestaDetalle*/
+           /* $respuesta_encabezado                       = new Respuesta();
+            $respuesta_encabezado->user_id              = Auth::USer()->id;
+            $respuesta_encabezado->puntuacion           = $request->;
+            $respuesta_encabezado->formulario_id        = $request->formulario_id;
+            $respuesta_encabezado->estado               = 1;
+            $respuesta_encabezado->save();*/
+
+            // sumo todas preguntas * 0.6 
+
+            $validacion = DB::table('respuesta_detalles')
+                        ->where('user_id',Auth::User()->id)
+                        ->where('formulario_id',$request->formulario_id)
+                        ->where('pregunta_id',$request->pregunta_id)
+                        ->count();
+
+
+
+            if ($validacion > 0) {
+
+                $validacion = DB::table('respuesta_detalles')
+                        ->where('user_id',Auth::User()->id)
+                        ->where('formulario_id',$request->formulario_id)
+                        ->where('pregunta_id',$request->pregunta_id)
+                        ->first();
+                
+                $reqpuesta_detalle                          = RespuestaDetalle::findOrfail($validacion->id);
+                $reqpuesta_detalle->user_id                 = Auth::USer()->id;
+                $reqpuesta_detalle->formulario_id           = $request->formulario_id;
+                $reqpuesta_detalle->pregunta_id             = $request->pregunta_id;
+                $reqpuesta_detalle->opciones_preguntas_id   = $request->opcion_id;
+                $reqpuesta_detalle->criterio                = $request->criterio;
+                $reqpuesta_detalle->estado                  = 1;
+                $reqpuesta_detalle->update();
+
+            }else {
+
+                $reqpuesta_detalle                          = new RespuestaDetalle();
+                $reqpuesta_detalle->user_id                 = Auth::USer()->id;
+                $reqpuesta_detalle->formulario_id           = $request->formulario_id;
+                $reqpuesta_detalle->pregunta_id             = $request->pregunta_id;
+                $reqpuesta_detalle->opciones_preguntas_id   = $request->opcion_id;
+                $reqpuesta_detalle->criterio                = $request->criterio;
+                $reqpuesta_detalle->estado                  = 1;
+                $reqpuesta_detalle->save();
+
+            }
+
 
             DB::commit();
         } catch (Exception $e) {
             DB::rollback();
         }
+
     }
 
-    
+    public function validacionRespuestas(Request $request)
+    {
+         if(!$request->ajax()) return redirect('/');
 
 
+        // validaciones
+        
+        $validacion_preguntas = DB::table('preguntas') 
+                        ->where('formularios_id',$request->id_formulario)
+                        ->count();
+
+        $validacion_respuestas = DB::table('respuesta_detalles')
+                        ->where('formulario_id',$request->id_formulario)
+                        ->where('user_id',Auth::User()->id)
+                        ->count();
+
+        $mensaje = "";
+        $flag = 0;
+
+        if ($validacion_preguntas !=  $validacion_respuestas) {
+            $mensaje = "Por favor responder todas las preguntas";
+            $flag = 0;
+            return [
+                    'validacion_preguntas'  => $validacion_preguntas,
+                    'validacion_respuestas' => $validacion_respuestas,
+                    'mensaje'               => $mensaje,
+                    'flag'                  => $flag
+                    ];
+        }
 
 
+        if ($validacion_preguntas ===  $validacion_respuestas) {
+            
 
+            $criterio_puntos = $validacion_respuestas*0.6;
+
+            $view_respuestas = DB::table('respuesta_detalles')
+                            ->select(DB::Raw('sum(criterio) as total_criterio'))
+                            ->where('formulario_id',$request->id_formulario)
+                            ->where('user_id',Auth::User()->id)
+                            ->first();
+            
+            if ($view_respuestas->total_criterio >= $criterio_puntos) {
+                $mensaje = "Felicitaciones has ganado la trivia";
+                $flag = 1;
+
+                try {
+                    DB::beginTransaction();
+
+                    $respuesta_encabezado                       = new Respuesta();
+                    $respuesta_encabezado->user_id              = Auth::USer()->id;
+                    $respuesta_encabezado->puntuacion           = $view_respuestas->total_criterio;
+                    $respuesta_encabezado->formulario_id        = $request->formulario_id;
+                    $respuesta_encabezado->estadoTrivia         = 'Gano';
+                    $respuesta_encabezado->estado               = 1;
+                    $respuesta_encabezado->save();
+
+                    $puntos_ganador = 5;
+                    
+                    $puntuaciones                               = new TblPuntuacion();
+                    $puntuacion->user_id                        = Auth::User()->id;
+                    $puntuacion->puntuacion                     = $puntos_ganador;
+                    $puntuacion->save();
+
+                    DB::commit();
+                } catch (Exception $e) {
+                    DB::rollback();
+                }
+
+                return [
+                    'validacion_preguntas'  => $validacion_preguntas,
+                    'validacion_respuestas' => $validacion_respuestas,
+                    'mensaje'               => $mensaje,
+                    'flag'                  => $flag
+                    ];
+            }else{
+                $mensaje = "Continua intentado";
+                $flag = 2;
+
+                try {
+                    DB::beginTransaction();
+
+                    $respuesta_encabezado                       = new Respuesta();
+                    $respuesta_encabezado->user_id              = Auth::USer()->id;
+                    $respuesta_encabezado->puntuacion           = $view_respuestas->total_criterio;
+                    $respuesta_encabezado->formulario_id        = $request->formulario_id;
+                    $respuesta_encabezado->estadoTrivia         = 'Sigue Intentando';
+                    $respuesta_encabezado->estado               = 1;
+                    $respuesta_encabezado->save();
+
+                    DB::commit();
+                } catch (Exception $e) {
+                    DB::rollback();
+                }
+
+                return [
+                    'validacion_preguntas'  => $validacion_preguntas,
+                    'validacion_respuestas' => $validacion_respuestas,
+                    'mensaje'               => $mensaje,
+                    'flag'                  => $flag
+                    ];
+            }
+                                        
+        }
+
+
+        
+        
+        return [
+                'validacion_preguntas'  => $validacion_preguntas,
+                'validacion_respuestas' => $validacion_respuestas,
+                'mensaje'               => $mensaje,
+                'flag'                  => $flag
+                ];
+
+    }
 
 }

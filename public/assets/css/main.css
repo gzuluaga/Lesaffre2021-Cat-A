@@ -4599,7 +4599,7 @@ a, button, .item-overlay, .global-overlay, .scroll-to-top i:before, .slick-dots 
 
 }
 /*CSS Para página de preguntas y respuestas Trivia*/
-label.radio {
+/*label.radio {
   cursor: pointer
 }
 
@@ -4627,7 +4627,7 @@ label.radio input:checked+span {
   border-color: #232E84;
   background-color: #232E84;
   color: #fff
-}
+}*/
 
 .ans {
   margin-left: 36px !important

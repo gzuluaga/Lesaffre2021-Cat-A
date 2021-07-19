@@ -13,6 +13,8 @@ class CreateFormulariosTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('formularios', function (Blueprint $table) {
             $table->id();
             $table->longText('descripcion');
@@ -22,6 +24,8 @@ class CreateFormulariosTable extends Migration
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

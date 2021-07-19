@@ -97,6 +97,9 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::group(['prefix' => 'trivia/respuestas'], function(){			
 			Route::get('getFormulariosfrom',     	[TriviaController::class, 'getFormulariosfrom']);
 			Route::get('getPreguntasfront',         [TriviaController::class, 'getPreguntasfront']);
+			Route::post('storeRespuestas',     		[TriviaController::class, 'storeRespuestas']);
+			Route::get('validacionRespuestas',    	[TriviaController::class, 'validacionRespuestas']);
+			
 		});
 
 	});

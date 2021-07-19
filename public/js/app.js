@@ -6916,13 +6916,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       arrayFormularios: [],
       arrayPreguntas: [],
       arrayRespuestasPreguntas: [],
-      id_formulario: ''
+      id_formulario: '',
+      formulario: {
+        formulario_id: '',
+        pregunta_id: '',
+        opcion_id: '',
+        criterio: '',
+        mensajeform: ''
+      },
+      flag: {
+        btnEnviar: false,
+        mensaje: {
+          error: false,
+          success: false,
+          warning: false
+        },
+        condicion: false
+      }
     };
   },
   methods: {
@@ -7023,8 +7049,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       return getPreguntasForm;
     }(),
-    storeRespuesta: function () {
-      var _storeRespuesta = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+    validacionRespuesta: function validacionRespuesta() {
+      var opciones = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var id_form = arguments.length > 1 ? arguments[1] : undefined;
+      this.formulario.formulario_id = id_form;
+      this.formulario.pregunta_id = opciones['preguntas_id'];
+      this.formulario.opcion_id = opciones['id'];
+      this.formulario.criterio = opciones['criterio'];
+      this.sotreRespuesta();
+    },
+    sotreRespuesta: function () {
+      var _sotreRespuesta = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
         var request, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
@@ -7032,34 +7067,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context3.prev = 0;
                 request = {
-                  'user_id': this.user_id,
-                  'formulario_id': this.formulario_id,
-                  'pregunta_id': this.pregunta_id,
-                  'opciones_preguntas_id': this.opciones_preguntas_id,
-                  'puntuacion': this.puntuacion
+                  'formulario_id': this.formulario.formulario_id,
+                  'pregunta_id': this.formulario.pregunta_id,
+                  'opcion_id': this.formulario.opcion_id,
+                  'criterio': this.formulario.criterio
                 };
                 _context3.next = 4;
-                return axios.post('trivia/storeRespuesta', request);
+                return axios.post('respuestas/storeRespuestas', request);
 
               case 4:
                 response = _context3.sent;
-                console.log(response.status);
 
-                if (response.status === 200) {
-                  Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Calculando resultados',
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
+                if (response.status === 200) {// console.log('guardo')
                 }
 
-                _context3.next = 14;
+                _context3.next = 13;
                 break;
 
-              case 9:
-                _context3.prev = 9;
+              case 8:
+                _context3.prev = 8;
                 _context3.t0 = _context3["catch"](0);
                 console.log(_context3.t0.response);
                 /** si el status es 500, error en el servidor */
@@ -7071,23 +7097,88 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
                 if (_context3.t0.response.status === 422) {
-                  this.validate = _context3.t0.response.data.errors;
-                  this.flag = 1;
+                  console.log(_context3.t0);
                 }
 
-              case 14:
+              case 13:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, this, [[0, 9]]);
+        }, _callee3, this, [[0, 8]]);
       }));
 
-      function storeRespuesta() {
-        return _storeRespuesta.apply(this, arguments);
+      function sotreRespuesta() {
+        return _sotreRespuesta.apply(this, arguments);
       }
 
-      return storeRespuesta;
+      return sotreRespuesta;
+    }(),
+    storeFormulario: function () {
+      var _storeFormulario = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var url, response, respuesta;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                url = 'respuestas/validacionRespuestas?id_formulario=' + this.formulario.formulario_id; // const url = 'accesorios/index?page='+page+'&buscar='+buscar+'&criterio='+criterio;
+
+                _context4.prev = 1;
+                _context4.next = 4;
+                return axios.get(url);
+
+              case 4:
+                response = _context4.sent;
+
+                if (response.status === 200) {
+                  respuesta = response.data;
+                  this.formulario.mensajeform = respuesta.mensaje;
+                  this.flag.condicion = respuesta.flag;
+
+                  if (this.flag.condicion == 0) {
+                    this.flag.btnEnviar = false;
+                    this.flag.mensaje.error = true;
+                  }
+
+                  if (this.flag.condicion == 1) {
+                    this.flag.btnEnviar = true;
+                    this.flag.mensaje.success = true;
+                  }
+
+                  if (this.flag.condicion == 2) {
+                    this.flag.btnEnviar = true;
+                    this.flag.mensaje.warning = true;
+                  }
+                }
+
+                _context4.next = 12;
+                break;
+
+              case 8:
+                _context4.prev = 8;
+                _context4.t0 = _context4["catch"](1);
+
+                if (_context4.t0.response.status === 500) {
+                  console.log(_context4.t0.reponse);
+                }
+
+                if (_context4.t0.response.status === 404) {
+                  console.log(_context4.t0.reponse);
+                }
+
+              case 12:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[1, 8]]);
+      }));
+
+      function storeFormulario() {
+        return _storeFormulario.apply(this, arguments);
+      }
+
+      return storeFormulario;
     }()
   },
   mounted: function mounted() {
@@ -13172,7 +13263,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 10em;\n  height: 10em;\n}\n.loader {\n  margin: 60px auto;\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\n  border-left: 1.1em solid #154360;\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\r\n.loader:after {\r\n  border-radius: 50%;\r\n  width: 10em;\r\n  height: 10em;\n}\n.loader {\r\n  margin: 60px auto;\r\n  font-size: 10px;\r\n  position: relative;\r\n  text-indent: -9999em;\r\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-left: 1.1em solid #154360;\r\n  transform: translateZ(0);\r\n  -webkit-animation: load8 1.1s infinite linear;\r\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -87325,82 +87416,142 @@ var render = function() {
       _c(
         "div",
         { staticClass: "col-sm-12 col-md-12 col-lg-12" },
-        _vm._l(_vm.arrayPreguntas, function(preguntas, key) {
-          return _c(
-            "div",
-            { key: preguntas.id, staticStyle: { "margin-bottom": "2%" } },
-            [
-              _c("div", { staticClass: "border" }, [
-                _c(
-                  "div",
-                  { staticClass: "question bg-white p-3 border-bottom" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "col-sm-12 col-md-12 col-xs-12 col-lg-12"
-                      },
-                      [
-                        _c("center", [
-                          _c("i", { staticClass: "fad fa-pie fa-5x" })
-                        ])
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "d-flex flex-row align-items-center question-title"
-                      },
-                      [
-                        _c("h3", { staticStyle: { color: "#EF8E26" } }, [
-                          _vm._v(_vm._s(key + 1) + " ")
-                        ]),
-                        _vm._v(" "),
-                        _c("h5", { staticClass: "mt-1 ml-2" }, [
-                          _vm._v(_vm._s(preguntas.pregunta))
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "row align-items-center h-100 y justify-content-center"
-                      },
-                      _vm._l(_vm.arrayRespuestasPreguntas, function(opciones) {
-                        return preguntas.id === opciones.preguntas_id
-                          ? _c("div", { key: opciones.id }, [
-                              _c("div", { staticClass: "ans ml-2" }, [
-                                _c("label", { staticClass: "radio" }, [
-                                  _c("input", {
-                                    attrs: {
-                                      type: "radio",
-                                      name: "brazil",
-                                      value: "brazil"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("span", [
-                                    _vm._v(_vm._s(opciones.nombrePregunta))
+        [
+          _vm.flag.mensaje.error
+            ? _c(
+                "div",
+                { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+                [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(_vm.formulario.mensajeform) +
+                      "\n            "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.flag.mensaje.success
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-success",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(_vm.formulario.mensajeform) +
+                      "\n            "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.flag.mensaje.warning
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-warning",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._v(
+                    "\n              " +
+                      _vm._s(_vm.formulario.mensajeform) +
+                      "\n            "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.arrayPreguntas, function(preguntas, key) {
+            return _c(
+              "div",
+              { key: preguntas.id, staticStyle: { "margin-bottom": "2%" } },
+              [
+                _c("div", { staticClass: "border" }, [
+                  _c(
+                    "div",
+                    { staticClass: "question bg-white p-3 border-bottom" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-sm-12 col-md-12 col-xs-12 col-lg-12"
+                        },
+                        [
+                          _c("center", [
+                            _c("i", { staticClass: "fad fa-pie fa-5x" })
+                          ])
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex flex-row align-items-center question-title"
+                        },
+                        [
+                          _c("h3", { staticStyle: { color: "#EF8E26" } }, [
+                            _vm._v(_vm._s(key + 1) + " ")
+                          ]),
+                          _vm._v(" "),
+                          _c("h5", { staticClass: "mt-1 ml-2" }, [
+                            _vm._v(_vm._s(preguntas.pregunta))
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "row align-items-center h-100 y justify-content-center"
+                        },
+                        _vm._l(_vm.arrayRespuestasPreguntas, function(
+                          opciones
+                        ) {
+                          return preguntas.id === opciones.preguntas_id
+                            ? _c("div", { key: opciones.id }, [
+                                _c("div", { staticClass: "ans ml-2" }, [
+                                  _c("label", { staticClass: "radio" }, [
+                                    _c("input", {
+                                      attrs: {
+                                        type: "radio",
+                                        name: key,
+                                        disabled: _vm.flag.btnEnviar == true
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          return _vm.validacionRespuesta(
+                                            opciones,
+                                            preguntas.formularios_id
+                                          )
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("span", [
+                                      _vm._v(_vm._s(opciones.nombrePregunta))
+                                    ])
                                   ])
                                 ])
                               ])
-                            ])
-                          : _vm._e()
-                      }),
-                      0
-                    )
-                  ]
-                )
-              ])
-            ]
-          )
-        }),
-        0
+                            : _vm._e()
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ])
+              ]
+            )
+          })
+        ],
+        2
       )
     ]),
     _vm._v(" "),
@@ -87420,10 +87571,10 @@ var render = function() {
           {
             staticClass:
               "btn btn-primary border-success align-items-center btn-success",
-            attrs: { type: "button" },
+            attrs: { type: "button", disabled: _vm.flag.btnEnviar == true },
             on: {
               click: function($event) {
-                return _vm.storeRespuesta()
+                return _vm.storeFormulario()
               }
             }
           },

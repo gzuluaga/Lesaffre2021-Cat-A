@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreguntasTable extends Migration
+class CreateRespuestasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,12 @@ class CreatePreguntasTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('preguntas', function (Blueprint $table) {
+        Schema::create('respuestas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('formularios_id')->constrained('formularios')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->longText('pregunta');
-            $table->string('archivo', 150);
-            $table->string('calificacion');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('puntuacion');
+            $table->foreignId('formulario_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('estadoTrivia');
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CreatePreguntasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preguntas');
+        Schema::dropIfExists('respuestas');
     }
 }
