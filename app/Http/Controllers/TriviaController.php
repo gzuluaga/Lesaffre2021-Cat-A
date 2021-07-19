@@ -436,9 +436,9 @@ class TriviaController extends Controller
                     DB::beginTransaction();
 
                     $respuesta_encabezado                       = new Respuesta();
-                    $respuesta_encabezado->user_id              = Auth::USer()->id;
+                    $respuesta_encabezado->user_id              = Auth::User()->id;
                     $respuesta_encabezado->puntuacion           = $view_respuestas->total_criterio;
-                    $respuesta_encabezado->formulario_id        = $request->formulario_id;
+                    $respuesta_encabezado->formulario_id        = $request->id_formulario;
                     $respuesta_encabezado->estadoTrivia         = 'Gano';
                     $respuesta_encabezado->estado               = 1;
                     $respuesta_encabezado->save();
@@ -471,7 +471,7 @@ class TriviaController extends Controller
                     $respuesta_encabezado                       = new Respuesta();
                     $respuesta_encabezado->user_id              = Auth::USer()->id;
                     $respuesta_encabezado->puntuacion           = $view_respuestas->total_criterio;
-                    $respuesta_encabezado->formulario_id        = $request->formulario_id;
+                    $respuesta_encabezado->formulario_id        = $request->id_formulario;
                     $respuesta_encabezado->estadoTrivia         = 'Sigue Intentando';
                     $respuesta_encabezado->estado               = 1;
                     $respuesta_encabezado->save();
