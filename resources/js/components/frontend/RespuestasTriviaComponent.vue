@@ -73,7 +73,7 @@
         </div>
         <br>
         <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-            <button class="btn btn-primary border-success align-items-center btn-success"  type="button" v-if="flag.btnEnviar"  disabled>Salir</button>
+            <a :href="ruta" class="btn btn-primary border-success align-items-center btn-success" v-if="flag.btnEnviar" > Ver mi Puntaje</a>
             <button class="btn btn-primary border-success align-items-center btn-success"  type="button"  v-else @click="storeFormulario()">Verificar respuestas</button>
         </div>
         <br>
@@ -109,6 +109,7 @@
                     condicion:  false,
                     estadoRespuesta: false,
                 },
+                ruta: 'http://localhost/Lesaffre2021-Cat-A/public/distribuidor/index',
             }
     },
 

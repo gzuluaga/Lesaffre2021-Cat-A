@@ -14,7 +14,7 @@ select `u`.`name` AS `name`,
         `u`.`email` AS `email`,
 		sum(`p`.`puntuacion`) AS `puntuacion` 
 from (`tbl_puntuacions` `p` 
-	join `users` `u` on(((`p`.`user_id` = `u`.`id`) and (`u`.`tipo_user` = 'proveedor')))) 	
+	join `users` `u` on(((`p`.`user_id` = `u`.`id`) and (`u`.`tipo_user` = 'Proveedor')))) 	
 group by `u`.`name`,`u`.`alias` order by sum(`p`.`puntuacion`) desc,`u`.`name`;
 
 
@@ -26,7 +26,7 @@ select `u`.`name` AS `name`,
 sum(`p`.`puntuacion`) AS `puntuacion`,
 date_format(`p`.`created_at`,'%m/%Y') AS `fecha` 
 from `tbl_puntuacions` `p` 
-      join `users` `u` on `p`.`user_id` = `u`.`id` and `u`.`tipo_user` = 'proveedor' 
+      join `users` `u` on `p`.`user_id` = `u`.`id` and `u`.`tipo_user` = 'Proveedor' 
       group by `u`.`name`,`u`.`alias`, date_format(`p`.`created_at`,'%m/%Y') 
       order by 4 desc;
 
@@ -37,4 +37,4 @@ select `u`.`name` AS `name`,`u`.`alias` AS `alias`,
 `u`.`id` AS `id_user`,
 `p`.`puntuacion` AS `puntuacion`,
 date_format(`p`.`created_at`,'%m/%Y') AS `fecha` 
-from (`tbl_puntuacions` `p` join `users` `u` on(((`p`.`user_id` = `u`.`id`) and (`u`.`tipo_user` = 'proveedor')))) order by `p`.`puntuacion` desc,`u`.`name`
+from (`tbl_puntuacions` `p` join `users` `u` on(((`p`.`user_id` = `u`.`id`) and (`u`.`tipo_user` = 'Proveedor')))) order by `p`.`puntuacion` desc,`u`.`name`
