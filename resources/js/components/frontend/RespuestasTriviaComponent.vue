@@ -11,6 +11,10 @@
                 <div class="alert alert-warning" role="alert" v-if="flag.mensaje.warning">
                   {{ formulario.mensajeform  }}
                 </div>
+                <div>
+                    <p>Esperamos que hayas prestado atención a nuestras capacitaciones por que deberás contestar el 60% de las preguntas correctamente para sumar tus 5 puntos extra.</p>
+                </div>
+                <br>
                 <div v-for="(preguntas, key) in arrayPreguntas" :key="preguntas.id" style="margin-bottom:2%;">
                     <div class="border">
                         <div class="question bg-white p-3 border-bottom">
@@ -69,8 +73,8 @@
         </div>
         <br>
         <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-            <button class="btn btn-primary border-success align-items-center btn-success"  type="button" v-if="flag.btnEnviar"  disabled>Guardar</button>
-            <button class="btn btn-primary border-success align-items-center btn-success"  type="button"  v-else @click="storeFormulario()">Guardar</button>
+            <button class="btn btn-primary border-success align-items-center btn-success"  type="button" v-if="flag.btnEnviar"  disabled>Salir</button>
+            <button class="btn btn-primary border-success align-items-center btn-success"  type="button"  v-else @click="storeFormulario()">Verificar respuestas</button>
         </div>
         <br>
        
@@ -211,7 +215,7 @@
                         this.flag.mensaje.success   = true;
                         Swal.fire(
                           'Felicidades',
-                          'has Contestado Correctamente, los puntos ganados seran sumados a tu puntaje',
+                          'Has respondido correctamente, los 5 puntos ganados serán sumados a tu puntaje',
                           'success'
                         )
                     }
@@ -223,7 +227,7 @@
                         Swal.fire({
                           icon: 'error',
                           title: 'Lo sentimos....',
-                          text: 'No alcansaste los puntos requeridos, por favor visualizar En la parte inferior tus respuestas',
+                          text: 'No alcanzaste el 60% requerido, por favor valida tus respuestas en la parte inferior.',
                         })
                     }
 

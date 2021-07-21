@@ -5719,7 +5719,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       id_opc: '',
       pregunta_id: 0,
       opcionPregunta: '',
-      criterio: '',
+      criterio: 2,
       arrayDatos: [],
       arrayPreguntasForm: [],
       arrayPreguntasOpciones: [],
@@ -6205,7 +6205,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.id_opc = datos['id'];
       this.pregunta_id = datos['preguntas_id'];
       this.opcionPregunta = datos['nombrePregunta'];
-      this.criterio = datos['criterio'];
+      this.criterio = datos['criterio'] ? 1 : 0;
       this.condiciones.flagOpcionesBoton = false;
     },
     // modificaion en el controlador
@@ -6956,6 +6956,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -7181,7 +7185,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   if (this.flag.condicion == 1) {
                     this.flag.btnEnviar = true;
                     this.flag.mensaje.success = true;
-                    Swal.fire('Felicidades', 'has Contestado Correctamente, los puntos ganados seran sumados a tu puntaje', 'success');
+                    Swal.fire('Felicidades', 'Has respondido correctamente, los 5 puntos ganados serán sumados a tu puntaje', 'success');
                   }
 
                   if (this.flag.condicion == 2) {
@@ -7191,7 +7195,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     Swal.fire({
                       icon: 'error',
                       title: 'Lo sentimos....',
-                      text: 'No alcansaste los puntos requeridos, por favor visualizar En la parte inferior tus respuestas'
+                      text: 'No alcanzaste el 60% requerido, por favor valida tus respuestas en la parte inferior.'
                     });
                   }
                 }
@@ -13308,7 +13312,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\r\n.loader:after {\r\n  border-radius: 50%;\r\n  width: 10em;\r\n  height: 10em;\n}\n.loader {\r\n  margin: 60px auto;\r\n  font-size: 10px;\r\n  position: relative;\r\n  text-indent: -9999em;\r\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\r\n  border-left: 1.1em solid #154360;\r\n  transform: translateZ(0);\r\n  -webkit-animation: load8 1.1s infinite linear;\r\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\r\n    transform: rotate(0deg);\n}\n100% {\r\n    transform: rotate(360deg);\n}\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 10em;\n  height: 10em;\n}\n.loader {\n  margin: 60px auto;\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 1.1em solid rgba(21,67,96, 0.2);\n  border-right: 1.1em solid rgba(21,67,96, 0.2);\n  border-bottom: 1.1em solid rgba(21,67,96, 0.2);\n  border-left: 1.1em solid #154360;\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes load8 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -86650,15 +86654,15 @@ var render = function() {
                     }
                   },
                   [
-                    _c("option", { attrs: { value: "" } }, [
+                    _c("option", { attrs: { value: "2" } }, [
                       _vm._v("Seleccionar")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "true" } }, [
+                    _c("option", { attrs: { value: "1" } }, [
                       _vm._v("Respuesta Correcta")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "false" } }, [
+                    _c("option", { attrs: { value: "0" } }, [
                       _vm._v("Respuesta Incorrecta")
                     ])
                   ]
@@ -87510,6 +87514,10 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
           _vm._l(_vm.arrayPreguntas, function(preguntas, key) {
             return _c(
               "div",
@@ -87676,7 +87684,7 @@ var render = function() {
                   "btn btn-primary border-success align-items-center btn-success",
                 attrs: { type: "button", disabled: "" }
               },
-              [_vm._v("Guardar")]
+              [_vm._v("Salir")]
             )
           : _c(
               "button",
@@ -87690,7 +87698,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Guardar")]
+              [_vm._v("Verificar respuestas")]
             )
       ]
     ),
@@ -87698,7 +87706,20 @@ var render = function() {
     _c("br")
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("p", [
+        _vm._v(
+          "Esperamos que hayas prestado atención a nuestras capacitaciones por que deberás contestar el 60% de las preguntas correctamente para sumar tus 5 puntos extra."
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
