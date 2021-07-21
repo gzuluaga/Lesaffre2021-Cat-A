@@ -109,7 +109,7 @@
                     condicion:  false,
                     estadoRespuesta: false,
                 },
-                ruta: 'http://127.0.0.1:8000/distribuidor/index',
+                ruta: 'https://cygcolombia.com/LesaffreA/public/distribuidor/index',
             }
     },
 

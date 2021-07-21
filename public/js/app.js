@@ -6985,7 +6985,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         condicion: false,
         estadoRespuesta: false
       },
-      ruta: 'http://127.0.0.1:8000/distribuidor/index'
+      ruta: 'https://cygcolombia.com/LesaffreA/public/distribuidor/index'
     };
   },
   methods: {
