@@ -90,9 +90,9 @@
 							<div class="mb-3">
 								<label for="pregunta" class="form-label">Criterio</label>
 								<select class="form-control" v-model="criterio">
-									<option value="">Seleccionar</option>
-									<option value="true">Respuesta Correcta</option>
-									<option value="false">Respuesta Incorrecta</option>
+									<option value="2">Seleccionar</option>
+									<option value="1">Respuesta Correcta</option>
+									<option value="0">Respuesta Incorrecta</option>
 								</select>
 							</div>
 						</div>
@@ -249,7 +249,7 @@
             	id_opc: 					'',
             	pregunta_id: 				0,
             	opcionPregunta: 			'',
-            	criterio: 					'',
+            	criterio: 					2,
             	arrayDatos: 				[],
             	arrayPreguntasForm: 		[],
             	arrayPreguntasOpciones: 	[],
@@ -439,15 +439,12 @@
           	},
 
           	// opciones pregunta
-          	storeOpciones: async function() {
+          	storeOpciones: async function() {				
 	          	try {
-
-                
 	                const request = {
 	                    'pregunta_id':  		this.pregunta_id,	
 	                    'opcionPregunta': 		this.opcionPregunta,
 	                    'criterio': 			this.criterio,
-
 	                }
 
 	                const response = await axios.post('storeOpciones', request)
@@ -522,7 +519,7 @@
 	      		this.id_opc 		= datos['id'];
 	      		this.pregunta_id 	= datos['preguntas_id'];
 	      		this.opcionPregunta = datos['nombrePregunta'];
-	      		this.criterio 		= datos['criterio'];
+	      		this.criterio 		= (datos['criterio'] ? 1 : 0);
 	      		this.condiciones.flagOpcionesBoton = false;
 	      	},
 
