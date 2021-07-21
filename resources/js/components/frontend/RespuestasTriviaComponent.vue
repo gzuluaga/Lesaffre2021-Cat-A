@@ -109,7 +109,7 @@
                     condicion:  false,
                     estadoRespuesta: false,
                 },
-                ruta: 'http://localhost/Lesaffre2021-Cat-A/public/distribuidor/index',
+                ruta: 'http://127.0.0.1:8000/distribuidor/index',
             }
     },
 
