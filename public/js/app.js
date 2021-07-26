@@ -6985,7 +6985,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         condicion: false,
         estadoRespuesta: false
       },
-      ruta: 'https://cygcolombia.com/LesaffreA/public/distribuidor/index'
+      ruta: 'http://www.lesaffreplay.com/DesafioLesaffre2021/distribuidor/index'
     };
   },
   methods: {
