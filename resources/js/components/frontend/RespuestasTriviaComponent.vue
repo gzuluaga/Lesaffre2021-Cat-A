@@ -12,7 +12,7 @@
                   {{ formulario.mensajeform  }}
                 </div>
                 <div>
-                    <p>Esperamos que hayas prestado atención a nuestras capacitaciones por que deberás contestar el 60% de las preguntas correctamente para sumar tus 5 puntos extra.</p>
+                    <p>Para ganar deberás contestar correctamente el 80% de las preguntas y solo tendrás una oportunidad por mes.</p>
                 </div>
                 <br>
                 <div v-for="(preguntas, key) in arrayPreguntas" :key="preguntas.id" style="margin-bottom:2%;">
@@ -109,7 +109,7 @@
                     condicion:  false,
                     estadoRespuesta: false,
                 },
-                ruta: 'http://www.lesaffreplay.com/DesafioLesaffre2021/distribuidor/index',
+                ruta: 'http://www.lesaffreplay.com/DesafioLesaffre21/distribuidor/index',
             }
     },
 
@@ -228,7 +228,7 @@
                         Swal.fire({
                           icon: 'error',
                           title: 'Lo sentimos....',
-                          text: 'No alcanzaste el 60% requerido, por favor valida tus respuestas en la parte inferior.',
+                          text: 'No alcanzaste el 80% requerido, por favor valida tus respuestas en la parte inferior.',
                         })
                     }
 

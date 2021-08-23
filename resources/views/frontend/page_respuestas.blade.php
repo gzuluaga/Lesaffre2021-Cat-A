@@ -30,7 +30,7 @@
                     @if ($condicion == 0)
                         <respuestas-component></respuestas-component>   
                     @else
-                        <h4>Ya fue Diligenciado el formulario</h4>
+                        <h4>Ya completaste la trivia de este mes.</h4>
                     @endif
                	</div>
             </div>

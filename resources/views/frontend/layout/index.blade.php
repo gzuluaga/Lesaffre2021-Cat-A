@@ -21,8 +21,6 @@
 
     <!-- style css -->
     <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}">
-    <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -84,8 +82,7 @@
                                             <a href="{{ URL::to('trivia/respuestas') }}" class="mainmenu__link">Trivia</a>
                                         </li>
                                     @endif
-                                    </ul>
-                                   
+                                    </ul>                                   
                                 </nav>
                             </div>
                             <div class="header__col header__right">
@@ -103,8 +100,13 @@
                                     @else
                                         <a href="{{ URL::to('loginview') }}" class="css-button-login" style="color: #FFFFFF">Ingresá</a>
                                     @endif
-                                </div>                                
-                            </div>
+                                </div> 
+                                <div class="toolbar-item d-block d-lg-none">
+                                    <a href="#offcanvasnav" class="js-toolbar menu-btn">
+                                        <i class="fas fa-bars fa-2x"></i>                                        
+                                    </a>
+                                </div>                               
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -112,6 +114,7 @@
             </div>
         </header>
         <!-- Header End -->
+
         <!-- Main Content Wrapper Start -->
     
         <div id="app">
@@ -213,6 +216,77 @@
             </div>
         </footer>
         <!-- Footer End-->
+
+        <!-- OffCanvas Menu Start -->
+        <aside class="offcanvas-navigation" id="offcanvasnav">
+            <div class="offcanvas-navigation__inner">
+                <a href="" class="btn-close">
+                    <i class="flaticon-cross"></i>
+                    <span class="sr-only">Cerrar menú</span>
+                </a>
+                <div class="offcanvas-navigation__top">
+                    <ul class="offcanvas-menu">
+                        <li class="has-children">
+                            <a href="{{ URL::to('/') }}">
+                                <span class="mm-text">Inicio</span>
+                            </a>                            
+                        </li>
+                        <li>  
+                            <a href="{{ URL::to('productos') }}">
+                                <span class="mm-text">Productos</span>
+                            </a>
+                        </li>
+                        <li class="has-children">
+                            <a href="{{ URL::to('receta') }}">
+                                <span class="mm-text">Receta</span>
+                            </a>                            
+                        </li>
+                        <li class="has-children">
+                            <a href="{{ URL::to('premios') }}">
+                                <span class="mm-text">Premios</span>
+                            </a>                            
+                        </li>
+                        @if (Auth::check())
+                            <li class="has-children">
+                                <a href="{{ URL::to('distribuidor/index') }}">
+                                    <span class="mm-text">Puntaje</span>
+                                </a>                            
+                            </li>
+                            <li class="has-children">
+                                <a href="{{ URL::to('eventos') }}">
+                                    <span class="mm-text">Eventos</span>
+                                </a>                            
+                            </li>
+                            <li>
+                                <a href="{{ URL::to('trivia/respuestas') }}">
+                                    <span class="mm-text">Trivia</span>
+                                </a>
+                            </li>
+                        @endif
+                        <li class="has-children">
+                            @if (Auth::check())
+                                <a class="css-button-login" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();" style="color: #FFFFFF">                                        
+                                <span class="mm-text">Cerrar Sesión</span>
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            @else
+                                <a href="{{ URL::to('loginview') }}" class="css-button-login" style="color: #FFFFFF">
+                                    <span class="mm-text">Ingresá</span>
+                                </a>
+                                
+                            @endif
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <!-- OffCanvas Menu End -->
+
         
         <!-- Global Overlay Start -->
         <div class="global-overlay"></div>
