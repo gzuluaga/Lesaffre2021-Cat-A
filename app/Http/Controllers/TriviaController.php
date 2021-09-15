@@ -419,17 +419,18 @@ class TriviaController extends Controller
     {
          if(!$request->ajax()) return redirect('/');
 
-
         // validaciones
         
         $validacion_preguntas = DB::table('preguntas') 
                         ->where('formularios_id',$request->id_formulario)
-                        ->count();
+                        ->get();
 
         $validacion_respuestas = DB::table('respuesta_detalles')
                         ->where('formulario_id',$request->id_formulario)
                         ->where('user_id',Auth::User()->id)
                         ->count();
+
+        dd($validacion_preguntas);
 
         $mensaje = "";
         $flag = 0;
@@ -502,6 +503,8 @@ class TriviaController extends Controller
                 $mostrar_respuestas = DB::table('respuesta_detalles as rd')
                                 ->join('opciones_preguntas as op','rd.opciones_preguntas_id','=','op.id')
                                 ->join('preguntas as p','rd.pregunta_id','=','p.id')
+                                ->where('rd.formulario_id',$request->id_formulario)
+                                ->where('user_id',Auth::User()->id)
                                 ->get();
 
                 try {
