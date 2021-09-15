@@ -452,7 +452,7 @@ class TriviaController extends Controller
         if ($validacion_preguntas ===  $validacion_respuestas) {
             
 
-            $criterio_puntos = $validacion_respuestas*0.6;
+            $criterio_puntos = $validacion_respuestas*0.8;
 
             $view_respuestas = DB::table('respuesta_detalles')
                             ->select(DB::Raw('sum(criterio) as total_criterio'))
