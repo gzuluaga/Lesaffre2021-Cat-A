@@ -52,6 +52,7 @@
                             <th><center>Pregunta</center></th>
                             <th></center>Respuesta</center></th>
                             <th></center>Criterio</center></th>
+                            <th></center>RTA Correcta</center></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,6 +67,7 @@
                                     <i class="fas fa-times"></i> Incorrecta
                                 </div>
                             </td>
+                            <td v-text="formulario.respuestaCorrecta"></td>
                         </tr>
                     </tbody>
                 </table>

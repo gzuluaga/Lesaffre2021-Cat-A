@@ -33,6 +33,7 @@ class RespuestaDetalleFactory extends Factory
             'opciones_preguntas_id' => OpcionesPreguntas::factory(),
             'criterio' => $this->faker->word,
             'estado' => $this->faker->boolean,
+            'respuestaCorrecta' => $this->faker->text,
         ];
     }
 }

@@ -34,9 +34,9 @@ class TriviaController extends Controller
 
     public function viewtribia(Request $request)
     {
-    	if ($request) {
-    		return view('backend.trivia');
-    	}
+        if ($request) {
+            return view('backend.trivia');
+        }
     }
 
     public function viewRespuestas(Request $request)
@@ -367,7 +367,7 @@ class TriviaController extends Controller
             $respuesta_encabezado->estado               = 1;
             $respuesta_encabezado->save();*/
 
-            // sumo todas preguntas * 0.6 
+            // sumo todas preguntas * 0.8 
 
             $validacion = DB::table('respuesta_detalles')
                         ->where('user_id',Auth::User()->id)
@@ -384,6 +384,16 @@ class TriviaController extends Controller
                         ->where('formulario_id',$request->formulario_id)
                         ->where('pregunta_id',$request->pregunta_id)
                         ->first();
+
+                $validacion_respueta_correcta = DB::table('preguntas as p')
+                                ->join('formularios as f','p.formularios_id','=','f.id')
+                                ->join('opciones_preguntas as op','p.id','=','op.preguntas_id')
+                                ->where('f.id','=',$request->formulario_id)
+                                ->where('p.id','=',$request->pregunta_id)
+                                ->where('op.criterio',1)
+                                ->select('op.nombrePregunta as correcta')
+                                ->first();
+                           
                 
                 $reqpuesta_detalle                          = RespuestaDetalle::findOrfail($validacion->id);
                 $reqpuesta_detalle->user_id                 = Auth::USer()->id;
@@ -391,10 +401,20 @@ class TriviaController extends Controller
                 $reqpuesta_detalle->pregunta_id             = $request->pregunta_id;
                 $reqpuesta_detalle->opciones_preguntas_id   = $request->opcion_id;
                 $reqpuesta_detalle->criterio                = $request->criterio;
+                $reqpuesta_detalle->respuestaCorrecta       = $validacion_respueta_correcta->correcta;
                 $reqpuesta_detalle->estado                  = 1;
                 $reqpuesta_detalle->update();
 
             }else {
+
+                $validacion_respueta_correcta = DB::table('preguntas as p')
+                                ->join('formularios as f','p.formularios_id','=','f.id')
+                                ->join('opciones_preguntas as op','p.id','=','op.preguntas_id')
+                                ->where('f.id','=',$request->formulario_id)
+                                ->where('p.id','=',$request->pregunta_id)
+                                ->where('op.criterio',1)
+                                ->select('op.nombrePregunta as correcta')
+                                ->first();
 
                 $reqpuesta_detalle                          = new RespuestaDetalle();
                 $reqpuesta_detalle->user_id                 = Auth::USer()->id;
@@ -402,6 +422,7 @@ class TriviaController extends Controller
                 $reqpuesta_detalle->pregunta_id             = $request->pregunta_id;
                 $reqpuesta_detalle->opciones_preguntas_id   = $request->opcion_id;
                 $reqpuesta_detalle->criterio                = $request->criterio;
+                $reqpuesta_detalle->respuestaCorrecta       = $validacion_respueta_correcta->correcta;
                 $reqpuesta_detalle->estado                  = 1;
                 $reqpuesta_detalle->save();
 
@@ -419,18 +440,18 @@ class TriviaController extends Controller
     {
          if(!$request->ajax()) return redirect('/');
 
+
         // validaciones
         
         $validacion_preguntas = DB::table('preguntas') 
                         ->where('formularios_id',$request->id_formulario)
-                        ->get();
+                        ->where('estado',1)
+                        ->count();
 
         $validacion_respuestas = DB::table('respuesta_detalles')
                         ->where('formulario_id',$request->id_formulario)
                         ->where('user_id',Auth::User()->id)
                         ->count();
-
-        dd($validacion_preguntas);
 
         $mensaje = "";
         $flag = 0;
@@ -506,6 +527,9 @@ class TriviaController extends Controller
                                 ->where('rd.formulario_id',$request->id_formulario)
                                 ->where('user_id',Auth::User()->id)
                                 ->get();
+
+
+
 
                 try {
                     DB::beginTransaction();

@@ -1,12 +1,6 @@
 created:
-    - database/factories/TblPuntuacionFactory.php
-    - database/factories/RespuestaFactory.php
     - database/factories/RespuestaDetalleFactory.php
-    - database/migrations/2021_07_19_201646_create_tbl_puntuacions_table.php
-    - database/migrations/2021_07_19_201647_create_respuestas_table.php
-    - database/migrations/2021_07_19_201648_create_respuesta_detalles_table.php
-    - app/Models/tblPuntuacion.php
-    - app/Models/Respuesta.php
+    - database/migrations/2021_09_15_152941_create_respuesta_detalles_table.php
     - app/Models/RespuestaDetalle.php
 models:
     tblAlias: { descripcion: longtext, estado: 'boolean default:true' }
@@ -16,4 +10,4 @@ models:
     OpcionesPregunta: { preguntas_id: id, nombrePregunta: longtext, criterio: 'boolean default:false', estado: 'boolean default:true' }
     calendars: { title: 'string:150', start: date, icono: 'strng:100 nullable', enlace: 'longtext nullable', end: date, notas: 'string:255', allDay: boolean }
     Respuesta: { user_id: id, puntuacion: int, formulario_id: id, estadoTrivia: 'strng:100', estado: 'boolean default:true' }
-    RespuestaDetalle: { user_id: id, formulario_id: id, pregunta_id: id, opciones_preguntas_id: id, criterio: 'strng:100 nullable', estado: 'boolean default:true' }
+    RespuestaDetalle: { user_id: id, formulario_id: id, pregunta_id: id, opciones_preguntas_id: id, criterio: 'strng:100 nullable', estado: 'boolean default:true', respuestaCorrecta: longtext }

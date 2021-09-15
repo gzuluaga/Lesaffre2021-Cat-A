@@ -44,11 +44,12 @@ models:
   #   estadoTrivia: strng:100
   #   estado: boolean default:true
 
-  # RespuestaDetalle:
-  #   user_id               : id
-  #   formulario_id         : id
-  #   pregunta_id           : id
-  #   opciones_preguntas_id : id
-  #   criterio              : strng:100 nullable
-  #   estado                : boolean default:true
+  RespuestaDetalle:
+    user_id               : id
+    formulario_id         : id
+    pregunta_id           : id
+    opciones_preguntas_id : id
+    criterio              : strng:100 nullable
+    estado                : boolean default:true
+    respuestaCorrecta     : longtext
 

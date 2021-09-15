@@ -23,6 +23,7 @@ class CreateRespuestaDetallesTable extends Migration
             $table->foreignId('opciones_preguntas_id')->constrained('opciones_preguntas')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('criterio')->nullable();
             $table->boolean('estado')->default(true);
+            $table->longText('respuestaCorrecta');
             $table->timestamps();
         });
 
