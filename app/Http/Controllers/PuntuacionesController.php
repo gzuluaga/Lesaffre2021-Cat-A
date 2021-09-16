@@ -110,6 +110,7 @@ class PuntuacionesController extends Controller
 
         $proveedor_mes = DB::table('vw_pocision_mes')
             ->where('fecha','=',''.Carbon::now()->format('m/Y').'')
+            ->orderBy('puntuacion','desc')
             ->get();
 
         // dd($proveedor_mes);
@@ -163,6 +164,7 @@ class PuntuacionesController extends Controller
 
         $proveedor_mes = DB::table('vw_pocision_mes')
             ->where('fecha','=',''.Carbon::now()->format('m/Y').'')
+            ->orderBy('puntuacion','desc')
             ->get();
 
         // dd($proveedor_mes);
