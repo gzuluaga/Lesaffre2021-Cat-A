@@ -50,7 +50,7 @@
                     <thead>
                         <tr style="background-color: #232E84; color: #FFFFFF">
                             <th><center>Pregunta</center></th>
-                            <th></center>Respuesta</center></th>
+                            <th></center>Tu respuesta</center></th>
                             <th></center>Criterio</center></th>
                             <th></center>RTA Correcta</center></th>
                         </tr>
